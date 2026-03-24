@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Balassi Bálint – Tanulási összefoglaló</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f4ef;
+    --card: #ffffff;
+    --ink: #1a1714;
+    --muted: #7a726a;
+    --accent: #8b4513;
+    --accent-light: #f0e6dc;
+    --accent2: #3d5a3e;
+    --accent2-light: #e3ede3;
+    --border: #e4ddd6;
+    --tag-bg: #f0e6dc;
+    --radius: 12px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    padding: 2rem 1rem 4rem;
+  }
+
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    padding: 3rem 0 2.5rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+  }
+
+  .header-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.8rem;
+  }
+
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--ink);
+  }
+
+  .header h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .header-sub {
+    margin-top: 0.7rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  /* Progress */
+  .progress-bar-wrap {
+    background: var(--border);
+    border-radius: 99px;
+    height: 4px;
+    margin: 1.5rem 0 0;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 99px;
+    width: 0%;
+    transition: width 0.6s ease;
+  }
+  .progress-label {
+    text-align: right;
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 0.3rem;
+  }
+
+); color: var(--accent); }
+  .tab-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+    font-weight: 500;
+  }
+
+  /* Sections */
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* Cards */
+  .card {
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.6rem 1.8rem;
+    margin-bottom: 1.2rem;
+    transition: box-shadow 0.2s;
+  }
+  .card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .card-title .icon {
+    font-size: 1rem;
+    opacity: 0.75;
+  }
+
+  .card p, .card li {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: #3a3430;
+  }
+
+  .card ul {
+    padding-left: 1.3rem;
+    margin-top: 0.4rem;
+  }
+
+  .card ul li { margin-bottom: 0.25rem; }
+
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 99px;
+    margin-bottom: 0.7rem;
+  }
+
+  .tag.green {
+    background: var(--accent2-light);
+    color: var(--accent2);
+  }
+
+  .highlight-box {
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 0.9rem 1.1rem;
+    margin-top: 0.8rem;
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: #4a3020;
+  }
+
+  .highlight-box.green {
+    background: var(--accent2-light);
+    border-color: var(--accent2);
+    color: #2a3a2a;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  @media (max-width: 540px) {
+    .two-col { grid-template-columns: 1fr; }
+  }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: 1.8rem; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    top: 0.4rem;
+    bottom: 0.4rem;
+    width: 1.5px;
+    background: var(--border);
+  }
+
+  .tl-item {
+    position: relative;
+    margin-bottom: 1.3rem;
+  }
+
+  .tl-dot {
+    position: absolute;
+    left: -1.35rem;
+    top: 0.3rem;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+  }
+
+  .tl-item p {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: #3a3430;
+  }
+
+  .tl-item strong {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.15rem;
+    color: var(--ink);
+    font-size: 0.88rem;
+  }
+
+  /* Quiz */
+  .quiz-card {
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .quiz-q {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    margin-bottom: 1.1rem;
+    line-height: 1.55;
+  }
+
+  .quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .quiz-opt {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 0.65rem 1rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: var(--ink);
+    transition: all 0.15s;
+    text-align: left;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .quiz-opt:hover { border-color: var(--accent); background: var(--accent-light); }
+  .quiz-opt.correct { background: var(--accent2-light); border-color: var(--accent2); color: var(--accent2); font-weight: 500; }
+  .quiz-opt.wrong { background: #fdecea; border-color: #c0392b; color: #c0392b; }
+  .quiz-opt.disabled { pointer-events: none; }
+
+  .quiz-feedback {
+    margin-top: 0.9rem;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    display: none;
+    line-height: 1.6;
+  }
+  .quiz-feedback.show { display: block; }
+  .quiz-feedback.ok { background: var(--accent2-light); color: #2a3a2a; }
+  .quiz-feedback.nope { background: #fdecea; color: #8b2020; }
+
+  .quiz-counter {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 1.2rem;
+  }
+
+  /* Verse section */
+  .verse-block {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    line-height: 2;
+    padding: 1rem 0;
+    color: #5a4a3a;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin: 1rem 0;
+    text-align: center;
+  }
+
+  .num-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+
+  .structure-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+    margin-top: 0.8rem;
+  }
+
+  .structure-cell {
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 0.7rem;
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .structure-cell.highlight {
+    border-color: var(--accent);
+    background: var(--accent-light);
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 1.2rem 0;
+  }
+
+  .score-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    border-radius: 99px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    margin-left: 0.5rem;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <p class="header-label">Magyar irodalom · 16. század</p>
+    <h1>Balassi <em>Bálint</em></h1>
+    <p class="header-sub">Élete és költészete – tanulási összefoglaló</p>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progressFill"></div>
+    </div>
+    <p class="progress-label" id="progressLabel">0% teljesítve</p>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="showSection('elet', this)">📜 Élete</button>
+    <button class="tab-btn" onclick="showSection('versek', this)">✒️ Versek témái</button>
+    <button class="tab-btn" onclick="showSection('katonanek', this)">⚔️ Egy katonaének</button>
+    <button class="tab-btn" onclick="showSection('kviz', this)">🎯 Kvíz</button>
+  </nav>
+
+  <!-- ÉLETE -->
+  <section class="section active" id="elet">
+    <div class="card">
+      <div class="tag">Életrajz</div>
+      <div class="card-title"><span class="icon">👤</span> Ki volt Balassi Bálint?</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <p><strong>Főnemesi származás, 16. század</strong>Az első magyar költő, aki anyanyelvén írta verseit.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <p><strong>Kiemelkedő nevelés</strong>Gyermekkorában nyolc nyelvet tanult meg – ritka tudás a korában.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <p><strong>Anyagi romlás</strong>Családja elveszítette vagyonát, Balassi nincstelenné vált.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <p><strong>Botrányos, kicsapongó élet</strong>Bűntudat kísérte egész életét, ami vallási versein is látszik.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <p><strong>Végvári harcok</strong>Bekapcsolódott a törökellenes küzdelmekbe.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <p><strong>Halál – Esztergom, ~40 évesen</strong>Az esztergomi ostromnál megsebesült, és fiatalon meghalt.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="tag">Fontos megjegyezni</div>
+      <div class="card-title"><span class="icon">⭐</span> Miért kiemelkedő?</div>
+      <p>Az <strong>első magyar nyelvű lírikus</strong>, aki tudatosan szerkesztett kötetkompozíciót tervezett. Nyolc nyelven beszélt, mégis anyanyelvét választotta – ez önmagában is jelkép.</p>
+      <div class="highlight-box">
+        💡 Kulcsszó a vizsgán: <strong>„az első magyar nyelvű költő"</strong> – ezt mindig érdemes kiemelni az életrajzban.
+      </div>
+    </div>
+  </section>
+
+  <!-- VERSEK TÉMÁI -->
+  <section class="section" id="versek">
+    <div class="card">
+      <div class="tag">Kötetkompozíció</div>
+      <div class="card-title"><span class="icon">📐</span> A számmisztika</div>
+      <p>Balassi verseit kötetbe akarta rendezni a <strong>számmisztika</strong> elvére építve:</p>
+      <div class="highlight-box" style="margin-top:0.9rem;">
+        <strong>Terv:</strong> 3 × 33 vers + 1 bevezető = <strong>100 vers</strong><br>
+        <strong>3</strong> → bibliai Szentháromság<br>
+        <strong>100</strong> → a tökéletesség jelképe<br>
+        <strong>Hatás:</strong> Dante – Isteni Színjáték (szintén számmisztika)
+      </div>
+      <p style="margin-top:0.8rem; font-size:0.85rem; color:var(--muted);">Korai halála miatt a terv nem valósult meg.</p>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="tag">❤️ Szerelmes versek</div>
+        <ul>
+          <li>Losonczi Annához írta (férjes asszony)</li>
+          <li>Viharos kapcsolat teljes története</li>
+          <li>Hatás: <em>népdalok, virágénekek</em></li>
+          <li>Nőt virágokhoz hasonlítja</li>
+          <li>Középkori <em>trubadúrlíra</em> hatása</li>
+          <li>A nő mindig magasabb rendű</li>
+        </ul>
+        <div class="highlight-box" style="margin-top:0.8rem; font-size:0.8rem;">
+          A trubadúrok férjes asszonyokba szerelmesedő középkori lovagok voltak.
+        </div>
+      </div>
+      <div class="card">
+        <div class="tag green">🙏 Vallásos versek</div>
+        <ul>
+          <li>Istenhez könyörög nehéz helyzetben</li>
+          <li>Hálaadást ígér cserébe</li>
+          <li>Bűntudat – botrányos élete miatt</li>
+          <li>Csak bajban fordul Istenhez</li>
+          <li>Fél a pokoltól</li>
+        </ul>
+        <div class="highlight-box green" style="margin-top:0.8rem; font-size:0.8rem;">
+          Jellemző motívum: az isteni segítség és az emberi hálátlanság feszültsége.
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="tag">⚔️ Vitézi versek</div>
+      <div class="card-title"><span class="icon">🛡️</span> Katonatoborzó líra</div>
+      <p>Vitézi verseit részben <strong>katonatoborzó szándékkal</strong> írta. A végvári katona életet a legjobb életformának tartja – reneszánsz életöröm és humanista értékek jelennek meg bennük.</p>
+    </div>
+  </section>
+
+  <!-- EGY KATONAÉNEK -->
+  <section class="section" id="katonanek">
+    <div class="card">
+      <div class="tag">Leghíresebb vitézi vers</div>
+      <div class="card-title"><span class="icon">⚔️</span> Egy katonaének – szerkezet</div>
+
+      <p>A vers <strong>9 versszakból</strong> áll. A számmisztika (3-as szám) határozza meg a felépítését:</p>
+
+      <div class="structure-grid">
+        <div class="structure-cell highlight">1. versszak<br><small>bevezető, megszólítás</small></div>
+        <div class="structure-cell">2. versszak</div>
+        <div class="structure-cell">3. versszak</div>
+        <div class="structure-cell">4. versszak</div>
+        <div class="structure-cell highlight">5. versszak<br><small>erkölcsi csúcspont</small></div>
+        <div class="structure-cell">6. versszak</div>
+        <div class="structure-cell">7. versszak</div>
+        <div class="structure-cell">8. versszak</div>
+        <div class="structure-cell highlight">9. versszak<br><small>búcsú, áldás</small></div>
+      </div>
+
+      <div class="highlight-box" style="margin-top:1rem;">
+        📌 Másik neve: <strong>háromoszlopú verskompozíció</strong> (1. / 5. / 9. versszak a három „oszlop")
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">📖</span> Tartalom és mondanivaló</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <p><strong>Első rész (1–4. vsz.) – a szépség</strong>Végvári vitézeket szólít meg. Reneszánsz életöröm, katonaélet vonzó oldala: lovak, fegyverek, harcra készülődés, természet szeretete, bajtársiasság.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <p><strong>Középső (5. vsz.) – erkölcsi csúcspont</strong>A vitézek emberségből és vitézségből egyaránt példaképek lehetnek mások számára.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <p><strong>Második rész (6–8. vsz.) – a nehézségek</strong>Nem hallgatja el a valóságot: távollét a családtól, nélkülözés, sebesülés, halál, sokszor még tisztességes temetés sem jut az áldozatoknak.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <p><strong>Zárlat (9. vsz.) – áldás és búcsú</strong>Áldást kér a vitézekre, majd elbúcsúzik tőlük.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="tag">🎵 Históriás énekek hatása</div>
+        <p style="font-size:0.875rem; line-height:1.7;">A török korban újságok helyett vándor <strong>énekmondók</strong> járták az országot, lantkísérettel mesélték el a várostromok történetét. Balassi minden versét ismert dallamra írta – a cím alatt mindig feltüntette, melyikre.</p>
+      </div>
+      <div class="card">
+        <div class="tag green">🔢 Formai különlegesség</div>
+        <p style="font-size:0.875rem; line-height:1.7;">A vers <strong>háromstrófás versszakokból</strong> áll, és minden egyes sor szintén <strong>három szakaszra osztható</strong>. A hármas szám tehát a forma legapróbb egységéig áthatja a verset.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="tag">💡 Értékek a versben</div>
+      <div class="card-title"><span class="icon">🌿</span> Humanista és reneszánsz jegyek</div>
+      <ul style="margin-top:0.2rem;">
+        <li>Természet szeretete</li>
+        <li>Bajtársiasság</li>
+        <li>Reneszánsz életöröm</li>
+        <li>A valóság kendőzetlen bemutatása (pro és kontra)</li>
+        <li>Erkölcsi példakép eszménye</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- KVÍZ -->
+  <section class="section" id="kviz">
+    <div id="quizContainer"></div>
+    <p class="quiz-counter" id="quizCounter"></p>
+  </section>
+
+</div>
+
+<script>
+  // Tab navigation
+  function showSection(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // Quiz data
+  const questions = [
+    {
+      q: "Melyik volt Balassi Bálint egyik legfontosabb jellemzője, ami a korában ritka volt?",
+      opts: ["Verseit latinul írta", "Nyolc nyelven beszélt, mégis anyanyelvén írt", "Párizsi egyetemet végzett", "Katolikus pap volt"],
+      correct: 1,
+      explain: "Balassi az első magyar nyelvű lírikus – nyolc nyelven tudott, de anyanyelvét választotta."
+    },
+    {
+      q: "Hány verset tervezett Balassi a kötetébe a számmisztika alapján?",
+      opts: ["33", "66", "99", "100"],
+      correct: 3,
+      explain: "3 × 33 vers + 1 bevezető vers = 100. A 100 a tökéletességet jelképezi."
+    },
+    {
+      q: "Kinek írta Balassi a szerelmes versei nagy részét?",
+      opts: ["Zrínyi Ilonának", "Losonczi Annának", "Dobó Katalinnak", "Szenci Molnár Annának"],
+      correct: 1,
+      explain: "Losonczi Anna férjes asszony volt. A hozzá írt versekből kiolvasható kapcsolatuk teljes, viharos története."
+    },
+    {
+      q: "Mire utal a számmisztikában a 3-as szám Balassinál?",
+      opts: ["A három múzsa", "A három évszak", "A bibliai Szentháromság", "A három csata"],
+      correct: 2,
+      explain: "A hármas szám a bibliai Szentháromságra utal, és áthatja Balassi egész kötetkompozícióját."
+    },
+    {
+      q: "Melyik külföldi mű hatott Balassi kötetkompozíciójára?",
+      opts: ["Shakespeare: Hamlet", "Dante: Isteni Színjáték", "Petrarca: Canzoniere", "Boccaccio: Dekameron"],
+      correct: 1,
+      explain: "Dante Isteni Színjátéka szintén a számmisztika elvére épül, és ez hatott Balassi tervére."
+    },
+    {
+      q: "Hány versszakból áll az Egy katonaének?",
+      opts: ["6", "7", "9", "12"],
+      correct: 2,
+      explain: "9 versszak, amely három háromstrófás egységre osztható – ez a háromoszlopú kompozíció alapja."
+    },
+    {
+      q: "Mit nevezzük háromoszlopú verskompozíciónak az Egy katonaénekben?",
+      opts: ["Az 1., 3. és 6. versszak szerepe", "Az 1., 5. és 9. versszak kiemelkedő szerepe", "A versszakon belüli három sor", "A három szereplő megszólítása"],
+      correct: 1,
+      explain: "Az 1. (bevezető), 5. (erkölcsi csúcspont) és 9. (búcsú, áldás) versszak hordozza a legfontosabb mondanivalót."
+    },
+    {
+      q: "Milyen hatás figyelhető meg a szerelmes verseken a nő ábrázolásában?",
+      opts: ["Antik görög mitológia", "Népdalok, virágénekek és trubadúrlíra", "Reneszánsz festészet", "Bibliai zsoltárok"],
+      correct: 1,
+      explain: "A nőt virágokhoz hasonlítja (virágénekek hatása), és a nő mindig magasabb rendű a férfinál (trubadúrlíra)."
+    },
+    {
+      q: "Mi volt a históriás énekmondók szerepe a török korban?",
+      opts: ["Imákat vezettek a templomokban", "Lantkísérettel mesélték el a várostromok történetét", "Katonákat toboroztak az udvarban", "Bibliai szövegeket másoltak"],
+      correct: 1,
+      explain: "Újságok hiányában vándor énekmondók terjesztették a híreket – Balassi az ő hagyományukra is épített."
+    },
+    {
+      q: "Hol sebesült meg Balassi, és hogyan halt meg?",
+      opts: ["Budánál, pestisben", "Esztergomban, az ostrom során kapott sebektől", "Bécsben, párbajban", "Krakkóban, betegségben"],
+      correct: 1,
+      explain: "Az esztergomi ostromnál sebesült meg, és mindössze negyvenéves korában halt meg."
+    }
+  ];
+
+  let answered = [];
+  let score = 0;
+
+  function buildQuiz() {
+    const container = document.getElementById('quizContainer');
+    container.innerHTML = '';
+    answered = new Array(questions.length).fill(false);
+    score = 0;
+    updateProgress();
+
+    questions.forEach((q, qi) => {
+      const div = document.createElement('div');
+      div.className = 'quiz-card';
+      div.id = `qcard-${qi}`;
+
+      const qText = document.createElement('p');
+      qText.className = 'quiz-q';
+      qText.textContent = `${qi + 1}. ${q.q}`;
+      div.appendChild(qText);
+
+      const opts = document.createElement('div');
+      opts.className = 'quiz-options';
+
+      q.opts.forEach((opt, oi) => {
+        const btn = document.createElement('button');
+        btn.className = 'quiz-opt';
+        btn.innerHTML = `<span class="num-badge">${String.fromCharCode(65+oi)}</span> ${opt}`;
+        btn.onclick = () => answer(qi, oi, btn, opts, feedback, q.correct, q.explain);
+        opts.appendChild(btn);
+      });
+
+      const feedback = document.createElement('div');
+      feedback.className = 'quiz-feedback';
+
+      div.appendChild(opts);
+      div.appendChild(feedback);
+      container.appendChild(div);
+    });
+
+    updateCounter();
+  }
+
+  function answer(qi, oi, btn, opts, feedback, correct, explain) {
+    if (answered[qi]) return;
+    answered[qi] = true;
+
+    opts.querySelectorAll('.quiz-opt').forEach(b => b.classList.add('disabled'));
+
+    if (oi === correct) {
+      btn.classList.add('correct');
+      feedback.className = 'quiz-feedback show ok';
+      feedback.textContent = '✓ Helyes! ' + explain;
+      score++;
+    } else {
+      btn.classList.add('wrong');
+      opts.querySelectorAll('.quiz-opt')[correct].classList.add('correct');
+      feedback.className = 'quiz-feedback show nope';
+      feedback.textContent = '✗ Nem ez a helyes válasz. ' + explain;
+    }
+
+    updateProgress();
+    updateCounter();
+  }
+
+  function updateProgress() {
+    const done = answered.filter(Boolean).length;
+    const pct = Math.round((done / questions.length) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent = `${pct}% teljesítve · ${score}/${done} helyes`;
+  }
+
+  function updateCounter() {
+    const done = answered.filter(Boolean).length;
+    const counter = document.getElementById('quizCounter');
+    counter.textContent = `${done} / ${questions.length} kérdés megválaszolva`;
+    if (done === questions.length) {
+      counter.innerHTML += ` · Végeredmény: <span class="score-badge">${score} / ${questions.length}</span>`;
+    }
+  }
+
+  buildQuiz();
+</script>
+</body>
+</html>
