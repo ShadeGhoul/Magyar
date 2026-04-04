@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Magyar Irodalom & Nyelvtan — Tételek</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#f5f3ef;--surface:#ffffff;--card:#faf9f7;--border:#e0d9d0;
+    --accent:#9c6b1e;--accent2:#7a4f0e;--al:#1a6b8a;--al2:#154f68;
+    --text:#2c2420;--muted:#7a6e65;--tag:#f0ece6;--tagl:#e8f2f7;
+    --shadow:0 1px 4px rgba(0,0,0,.08);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:'Crimson Text',Georgia,serif;font-size:18px;line-height:1.75;min-height:100vh}
+  header{background:var(--surface);border-bottom:1px solid var(--border);padding:0 1.5rem;display:flex;align-items:center;gap:1.2rem;height:60px;position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+  .logo{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--accent2);white-space:nowrap}
+  .logo span{color:var(--muted);font-style:italic;font-size:.82rem}
+  #sb{flex:1;max-width:420px;background:var(--bg);border:1px solid var(--border);color:var(--text);font-family:'Crimson Text',serif;font-size:.95rem;padding:.38rem .9rem;border-radius:4px;outline:none;transition:border-color .2s}
+  #sb::placeholder{color:var(--muted)}
+  #sb:focus{border-color:var(--accent)}
+  .ha{display:flex;gap:.4rem;margin-left:auto}
+  .btn{background:transparent;border:1px solid var(--border);color:var(--muted);padding:.28rem .75rem;border-radius:4px;cursor:pointer;font-family:'Crimson Text',serif;font-size:.88rem;transition:all .2s;white-space:nowrap}
+  .btn:hover,.btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+  .layout{display:flex;height:calc(100vh - 60px)}
+  aside{width:260px;min-width:180px;background:var(--surface);border-right:1px solid var(--border);overflow-y:auto;flex-shrink:0}
+  aside::-webkit-scrollbar{width:3px}
+  aside::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+  .ss{padding:.55rem .9rem .15rem}
+  .sl{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:.3rem;display:flex;align-items:center;gap:.5rem}
+  .sl::after{content:'';flex:1;height:1px;background:var(--border)}
+  .ti{display:flex;align-items:center;gap:.45rem;padding:.4rem .6rem;border-radius:4px;cursor:pointer;transition:background .12s;border:1px solid transparent;margin-bottom:2px}
+  .ti:hover{background:var(--bg)}
+  .ti.active{background:var(--bg);border-color:var(--border)}
+  .ti.active .tn{color:var(--accent2)}
+  .ti.la.active .tn{color:var(--al2)}
+  .tn-num{font-size:.7rem;color:var(--muted);min-width:20px;font-family:'Playfair Display',serif}
+  .tn{font-size:.88rem;color:var(--text);line-height:1.3}
+  .eb{margin-left:auto;font-size:.6rem;padding:.08rem .32rem;background:var(--tag);border:1px solid var(--border);color:var(--muted);border-radius:3px;white-space:nowrap}
+  .eb.l{background:var(--tagl);color:var(--al);border-color:#b8d8e8}
+  /* Main scroll container */
+  main{flex:1;overflow-y:auto;background:var(--bg)}
+  main::-webkit-scrollbar{width:4px}
+  main::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+  /* Inner content wrapper — centered with max-width */
+  .inner{max-width:760px;margin:0 auto;padding:2.5rem 3rem}
+  #hv{display:block}
+  .gi{margin-bottom:1.6rem;padding-bottom:1.2rem;border-bottom:1px solid var(--border)}
+  .gi h1{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--accent2);margin-bottom:.25rem}
+  .gi p{color:var(--muted);font-size:.92rem}
+  .st{font-family:'Playfair Display',serif;font-size:.88rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin:1.6rem 0 .7rem;display:flex;align-items:center;gap:.7rem}
+  .st::after{content:'';flex:1;height:1px;background:var(--border)}
+  .st.lt{color:var(--al)}
+  .tg{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.8rem}
+  .gc{background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:1.1rem;cursor:pointer;transition:border-color .2s,transform .15s,box-shadow .15s;position:relative;overflow:hidden}
+  .gc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .2s}
+  .gc.lg::before{background:var(--al)}
+  .gc:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.1)}
+  .gc.lg:hover{border-color:var(--al)}
+  .gc:hover::before,.gc.lg:hover::before{transform:scaleX(1)}
+  .gc-n{font-size:.68rem;color:var(--muted);margin-bottom:.22rem;font-family:'Playfair Display',serif}
+  .gc-t{font-family:'Playfair Display',serif;font-size:.97rem;color:var(--accent2);margin-bottom:.22rem;line-height:1.3}
+  .gc.lg .gc-t{color:var(--al2)}
+  .gc-a{font-size:.85rem;color:var(--muted);font-style:italic}
+  .gc-e{margin-top:.45rem;font-size:.68rem;color:var(--accent)}
+  .gc.lg .gc-e{color:var(--al)}
+  #dv{display:none}
+  #dv.v{display:block}
+  #hv.h{display:none}
+  .db{display:inline-flex;align-items:center;gap:.35rem;color:var(--muted);font-size:.88rem;cursor:pointer;margin-bottom:.9rem;transition:color .2s;background:none;border:none;font-family:'Crimson Text',serif;padding:0}
+  .db:hover{color:var(--accent)}
+  .dh{margin-bottom:1.8rem;padding-bottom:1.1rem;border-bottom:2px solid var(--border)}
+  .dt{font-family:'Playfair Display',serif;font-size:1.9rem;color:var(--accent2);margin-bottom:.2rem;line-height:1.2}
+  .dt.l{color:var(--al2)}
+  .dm{color:var(--muted);font-size:.93rem;font-style:italic}
+  .db2 h2{font-family:'Playfair Display',serif;font-size:1.18rem;color:var(--accent);margin:2rem 0 .5rem;padding-bottom:.3rem;border-bottom:1px solid var(--border)}
+  .db2.l h2{color:var(--al)}
+  .db2 h3{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--accent2);margin:1.2rem 0 .35rem}
+  .db2.l h3{color:var(--al2)}
+  .db2 p{margin-bottom:.9rem;color:var(--text)}
+  .db2 ul,.db2 ol{margin:.4rem 0 .9rem 1.5rem}
+  .db2 li{margin-bottom:.3rem}
+  .db2 strong{color:var(--accent2);font-weight:600}
+  .db2.l strong{color:var(--al2)}
+  .db2 em{color:var(--muted)}
+  #fv{display:none}
+  #fv.v{display:flex;flex-direction:column;align-items:center;padding:2.5rem 1.5rem}
+  .ff{display:flex;gap:.45rem;margin-bottom:1rem;flex-wrap:wrap;justify-content:center}
+  .ffb{padding:.27rem .7rem;border-radius:20px;border:1px solid var(--border);background:var(--surface);color:var(--muted);cursor:pointer;font-family:'Crimson Text',serif;font-size:.85rem;transition:all .2s}
+  .ffb:hover{border-color:var(--accent);color:var(--accent)}
+  .ffb.active{background:var(--accent);border-color:var(--accent);color:#fff}
+  .ffb.lf.active{background:var(--al);border-color:var(--al);color:#fff}
+  .fc-ctr{font-size:.85rem;color:var(--muted);margin-bottom:1.1rem}
+  .fc{width:100%;max-width:600px;min-height:230px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:box-shadow .2s;perspective:1000px;box-shadow:var(--shadow)}
+  .fc:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+  .fc-in{width:100%;transform-style:preserve-3d;transition:transform .42s cubic-bezier(.4,0,.2,1);position:relative;min-height:130px}
+  .fc-in.fl{transform:rotateY(180deg)}
+  .fc-f{backface-visibility:hidden;width:100%;text-align:center}
+  .fc-b{position:absolute;top:0;transform:rotateY(180deg);backface-visibility:hidden}
+  .fc-q{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--accent2);line-height:1.4}
+  .fc-a{font-size:.98rem;color:var(--text);line-height:1.6}
+  .fc-h{font-size:.8rem;color:var(--muted);margin-top:.7rem}
+  .fc-tl{font-size:.72rem;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem}
+  .fc-tl.l{color:var(--al)}
+  .fc-ctrl{display:flex;gap:.8rem;margin-top:1.2rem}
+  .fcb{padding:.5rem 1.3rem;border-radius:5px;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;font-family:'Crimson Text',serif;font-size:.92rem;transition:all .2s}
+  .fcb:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+  .fc-pg{width:100%;max-width:600px;height:3px;background:var(--border);border-radius:2px;margin-top:1.2rem;overflow:hidden}
+  .fc-pb{height:100%;background:var(--accent);transition:width .3s;border-radius:2px}
+  .hl{background:rgba(156,107,30,.15);color:var(--accent2);border-radius:2px;padding:0 2px}
+  @keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .fi{animation:fi .2s ease forwards}
+  .ti{animation:fi .16s ease both}
+  @media(max-width:900px){.inner{padding:2rem 1.8rem}}
+  @media(max-width:768px){aside{width:200px}.inner{padding:1.5rem 1.2rem}}
+  @media(max-width:520px){aside{display:none}.inner{padding:1rem}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Magyar Irodalom & Nyelvtan <span>/ tételek</span></div>
+  <input type="text" id="sb" placeholder="Keresés szerzőre, műre, fogalomra…" autocomplete="off">
+  <div class="ha">
+    <button class="btn active" id="bov" onclick="showView('home')">Áttekintés</button>
+    <button class="btn" id="bfc" onclick="showView('fc')">🃏 Kártyák</button>
+  </div>
+</header>
+<div class="layout">
+  <aside>
+    <div class="ss"><div class="sl">Irodalom</div><div id="sl-lit"></div></div>
+    <div class="ss" style="margin-top:.4rem"><div class="sl" style="color:var(--al)">Nyelvtan</div><div id="sl-lang"></div></div>
+  </aside>
+  <main id="mc">
+    <div class="inner">
+    <div id="hv">
+      <div class="gi"><h1>Magyar Irodalom & Nyelvtan</h1><p>Válassz tételt az olvasáshoz, vagy nyomd meg a <strong>Kártyák</strong> gombot a tanuláshoz.</p></div>
+      <div class="st">Irodalom</div>
+      <div class="tg" id="tg-lit"></div>
+      <div class="st lt">Nyelvtan</div>
+      <div class="tg" id="tg-lang"></div>
+    </div>
+    <div id="dv">
+      <div class="dh">
+        <button class="db" onclick="showView('home')">← Vissza</button>
+        <div class="dt" id="d-title"></div>
+        <div class="dm" id="d-meta"></div>
+      </div>
+      <div class="db2" id="d-body"></div>
+    </div>
+    <div id="fv">
+      <div class="ff">
+        <button class="ffb active" onclick="setF('all',this)">Minden tétel</button>
+        <button class="ffb" onclick="setF('lit',this)">Irodalom</button>
+        <button class="ffb lf" onclick="setF('lang',this)">Nyelvtan</button>
+      </div>
+      <div class="fc-ctr" id="fc-ctr"></div>
+      <div class="fc" onclick="flip()">
+        <div class="fc-in" id="fc-in">
+          <div class="fc-f"><div class="fc-tl" id="fc-tl"></div><div class="fc-q" id="fc-q"></div><div class="fc-h">Kattints a válaszért</div></div>
+          <div class="fc-f fc-b"><div class="fc-a" id="fc-a"></div></div>
+        </div>
+      </div>
+      <div class="fc-ctrl">
+        <button class="fcb" onclick="prevC()">← Előző</button>
+        <button class="fcb" onclick="shuffleC()">🔀 Keverés</button>
+        <button class="fcb" onclick="nextC()">Következő →</button>
+      </div>
+      <div class="fc-pg"><div class="fc-pb" id="fc-pb"></div></div>
+    </div>
+    </div><!-- /inner -->
+  </main>
+</div>
+<script>
+const LIT=[
+{id:1,title:`Mikszáth Kálmán novellái`,auth:`Mikszáth Kálmán`,era:`19. sz.`,kw:["realizmus","romantika","anekdota","palócok","Tót atyafiak","Jó palócok"],content:`<h2>Mikszáth Kálmán (1847–1910)</h2>
+<p>Nógrád megyében született, joghallgató volt, majd író, újságíró, parlamenti képviselő lett. Tagja volt a Petőfi és a Kisfaludy Társaságnak és az MTA-nak. Stílusára a romantika és a realizmus egyaránt jellemző.</p>
+<p><strong>Romantikus vonások:</strong> szerelmi téma, kalandos meseszövés, váratlan fordulatok, festői helyszínek.<br><strong>Realista vonás:</strong> szinte minden műve egy <strong>anekdotára</strong> épül — rövid, csattanóval végződő, erkölcsi tanulságú történet. Az élőbeszédhez hasonló történetmondás, a népi mesemondókat utánozza. Gyakoriak a kitérők, amelyek lassítják a végkifejletet.</p>
+<h2>Tót atyafiak (1881)</h2>
+<p>Négy hosszabb történetet tartalmaz. Szereplői magas hegyektől körbezárt falvakban élnek — magányos, különc emberek, akik a természettel meghittebb viszonyban élnek, mint embertársaikkal.</p>
+<h3>Az aranykisasszony</h3>
+<p>A romantika kigúnyolása. Egy apa azzal a feltétellel adná hozzá a lányát, ha annyi aranyat hoz, amennyi a lánya súlya. A fiú elindul, de többet senki nem hall róla. A lány fogyókúrázik, de a fiú nem kerül elő, telnek az évek, a lányból vénkisasszony lesz. Balladaszerű — az írő nem fejti ki minden elemet, elmarad a szerencsés befejezés.</p>
+<h3>Az a fekete folt</h3>
+<p>Egy apa bűnét és bűnhődését meséli el. A cím nemcsak a helyszínre és a befejezésre utal, hanem az apa becsületén esett foltra is. Olej Tamás számadó juhász egész életében becsületes volt, 16 év után is sokat gondol elhunyt feleségére. A fiatal herceg szemet vet lányára, Anikára. Egyezséget ajánl: a brezinai akol ezer birkával — ha megengedi a lányszöktetést. Az apa visszautasítja, de a gazdagság ígérete megszédíti és lehetővé teszi. Iszonyatos bűntudat fogja el — felgyújtja az aklot és világgá megy. Az író a <strong>szabad függő beszédet</strong> alkalmazza: nem dönthető el, az író vagy az apa gondolatait olvassuk-e.</p>
+<h2>A jó palócok (1882)</h2>
+<p>15 rövidebb történetet tartalmaz, szomszédos falvakban egymást ismerő szereplőkkel. Ugyanazok a szereplők több történetben visszatérnek.</p>
+<p><strong>A táj aktív szerepet</strong> játszik: nemcsak díszlet, hanem beleavatkozik a szereplők életébe, megbüntet vagy igazságot szolgáltat. A bágyi csoda c. novellában a visszafelé folyó Bágy patak adta hírül, hogy Vér Klára és Gélyi János szeretők lettek. Egy másik történetben a férj szakadékba hajtja lovait, miután rájött felesége hűtlenségére.</p>
+<p>Mikszáth felhasználta a gyerekkorában hallott népi hiedelmeket. Szeretettel ír hőseiről, megmutatja a tragédiákat is, de még nem jut el Móricz realizmusáig — nem mesél a paraszti nyomorról, inkább egyéni, életképszerű helyzeteket ábrázol.</p>
+<h2>Regények</h2>
+<p>A dzsentrik életét mutatta be: <em>Beszterce ostroma</em>, <em>Gavallérok</em>, <em>Noszty fiú esete Tóth Marival</em>.</p>`},
+{id:2,title:`Móricz Zsigmond novellái`,auth:`Móricz Zsigmond`,era:`20. sz.`,kw:["naturalizmus","szegénység","Barbárok","Nyugat","groteszk","Tragédia"],content:`<h2>Móricz Zsigmond</h2>
+<p>20. századi novella- és regényíró, a <strong>Nyugatosok első nemzedékének</strong> tagja. Ady Endre bíztatta, hogy paraszti témáról írjon — maga is szegény paraszti családból származott. Korábbi írók a falusi életet romantikus, idilli módon ábrázolták. <strong>Móricz az első, aki bemutatja az igazi szegénységet</strong>, a nyomort, és azt, hogy a paraszti társadalom nem egységes réteg: zsellérektől a gazdag parasztokig többféle vagyoni helyzetű család.</p>
+<p><strong>Móricz újítása:</strong> realista, gyakran naturalista módon ábrázolja a paraszti életet. Szereplőit tájszólásukban szólaltatja meg. Bemutatja a felszín mögött rejtőző ösztönöket is.</p>
+<h2>Hét krajcár (1908)</h2>
+<p>Első novelláskötete, saját gyerekkori élményeiből írva. A szegények közötti szoros összetartás és a szerető családi kapcsolatok rajzolódnak ki.</p>
+<h2>Tragédia (1909)</h2>
+<p>Főhőse egy nincstelen zsellér, aki végigdolgozta az életét, mégis nyomorog. Élete legnagyobb vágya, hogy egyszer jóllakjon. Tudata teljesen beszűkült, semmi másra nem tud gondolni, csak az ételre. A gazda lányának lakodalmán úgy akar bosszút állni, hogy kieszi a vagyonából, de éhezéshez szokott gyomra nem bírja a nehéz ételeket és belehal.</p>
+<p>A főhős neve <strong>Kis János</strong> — a leghétköznapibb névvel jelzi az író, hogy rengetegen élnek ilyen nyomorúságban a 20. sz. elején. Tehetetlenségét agresszivitásban vezeti le (belerúg a kutyába, megveri a feleségét vagy fiát). Az ösztönélet szintjére süllyedtek. A főhős célja kisszerű, nevetséges, ő mégis hősies feladatnak tartja — az ábrázolásmód <strong>groteszk</strong>. Az író módszere a tipizálás: egy ember sorsában egy egész társadalmi réteget mutat be. A fia tükörképe az apának — a paraszti generációk sorsa kísértetiesen hasonló. Az igazi tragédia: a 20. sz. elején Európa közepén milliók tengődnek az éhhalál szélén, a társadalom vezető rétege semmit nem tesz értük.</p>
+<h2>Szegény emberek</h2>
+<p>Az első világháború idején írta, haditudósítóként személyes tapasztalata volt. Egy névtelen parasztember a fronton szerzett lelki sérülések miatt képtelen különbséget tenni múlt és jelen, háború és otthon között — hallucinációk gyötrik. Kettős gyilkosságot követ el, de nem brutalitásból, hanem megbomlott elméje miatt. Az író nem ítéli el: a háború tette ilyenné. A novella cím az összes áldozatra utal — erőteljes tiltakozás a háború ellen.</p>
+<h2>Barbárok (1931)</h2>
+<p>Egy újsághírből merítette: az alföldi tanyavilágban 2 juhász agyonvert egy harmadikat és kisfiát egy díszes övért. <strong>Hármas tagolású:</strong></p>
+<p><strong>1. rész:</strong> A gyilkosság szűkszavú elbeszélése — balladaszerű, sok az elhallgatás. A civilizációtól távol élő, kegyetlen emberek, gondolkodásukat babonás hiedelmek befolyásolják. A kutyájukkal kapartatják el a holttesteket és a sírjukon sütik a vacsorájukat. A rövid párbeszédek fokozzák a feszültséget, de a metakommunikációs jeleknek is fontos szerepe van.</p>
+<p><strong>2. rész:</strong> A feleség, mint mesehős, nem nyugszik, amíg férjét és fiát meg nem találja. Körülbelül egy évig keres, végül eredményre vezet.</p>
+<p><strong>3. rész:</strong> A bírósági tárgyalás. A gyilkosok addig nem vallanak, amíg meg nem látják az elrabolt övet.</p>
+<p>A <em>"barbárok"</em> szó a bíró szájából hangzik el — nemcsak a gyilkosokat, hanem az áldozatot és az egész társadalmat is barbárnak tartja, amely ilyen állati szintre süllyeszti a polgárait.</p>`},
+{id:3,title:`Molière: Tartuffe`,auth:`Molière`,era:`17. sz.`,kw:["komédia","klasszicizmus","hármas egység","vallás","rezonőr","Orgon"],content:`<h2>Molière élete</h2>
+<p>17. századi párizsi drámaíró — neve írói álnév. Jogásznak tanult, de színész lett, színtársulatot szervezett. Kezdő íróként olasz komédiákat dolgozott át. Társulata beköltözött XIV. Lajos palotájába. Több mint 30 színművet írt, élete végéig színészkedett. Tüdőbeteg volt — <em>A képzelt beteg</em> előadásán halt meg.</p>
+<h2>A komédia műfaja és előzményei</h2>
+<p>A komédia a dráma egyik műfaja, már az ókorban kialakult. Hősei átlagos vagy kisszerű alakok, akiknek jellembeli fogyatékossága a darabban lelepleződik. Megoldásuk mindig szerencsés kimenetelű.</p>
+<p><strong>Commedia dell'arte (olasz vígjáték):</strong> rögtönzésen alapul, nincs kész szövegkönyv, jellemkomikumra épül, állandó szereplőtípusok (okos, furfangos szolgák, gyámoltalan szerelmesek).<br>
+<strong>Farce (francia vásári komédia):</strong> helyzetkomikumra épül.</p>
+<h2>Tartuffe — témája és a főhős jelleme</h2>
+<p>Egy gazdag párizsi családba beférkőzik egy csaló, hogy megszerezze a vagyont. A főhős jelleme a <strong>látszat és a valóság ellentétére</strong> épül.</p>
+<p><strong>A látszat szerint:</strong> önsanyargató szerzetes, mélyen vallásos, vagyonát szétosztja a szegények között, a testi vágyakat megvető, aszketikus ember.<br>
+<strong>A valóságban:</strong> országszerte körözött szélhámos, aki sok család életét tette tönkre. Rendkívül okos és találékony, minden nehéz helyzetből kivágja magát. Bármilyen gonoszságra képes, nincsenek erkölcsi gátlásai. Mohó, az érdekei vezérelik. Félelmetessé és fenyegetővé válik a darab során.</p>
+<h2>A darab szerkezete</h2>
+<p><strong>1. Expozíció (bevezetés):</strong> Tartuffe még nincs jelen, de mindenki róla beszél. Orgon és édesanyja áradozik róla, a többi családtag nem érti, miért kellett befogadni egy vadidegent.<br>
+<strong>2. Bonyodalom:</strong> a családfő Tartuffe-höz akarja adni a lányát.<br>
+<strong>3. Kibontakozás:</strong> Tartuffe a házassággal meg akarja szerezni a vagyont, de közben Orgon feleségét is meg szeretné kaparintani.<br>
+<strong>4. Tetőpont:</strong> kilakoltatási és letartóztatási parancs jön Orgon ellen.<br>
+<strong>5. Megoldás:</strong> Tartuffe letartóztatása.</p>
+<h2>Szereplők jellemzése</h2>
+<p><strong>Orgon, a családfő:</strong> hiszékeny, naiv — átengedi a szerepet egy vadidegennek, fiát kitagadja, vagyonát Tartuffe-re íratja, döntéseiben érzelmei irányítják.<br>
+<strong>Perneille asszony, a nagymama:</strong> mindent elhisz a csalónak, saját családját rendetlennek, tékozlónak tartja.<br>
+<strong>Elmira, Orgon felesége:</strong> társaságkedvelő, vidám asszony — tisztán látja a mesterkedést és mindent megtesz a leleplezésért.<br>
+<strong>Dorine, a szobalány:</strong> talpraesett, heves vérmérsékletű, szókimondó, a józan ész képviselője, aktívan részt vesz a leleplezésben.<br>
+<strong>Cléante, a rokon:</strong> törvénytisztelő polgár, tárgyilagos — <em>rezonőr</em>: ő mondja el a nézők véleményét, mértékletes, bölcs, az okos kompromisszumok híve.<br>
+<strong>Mariann, Orgon lánya:</strong> tiszteli az apját, de félénk — nem mer ellentmondani, nem mer kiállni a boldogságáért.<br>
+<strong>Valér, a vőlegény:</strong> gyámoltalan, nem tudja irányítani a sorsát.<br>
+<strong>Damis, Orgon fia:</strong> forrófejűen reagál apja viselkedésére, ezért apja kitagadja.</p>
+<h2>A mű mondanivalója</h2>
+<p>Ráirányítja a figyelmet az emberi hibákra, elítéli a <strong>túlzott vallásosságot</strong> és a <strong>túlzott hiszékenységet</strong>. Az író célja: a bűnök leleplezése, az emberi hibák kijavítása és a nézők megnevettetése.</p>
+<h2>A klasszicista dráma jellemzői</h2>
+<p>— <strong>Hármas egység:</strong> egy nap, egy helyszín, egy eseményszál.<br>
+— Statikus jellemek: a szereplők jelleme a darab során nem változik.<br>
+— Csak a konfliktusok végső kirobbanását mutatja be; az előzményekre csak visszautalások vannak.<br>
+— Mértéktartás: a színpadon tilos bemutatni, ami nyers, durva, illetlen.<br>
+— A darab <strong>verses formájú</strong>.</p>`},
+{id:4,title:`Puskin: Anyegin`,auth:`Alekszandr Puskin`,era:`19. sz.`,kw:["verses regény","romantika","realizmus","felesleges ember","Tatjána"],content:`<h2>Társadalmi háttér</h2>
+<p>Oroszország a 19. sz. elején le volt maradva Nyugat-Európától: feudális viszonyok és cári önkényuralom jellemezte. Az 1812-es napóleoni győzelem lendületet adott a felvilágosodás eszméinek terjedéséhez.</p>
+<h2>Puskin élete</h2>
+<p>Moszkvában született, nemesi családban. Fiatalon a cár kegyeltje lett, Péterváron állami szolgálatba lépett. Lázító versei miatt Dél-Oroszországba száműzték — az itt töltött évek alatt írta legjelentősebb romantikus elbeszélő költeményeit. 1826-ban I. Miklós cár megszüntette a száműzetést, udvari költőt akart belőle faragni. Puskin megnősült, majd felesége becsületének védelmében párbajban meghalt.</p>
+<h2>Az Anyegin — műfaj és helyszínek</h2>
+<p>Puskin fő műve, a száműzetés idején írta 1823–1830 között. Az író saját sorsát is beleszőtte, ezért többször átírta. <strong>Műfaja: verses regény</strong> — a romantika kedvelt műfaja, versbe szedett történet, líra és epika keveréke.</p>
+<p>A regényt <strong>az orosz élet enciklopédiájának</strong> szokták nevezni: bemutatja a 19. sz. eleji szokásokat, erkölcsöket, embertípusokat. Egyszerű hétköznapi történet, epizódok nélkül 4 ember életét meséli el. A jellemek statikusak; az író együttérzéssel ábrázolja a szereplőket.</p>
+<p><strong>Pétervár:</strong> az arisztokraták és művészek világa, fényűző, de felszínes életvitel.<br>
+<strong>Vidéki Oroszország:</strong> a középnemesek és jobbágyok élete, unalmas, a hagyományok és babonák irányítanak.</p>
+<h2>Anyegin jellemzése — a felesleges ember</h2>
+<p>Egy eladósodott földbirtokos gyermeke, idegenek nevelik. A társasági élet követelményeinek megfelel: jó híre van, megjelenése kellemes, csak a hódításhoz ért, kártyázik, művészetről, színházról társalog, de tudása felszínes. Miután kiélte magát, megundorodik ettől az életformától, magányos lesz, közönyössé válik. <strong>"Felesleges ember"</strong> — jobb sorsra érdemes, de cselekvésre képtelen, nem találja a helyét, bármivel próbálkozik, nem jut semmire.</p>
+<p>Fordulópontot hoz, hogy nagybátyja halála után vidéki birtok örököse lesz. Megismerkedik Tatjanával, aki azonnal szerelemre lobban és be is vallja érzelmeit. Anyegin a szerelemben tisztességes: nem él vissza a rajongásával, elutasítja a lányt. Évekkel később, mikor újra találkoznak, már ő is szerelmes, de Tatjána akkor utasítja el.</p>
+<h2>Tatjána jellemzése</h2>
+<p>Naiv, álmodozó, befelé forduló lány, rajong a természetért, mélyen érző, szentimentális alkat, nincs élettapasztalata. Anyeginban nem a valóságos tulajdonságait szereti — a megmentőt látja benne, aki megszabadíthatná a magányos, üres vidéki élettől. Hasonlítanak abban, hogy mindketten magányosak. Szenvedély, aggodalom és szégyen keveredik benne, amikor szerelmet vall. Az elutasítás után magas rangú férfihoz megy, de érzelmei Anyegin iránt nem változnak. Lehetőségük lenne egymásra találni, de tiszteli annyira a férjét, hogy sosem lenne hűtlen hozzá.</p>
+<h2>Lenszkij</h2>
+<p>Anyegin barátja, de egyben az ellentéte is: naiv, érzelmes fiatalember, rajong minden új dologért. Míg Anyegin a realitások embere, ő fantáziavilágban él, őszintén szerelmes Olgába (Tatjána nővérébe). Anyegin féltékennyé teszi, ami párbajhoz vezet és megöli a fiút. Barátjának értelmetlen halála felrázza, visszamenekül Pétervárrra.</p>
+<h2>Olga</h2>
+<p>Tatjána nővére, bájos külső és felszínes érzelmek jellemzik, egyetlen célja a férjhez menés — Lenszkijt sem gyászolja sokáig.</p>
+<h2>Romantikus jellemzők</h2>
+<p>Szerelmi téma, nagy érzelmek és szenvedélyek, nagy ellentétek (főváros és vidék; Anyegin és Lenszkij; Tatjána és Olga), műnemek keveredése.</p>
+<h2>Realista vonások</h2>
+<p>Valószerű helyszínek és tipikus figurák: arisztokraták, vidéki nemesek, férjhezmenésről ábrándozó lányok, pletykára éhes szomszédok.</p>
+<h2>A mű újszerűsége</h2>
+<p>Nem nagy tömegeknek szánta, csak az irodalmilag művelteknek — sok utalást tartalmaz írókra és művekre. Az író beleszövi saját életeseményeit, sokat elárul érzelmeiről, kommentálja a történteket.</p>`},
+{id:5,title:`Petőfi Sándor élete és látomásköltészete`,auth:`Petőfi Sándor`,era:`19. sz.`,kw:["forradalom","rapszódia","ars poetica","látomás","romantika"],content:`<h2>Petőfi Sándor élete (1823–1849)</h2>
+<p>Kiskőrösön született, de Kiskunfélegyházát vallotta szülőföldjének. Apja Petrovics István, anyja Hrúz Mária, öccse István. Iskoláit 9 különböző helyszínen végezte, változó eredményekkel. Az iskolák közül a költő <strong>Aszódot</strong> tartotta a legfontosabbnak: itt volt először szerelmes, itt kezdett verseket írni, és itt kezdett érdeklődni a színészet iránt.</p>
+<p>Miután apja tönkrement, iskoláit félbehagyta — vándorszínész és katona lett. Sorsa 1844-ben fordult jobbra: Vörösmarty segítségével kiadják verseit és állást kap a Pesti Divatlapnál. Ugyanebben az évben jelenik meg a <em>János vitéz</em>, ami országosan ismertté teszi. 1846-ban megszervezi a Tízek Társaságát és megismeri Szendrey Júliát. 1847-ben barátságot köt Arany Jánossal. 1848-ban a pesti forradalom vezéralakja, majd a szabadságharc katonája. Népszerűsége fokozatosan csökken, összetűzésbe keveredik politikusokkal. 1849-ben a <strong>segesvári csatában eltűnik</strong>.</p>
+<h2>Forradalmi látomásköltészete</h2>
+<p>Petőfi életének két legfontosabb értéke a <strong>szabadság és a szerelem</strong>. 1846-tól foglalkozik a forradalom gondolatával. Kezdetben világméretű harcként képzeli, amelynek végén a rab népek legyőzik zsarnokaikat. Később inkább a magyarországi forradalommal foglalkozik.</p>
+<p>Három költői szerep váltakozik a verseiben (mindhárom bibliai motívum):<br>
+<strong>a, Látnok / vátesz / próféta:</strong> a jövőbe látva képes megjósolni a forradalmat és saját halálát.<br>
+<strong>b, Népvezér:</strong> Mózeshez hasonlóan ő akarja vezetni a népét egy jobb jövő felé.<br>
+<strong>c, Messiás-szerep:</strong> Jézushoz hasonlóan hajlandó bármekkora szenvedésre, akár az életét is feláldozza az emberiség boldogságáért.</p>
+<h2>Egy gondolat bánt engemet (1846)</h2>
+<p><strong>Műfaja: rapszódia</strong> — jellegzetes romantikus műfaj, nagy ellentéteket és szenvedélyeket bemutató, csapongó menetű vers.</p>
+<p>A vers elején kétféle halálnemet mutat be:<br>
+<strong>a, lassú haldoklás</strong> (az elhervadó virág és az elfogyó gyertyaszál jelképezi) — a költő ezt elutasítja.<br>
+<strong>b, hirtelen, gyors halál</strong> — ezt szeretné.</p>
+<p>A vers közepe az eljövendő forradalom és szabadságharc víziója, a költő erőteljes hanghatásokkal és dinamikus mozgással érzékelteti a rabszolga népek és zsarnokaik összecsapását. Abszolút optimizmus jellemzi — feltétlenül hisz a jók győzelmében. A vers kulcsszava a <strong>világszabadság</strong>, amelyet megismétel a vers közepén és végén is. A zárlat ünnepélyes: a költő megjósolja saját halálát és a többi hősi halott temetését.</p>
+<h2>A XIX. század költői (1847)</h2>
+<p>Költői hitvallás, <strong>ars poetica</strong>. Petőfinél a költészet és politika elválaszthatatlanul összeforr. Minden 19. századi költő nevében beszél és egy új költőideált teremt. A költő Isten küldötte, <strong>Mózeshez hasonló népvezér</strong>, aki egy jobb jövő (Kánaán) felé vezeti a népét. A vers szónoki beszédnek is felfogható, bibliai példákkal bizonyít. A költő célja a vagyoni, jogi és kulturális egyenlőség megteremtése. Utópisztikus jövőkép — a megvalósulás időpontja bizonytalan. A vers megnyugvással zárul.</p>
+<h2>Az apostol (1848)</h2>
+<p>Átértékeli korábbi véleményét a költők szerepéről: már úgy gondolja, hogy nem egy világméretű harc, hanem egyes kiemelkedő emberek önfeláldozása fogja elhozni az emberiség boldogságát. Már nem az a célja, hogy a néppel együtt, hanem, hogy a nép helyett cselekedjen.</p>
+<h2>Romantika stílusjegyei Petőfinél</h2>
+<p>Nagy szenvedéllyel és szónoki elemekkel (kérdések, felkiáltások, érvelések). Nagy ellentétek (jók és rosszak, múlt–jelen–jövő szembeállítása). Romantikus képalkotás: vértenger, vérfolyam, virágkötél.</p>`},
+{id:6,title:`Arany János balladái`,auth:`Arany János`,era:`19. sz.`,kw:["ballada","lélektani","allegorikus","walesi bárdok","Ágnes asszony"],content:`<h2>Arany János élete (1817–1882)</h2>
+<p>Nagyszalontán született, szegény paraszti család 10. gyermekeként. Csodagyerek — 3-4 éves korában ír és olvas, 14 évesen már segédtanító. Érzékeny, visszahúzódó, beteges alkat. Debrecenben tanulmányait félbehagyja, rövid időre vándorszínész lesz. Segédjegyző, majd megnősül (felesége Ercsey Julianna). 1846-ban megírja a <em>Toldi</em> c. művét, ami meghozza ismertségét és Petőfi barátságát. A forradalom és szabadságharc idején nemzetőr. A szabadságharc bukása után Nagykőrösön középiskolai tanár. 1860-ban Pestre költözik, a Kisfaludy Társaság igazgatója lesz, folyóiratokat indít. Újabb családi tragédiák miatt egy évtizedre költőként elhallgat. 1877-től öregkori költeményeket ír (Őszikék). 1882-ben meghal.</p>
+<h2>A ballada műfaja</h2>
+<p>Arany legismertebb művei. A ballada epikai műfaj, de mindhárom műnem jegyeit egyesíti:</p>
+<p>— <strong>Lírai:</strong> verses formája van és érzelmeket közvetít.<br>
+— <strong>Epikus:</strong> egy történetet mesél el.<br>
+— <strong>Drámai:</strong> a történetet elsősorban a szereplők párbeszédéből ismerjük meg, befejezése tragikus.</p>
+<p>A balladák jellemzője a <strong>balladai homály</strong> — szaggatott, kihagyásos elbeszélésmód. Arany figyelme azért terelődött a balladák felé, mert a romantika korában megnőtt az érdeklődés a népköltészet iránt. Ismerte a székely és skót népballadákat, ezeket tekintette mintának.</p>
+<h2>A balladák csoportosítása</h2>
+<p><strong>Téma szerint:</strong> románcos (könnyedebb, szerelmi témájú, pl. A varró leányok), történelmi (allegorikus, a múltból merítenek, de a jelenhez szólnak), népies (lélektani, bűn és bűnhődés).</p>
+<p><strong>Keletkezés szerint:</strong> szalontai (1848 körül), nagykőrösi (1850-es évek), margit-szigeti (1877 után).</p>
+<p><strong>Szerkezet szerint:</strong> egyszólamú, többszólamú, körkörös, keretes.</p>
+<h2>A walesi bárdok (1857)</h2>
+<p>Ferenc József magyarországi látogatásakor dicsőítő ének helyett írta. Allegorikus ballada: Edward király = Ferenc József, Wales = Magyarország, Bárdok = a magyar költők. Keretes, egyszólamú szerkezet.</p>
+<p>A király viselkedése méltóságteljes, a lakosság megfélemlítve hallgat. A főurak a passzív ellenállást képviselik: kiszolgálják a királyt, de nem dicsőítik. A bárdok a hősiességet, önfeláldozást, őszinteséget jelképezik. Az idős bárd a csataterek áldozataira hívja fel a figyelmet, a fiatal bárd az özvegyek és árvák sorsára — az utolsó bárd alakjában Arany saját magát örökítette meg és Petőfit siratja el. Bátorságukért halállal lakolnak, de a lemészárlás fellázítja az ország lakóit. A hazatért király hallucinál, vízionál, a félelembe beleőrül — <strong>lélektani ballada</strong>. Legfőbb eszköze a fokozás és az ismétlés. Versformája: skót balladaforma.</p>
+<h2>V. László</h2>
+<p>Többszólamú, párhuzamos szerkesztésű — 3 különböző eseményszálon fut a történet, amelyek ugyanabban az időben, de térben egymástól egyre távolodva játszódnak: a) egy természeti vihar; b) a király menekülése; c) rabok menekülése. V. László kivégeztette Hunyadi Lászlót és fogva tartotta Mátyást. A király fél a Hunyadi-hívek bosszújától, Csehország felé menekül. Ezzel egyidőben a Mátyással együtt raboskodók megszöknek és hazafelé igyekeznek. A menekülők zaklatott lelkiállapotát jelzi a vihar, a biztonságos megérkezést a lecsendesedés. A ballada utolsó mondata: "visszajő a rab."</p>
+<h2>Szondi két apródja</h2>
+<p>Helyszíne Drégely vára, a középkori törökellenes harcok egyik fontos állomása. Az apród nem fegyverhordozót jelent, hanem 16. századi lantosokat, históriás énekmondókat. Többszólamú szerkezetű: a páratlan versszakokban az apródok szavai (múltról mesélnek, Szondit dicsőítik, elátkozzák a gyilkosait — életüket is kockáztatják). A páros versszakokban a török küldött szava (jelenről, átállásra próbál rávenni — hitegetés, csábítás, fenyegetés — de egyikkel sem ér célt, sőt maga is elismeri Szondi dicső tetteit).</p>
+<p>Az apródok és a török küldött között nincs valódi párbeszéd, csak párhuzamos monológok. Két különböző értékrend áll szemben egymással. Nem lélektani, hanem a <strong>hűség és hősiesség balladája</strong>. A három helyszín jelképes: a rommá lőtt vár (hazaszeretet, hősi harc), a hegytető és Szondi sírja (erkölcsi győzelem), a vár alatti völgy (erkölcsi vereség).</p>
+<h2>Ágnes asszony (1853)</h2>
+<p>A nagykőrösi korszakba tartozik, de népies témájú. <strong>Körkörös szerkezetű</strong> — a történet ugyanoda tér vissza, ahonnan elindul.</p>
+<p>Az első 4 versszak: Ágnes tettének kitudódása (a szeretőjével megölte a férjét és eltünteti a nyomokat) — néhány óra. Az 5-9. versszak: Ágnes börtönben töltött ideje — néhány nap. Az események a lélekben zajlanak, Ágnes megőrülésének belső folyamatát mutatja be — ezért <strong>lélektani ballada</strong>. Az asszony küzd, hogy elméje tiszta maradjon, de fokozatosan megbomlik. A fehér szín (liliom, hattyú, mosás motívuma) az asszony lelki tisztaságát jelzi. A 10-19. versszak: a bírósági tárgyalás — néhány óra. A 20-26. versszak: a patakpart — több évtized. Ágnes megöregszik, de belső ideje annál a pillanatnál rögzült, amikor a gyilkosságot elkövette. A refrén minden szereplő szájából más érzelmet tükröz (a gyermekek félelmét, az asszonyok megdöbbenését, a bíróság szánalmát, Ágnes kétségbeesését).</p>
+<h2>Öregkori balladák (Őszikék, 1877–)</h2>
+<p>Nem allegorikusak, nem politikai témájúak — az író célja elsősorban a szórakoztatás. Népi babonákat, hiedelmeket elevenít fel, folytatja a bűn és bűnhődés témát.</p>
+<p><strong>Tengeri-hántás:</strong> többszólamú, keretes. Az őszi kukoricafosztás keretében egy idősebb résztvevő meséli el a ballada történetét. A mesemondást 1-1 természetre vonatkozó kiszólás szakítja meg, ami mindig kapcsolatban áll az eseményekkel. A keret a jelenben, a ballada a múltban játszódik. Témája: Tuba Ferkó és Dalos Eszti szerelmi tragédiája, amely megtébolyodással és halállal végződik.</p>
+<p><strong>Vörös Rébék:</strong> falusi szerelmi háromszög, a valóság népi babonás elemekkel keveredik. Rébék alakváltoztatásra képes: hol boszorkány, hol varjú, hol kerítőasszony. Az utolsó versszakban jelen idejűre vált — a Gonosz halhatatlan, nem lehet elpusztítani.</p>
+<p><strong>Híd-avatás:</strong> A Margit híd avatása alkalmából írta. A népi hiedelem alapja: egy új építmény emberáldozatot követel. Az új hidat az öngyilkosok avatják fel. A ballada minden szereplőjének életét a pénz tette tönkre — Arany saját korának, a kapitalizmusnak erős kritikája. (Hasonlóság Madách <em>Az ember tragédiája</em> londoni színével.)</p>`},
+{id:7,title:`Jókai Mór: Az aranyember`,auth:`Jókai Mór`,era:`19. sz.`,kw:["romantika","Tímár Mihály","Senki szigete","kalandregény","kapitalizmus"],content:`<h2>Jókai Mór és a romantika</h2>
+<p>Jókai a 19. század, a romantika korának legnagyobb magyar regényírója. Regényeinek romantikus vonásai: kalandos meseszövés, meghökkentő váratlan fordulatok, szélsőséges jellemek és nagy ellentétek, hatalmas szenvedélyek, párhuzamos meseszálak és a véletlenek nagy szerepe, festői helyszínek.</p>
+<h2>Az aranyember (1872)</h2>
+<p>Az író legkedvesebb műve. 1872-ben írta, de a történet az 1820-as években játszódik. Kalandregény és lélektani regény egyben: a főhős bűnbe esésének és megtisztulásának történetét mutatja be. A történet 3 fő helyszínen játszódik.</p>
+<p><strong>1. Az al-dunai Vaskapu-szoros:</strong> a magasság-mélység ellentéte előrevetíti a főhős sorsát — a társadalmi ranglétrán egyre magasabbra jut, de erkölcsileg egyre mélyebbre süllyed.</p>
+<p><strong>2. Komárom:</strong> a Duna-menti gazdag kereskedőváros, a kapitalizmus világa — csak a rang, a név és a vagyon számít. Nincsenek őszinte emberi érzések, csak számítás, képmutatás; a pénz utáni hajsza tönkreteszi mindenki életét, senki sem boldog.</p>
+<p><strong>3. A Senki szigete:</strong> nem tartozik egyik ország fennhatósága alá sem. Nem valóságos helyszín, mesés, idilli, romantikus környezet — menedék az itt élőknek. Mindenben Komárom ellentéte: nyugalom, tisztesség, szeretet, bizalom. Noémi és édesanyja, de Tímár is ide menekül. Komárom és a Senki szigetének szembeállítása felidézi Rousseau gondolatait a züllött társadalom és a romlatlan természet ellentétéről.</p>
+<h2>Tímár Mihály jellemzése</h2>
+<p>A többi szereplő aranyembernek nevezi: minden vállalkozása hatalmas anyagi sikerrel zárul, és mert jótékonykodik. Alakja felidézi a mitológiai Midász királyt.</p>
+<p>A történet elején egyszerű hajóbiztos és igazi romantikus hős (megmenti Ali Csorbadzsit, végigvezeti a hajót a Vaskapu-szoroson). Jelleme akkor változik meg, amikor az elsüllyedt hajón megtalálja a török férfi elrejtett kincseit és azokat ellopja. A kincs segítségével vagyont szerez, de lopással és korrupcióval. Lelkiismeret-furdalását azzal próbálja elaltatni, hogy sokat jótékonykodik.</p>
+<p>A magánéletében is tisztességtelen: egyszerre két nőhöz fűzi érzelmi kapcsolat — feleségéhez, Tímeához és szeretőjéhez, Noémihoz. Egyiküktől sem tud elszakadni, ezért állandó hazugságban él. Minél kiválóbbnak látja a külvilág, ő annál jobban gyűlöli önmagát, és eljut az öngyilkosság gondolatáig. Ettől egy véletlen menti meg: Krisztyán Tódor az ő ruháiban fullad bele a téli Balatonba — így, mivel mindenki halottnak hiszi, lehetősége nyílik új életet kezdeni a Senki szigetén.</p>
+<h2>A regény női szereplői</h2>
+<p><strong>Tímea, a feleség:</strong> Ali Csorbadzsi lánya, félig magyar, félig török. Apja halála után a Brazovics-családhoz kerül Komáromba, ahol cselédként kezelik, Athalie megalázza. Tímár megsokszorozta vagyonát, majd lelkiismeretét elaltatandó feleségül vette és Komárom leggazdagabb asszonyává tette. Tímea élete végéig hálás és hűséges marad, de szerelmet soha nem érez a férje iránt — Kacsuka őrnagyot szereti. Visszafojtott érzelmei és szépsége miatt <em>alabástrom szobornak</em> nevezi az író. Egész életében boldogtalan.</p>
+<p><strong>Noémi:</strong> Tímár szerelme, Tímea ellentéte — megvan benne a meleg asszonyiság, viselkedése ösztönös, nincs benne semmi számítás. Tud Tímeáról, de képes megbocsátani.</p>
+<p><strong>Athalie:</strong> gonosz, démoni nőalak — elkényeztetett, gazdag, körülrajongott szépség. Tímár Mihályt és Tímeát okolja tönkrement életéért. Egész életét a bosszúállás határozza meg.</p>
+<p><strong>Zsófi mama (Athalie anyja):</strong> szegény sorból emelkedett fel, egyszerű gondolkodású, együttérző Tímeával.</p>
+<p><strong>Teréza mama (Noémi anyja):</strong> hatalmas gazdagság után lett nincstelen földönfutó, férje öngyilkossága után egyedül új életet teremtett a Senki szigetén.</p>
+<h2>A regény férfi szereplői</h2>
+<p><strong>Krisztyán Tódor:</strong> züllött gonosztevő, szerencsétlen gyerekkora miatt vált bűnözővé. Meg akarja szerezni Noémit és a Senki szigetét, zsarolja Teréza mamát. Ellentéte és hasonmása Tímárnak: mindketten tisztességtelenül élnek, de Tímárnak minden sikerül, az övéi mindig rosszul végződnek.</p>
+<p><strong>Brazovics Athanáz:</strong> Komárom leggazdagabb vállalkozója, gátlástalanul tönkretesz mindenkit.</p>
+<h2>A regény realista vonásai — a kiábrándulás regénye</h2>
+<p>Jókai beleszőtte saját korának társadalmi problémáit. A regény fő kérdése: lehet-e tisztességes módon nagy vagyonhoz jutni? Válasz: nem. A második kérdés: a vagyon boldoggá teszi-e az embereket? Válasz: szintén nem. A mellékszereplők hétköznapi figurák, aprólékosan kidolgozva, és valóságos a több helyszín is (Komárom, Al-Duna).</p>`},
+{id:8,title:`József Attila utolsó versei`,auth:`József Attila`,era:`20. sz.`,kw:["szkizofrénia","halál","számvetés","Nagyon fáj","Karóval jöttél"],content:`<h2>József Attila élete (1905–1937)</h2>
+<p>1905. április 11-én született Budapesten. Születésnapja ünnep — a <strong>Magyar Költészet Napja</strong>. Apja József Áron gyári munkás, anyja Pőcze Borbála cselédlány. Két nővére: Jolán és Eta. A család nagy szegénységben élt, az apa 3 éves korában elhagyta a családot. Eta és Attila egy időre Öcsödre kerültek nevelőszülőkhöz.</p>
+<p>1919-ben az anya is meghal — Jolán férje, dr. Makai Ödön veszi pártfogásba és taníttatja. Makón jár gimnáziumba, majd beiratkozik a szegedi egyetem magyar-francia-filozófia szakára. Az egyik legműveltebb magyar költőnk, de az egyetemet nem fejezi be, mert Horger Antal nyelvészprofesszor kirúgatta a <em>Tiszta szívvel</em> c. verséért. Tanulmányait rövid ideig Bécsben és Párizsban folytatta. Első verseskötete 1922-ben jelent meg (<em>Szépség koldusa</em>). A <strong>Nyugat 2. nemzedékének</strong> tagja.</p>
+<p>Életét végig kísérték betegségei, öngyilkossági kísérletei, a szegénység és a rosszul sikerült szerelmi kapcsolatok. Legfontosabb szerelmei: Vágó Márta, Szántó Judit, Gyömrői Edit és Kozmucza Flóra. Skizofréniával és személyiségzavarral kezelték. Élete utolsó heteit Balatonszárszón töltötte nővéreinél — az itteni vasútállomáson halt meg <strong>1937. december 3-án</strong> máig vitatott körülmények között.</p>
+<h2>Utolsó éveinek költészete — 1937-ben 3 téma foglalkoztatja</h2>
+<p><strong>a,</strong> A nemzet és az emberiség féltése, a fasizmus előretörése.<br>
+<strong>b,</strong> A Kozmucza Flóra iránt érzett szerelem, remény egy jobb életre.<br>
+<strong>c,</strong> Számvetés eddigi életével, a halál közelsége.</p>
+<p>Utolsó versei a <em>Nagyon fáj</em> kötetben jelennek meg. Az utolsó 3 versnek eredetileg nincs címe — a versek első sora vált később címmé. Közös jellemzőjük: életét elhibázottnak tartja, minden lehetősége kudarcba fulladt.</p>
+<h2>Tudod, hogy nincs bocsánat</h2>
+<p>Önmegszólító vers. A cím arra utal, hogy a költő úgy érzi, valami nagy bűnt követhetett el, ezért bünteti a sors. Az élet minden területén kudarcot vallott. A vers kulcsmondata: <em>"Légy, ami lennél: férfi"</em> — ez a szerep sosem valósult meg, nem volt jó sem szeretőnek, sem férjnek, sem családfenntartónak. Elhibázott életére többféle megoldást keresett (vallás, pszichoanalízis), de egyik sem hozott eredményt. A külvilág is bűnösnek tartja. A vers utolsó sorai Flórára utalnak — ő az egyetlen remény, amibe belekapaszkodhat.</p>
+<h2>Karóval jöttél</h2>
+<p>A versben a költő önmagával folytat párbeszédet. A vers címe és az első két versszak a gyermekkort idézi meg. A karó jelképezheti:<br>
+— a születés körülményeit: nem várt gyermekként érkezett, a sors elrendeltetett.<br>
+— a verés, a büntetés eszközét.<br>
+— azt, hogy felnőttként is állandó harcban állt a társadalommal.</p>
+<p>A vers utal a többszöri öngyilkossági kísérletére is ("feleseltél a másvilággal"). Ha végigtekint a múltján, csak értékhiányt lát. Életét börtönnek érzi — ezt jelképezi a Hét Torony, amit Gárdonyi Géza <em>Egri csillagok</em> c. regényéből kölcsönzött. Kérdések sorozatával számonkéri magán vélt vagy valós bűneit. Elrontott életéért nemcsak önmagát, hanem a világot is vádolja. A vers zárlata elégikus: a "puha párna" kifejezés nem a megpihenésre, hanem a halál elfogadására utal.</p>
+<h2>Talán eltűnök hirtelen</h2>
+<p>A vers címe bizonytalanságot sugall. Fő motívuma az <strong>erdő</strong> — irodalmi toposz, amely az emberi életet jelképezi. A költő egész életére a normális emberi kapcsolatok hiánya volt jellemző — sem az anyjához, sem tanáraihoz, sem szerelmeihez nem tudott megfelelő módon kötődni. Saját magát a bibliai tékozló fiúval azonosítja ("elpazaroltam mindenem, amiről számot kéne adnom"). Az utolsó versszak a népdalokat idézi — évszak-metafora: a tél és a zörgő ágak a halált jelképezik.</p>
+<h2>Íme, hát megleltem hazámat</h2>
+<p>A versben megjelenő <strong>haza nem az országot</strong>, hanem a költő sírhelyét jelenti. Önmagát értéktelennek, társtalannak, sikertelennek tartja, de már nem szólal meg az önvád. A verszárlat népdal-parafrázis — az évszak-metafora megjelenik. A költő számára az egyetlen lehetséges út a tél, vagyis a halál elfogadása.</p>`},
+{id:9,title:`Herczeg Ferenc: Az élet kapuja`,auth:`Herczeg Ferenc`,era:`20. sz.`,kw:["allegória","Bakócz","Vatikán","Trianon","kisregény","kapu"],content:`<h2>Herczeg Ferenc (1863–1954)</h2>
+<p>A 19–20. század fordulóján Jókai és Mikszáth kortársa volt, a 20. században a Horthy-korszak legnépszerűbb írója. Regényeket, drámákat, novellákat írt, újságíróként is dolgozott — a Kisfaludy Társaság és az MTA tagja, a Petőfi Társaság elnöke. Sváb polgárcsaládból származott, a gimnáziumban tanult meg magyarul. Az Új Idők c. folyóirat szerkesztője volt. A 2. világháború után visszavonultan élt, nem írt többet. Fontosabb művei: <em>A Gyurkovics-fiúk</em>, <em>Kék róka</em>. Az élet kapuja c. kisregényéért háromszor irodalmi Nobel-díjra jelölték, de nem kapta meg. 1949 után több évtizedig nem adták ki a műveit Magyarországon.</p>
+<h2>Az élet kapuja (1919) — felépítés</h2>
+<p>1919-ben írta. Helyszíne: Róma, a Vatikán. A regény 1513-ban játszódik. Egy valóságos és egy fiktív, kitalált eseményszál fonódik össze.</p>
+<h2>Valóságos cselekményszál — Bakócz Tamás</h2>
+<p>A regény főhőse valós személy: Bakócz Tamás esztergomi érsek, aki fiatalon kicsapongó életet élt, felnőttként viszont egyetlen életcélja, hogy Magyarországot megmentse a töröktől. Egyetlen lehetőséget lát: ha a következő pápaválasztáson őt választják meg. 1513-ban óriási pompával vonul be Rómába. A győzelem érdekében meg akarja vásárolni az egyik bíboros szavazatát — azt hitte, minden ember megvásárolható. Tévedett.</p>
+<p>A haldokló II. Julius pápa nem akarja, hogy Bakócz legyen az utódja — attól fél, hogy a nyugat-európai pénzt a török elleni összefogásra fordítaná. Legfőbb célja, hogy Róma vezető szerepe megmaradjon és felépüljön a Szent Péter bazilika. Ennek érdekében Magyarországot is hajlandó feláldozni. A pápaválasztáson nem bibliai elvek, hanem politikai játszmák érvényesülnek. Az új pápa <strong>X. Leo</strong> — a Medici-família tagja, a bazilika befejezése és a reformmozgalmak elfojtása a célja.</p>
+<h2>Fiktív cselekményszál — Vértesi Tamás és Fiametta</h2>
+<p><strong>Vértesi Tamás:</strong> Bakócz keresztfia, naiv, tiszta lelkű férfi. Ismeri a titkát (a vesztegetési tervet) és elárulja Fiamettának is.</p>
+<p><strong>Fiametta:</strong> gazdag, befolyásos férfiak kurtizánja — sok titkot ismer. Életében először lesz szerelmes, amikor megismeri Vértesi Tamást. Bár szerelmes, mégis továbbadja a titkát. Amikor Vértesi visszautasítja, szerelme bosszúvágyba fordul — orgyilkosokat küld ellene. Ragaszkodik kurtizán hatalmához, így elveszíti a lehetőséget, hogy boldog magánélete legyen — csak az öngyilkosságot látja lehetőségnek.</p>
+<h2>A kapu szimbolikája</h2>
+<p>A <strong>haldokló II. Julius pápának:</strong> az élet és halál kapuját jelenti — síremléket állíttat magának az örökkévalóság biztosítása érdekében.<br>
+<strong>Vértesi Tamásnak:</strong> a Vatikánba és a politikai életbe vezető kapu (ha Bakócz pápa lesz), valamint a Fiametta palotájába vezető kapu (boldog szerelem). Egyik kapun sem sikerül átlépnie.<br>
+<strong>Fiamettának:</strong> kurtizán múltjának elhagyása — elesik tőle.<br>
+<strong>Általánosan:</strong> a barbárság és a civilizáció elválasztó vonala. A pápa Bakócz Tamásban a kultúra hanyatlásának veszélyét látja.</p>
+<h2>A regény allegória — Trianon</h2>
+<p>Bakócz küzdelme és bukása Magyarország trianoni katasztrófájával azonosítható: 1513-ban nem sikerült elnyerni az európai nagyhatalmak támogatását a török ellen, az ország hamarosan részekre szakadt — ugyanúgy, ahogy az első világháború után, a trianoni békében sem sikerült megmenteni az ország egységét. A regényt drámai jellemzők is jellemzik, mert a cselekmény gyakran a szereplők párbeszédéből bontakozik ki.</p>`},
+{id:10,title:`Ady Endre Ugar-versei`,auth:`Ady Endre`,era:`20. sz.`,kw:["szimbolizmus","ugar","szecesszió","Nyugat","elmaradottság"],content:`<h2>Ady Endre élete (1877–1919)</h2>
+<p>1877-ben született Érmindszenten (Erdély), elszegényedett nemesi családban. Iskoláit Nagykárolyon, Zilahon és Debrecenben végezte — joghallgató, de tanulmányait nem fejezi be. Újságíró Nagyváradon, ahol megismeri Diósiné Brüll Adélt — 9 évig tartó szerelem. Hozzá írta a Léda-verseket, és Léda segítségével jutott ki Párizsba, ahol megismerkedett a modern költészettel. 1908-tól az induló <strong>Nyugat</strong> főmunkatársa. Az első világháborúban súlyos betegsége miatt nem vett részt, de verseiben elítélte a pusztítást. 1914-ben köt házasságot Boncza Bertával (Csinszka-versek). 1919-ben Budapesten meghal.</p>
+<h2>Költészete és pályaszakaszok</h2>
+<p>Pályája során mindig szorosan kötődött a magyar nemzeti-történelmi hagyományokhoz. 1908-tól egyre inkább megjelennek a modern stílusjegyek — elsősorban a szimbolizmus, a szecesszió és az expresszionizmus hatása.</p>
+<p><strong>1. pályaszakasz:</strong> 1906 — <em>Új versek</em>, a modern költészet nyitánya. Jellegzetes témái: szerelem, élet, halál, pénz, a magyarság sorsa, Istenkeresés.<br>
+<strong>2. pályaszakasz (1912–14):</strong> pl. <em>A menekülő élet</em>. Témái: magány és önelemzés.<br>
+<strong>3. pályaszakasz (1914–18):</strong> <em>A halottak élén</em>. Fő témái: a háború borzalmai és a Csinszka-versek.</p>
+<h2>Kötetkompozíció</h2>
+<p>Verseit ciklusokba rendezte — nem keletkezésük ideje, hanem témájuk szerint. A ciklusok címei tartalmilag és hangulatilag összefoglalják a bennük található verseket. A ciklusok címadó versei mindig kiemelt helyen találhatók. Kötet-, ciklus- és verscímei általában 3 szóból állnak (számmisztika hatása).</p>
+<h2>Az Ugar-szimbólum</h2>
+<p>Ady legtöbb vitát kiváltó versei az Ugar-versek — ugyanazt az alföldi tájat ábrázolja, mint Petőfi, de egyáltalán nem romantikus módon. Az ugar elsődleges jelentése: megműveletlen föld. Adynál <strong>Magyarország szimbólumává</strong> válik: az elmaradottságot, reménytelenséget, jövőtlenséget jelenti. Ady szerint Magyarország a tehetségek temetője, értékpusztító hely. Hazáját a láp, mocsár, temető kifejezésekkel is illeti. A konzervatívok hazaárulónak vádolták, de indulatai mögött valójában a hazaszeretet és a haza féltése húzódik — büszkén vállalta magyarságát.</p>
+<h2>A Hortobágy poétája</h2>
+<p>Költői önarckép — egy művész tragédiáját mutatja be: milyen sors vár Magyarországon a tehetséges emberekre. A költő és környezete éles ellentétben áll. A költő szecessziós motívumokat kapcsol önmagához (virág, álmok, szépség — ezek a többet akarást, az újítást, a kulturáltságot jelképezik). Ezzel szemben a környezete műveletlen, tenni nem akaró — csordának, "piszkos, gatyás, bamba népeknek" nevezi. Ironikus hangnemben ír arról, hogy egy idő után feladja álmait és idomul a környezetéhez — a művészetre senki nem tart igényt.</p>
+<h2>A magyar Ugaron</h2>
+<p>A vers egy <strong>ellentétre</strong> épül: Magyarország alkalmas lenne a fejlődésre ("ős, buja, szent humusz"), a valóságban viszont teljesen értéktelen, durva, műveletlen világ ("dudva, muhar, gaz, vad indák"). Az 1–2. versszakban a költő aktív, cselekvő fél (gázolok, ismerem, lehajolok). A 3–4. versszakban az Ugar válik cselekvővé — lehúzza és elpusztítja a költőt. <strong>Lefelé hulló, aláhulló kompozíció.</strong> A kacagó szél motívuma jelzi, hogy a költő álmai nevetségesek ebben a környezetben. Fő eszközei: ellentétek, megszemélyesítés, halmozások, fokozások, irónia. Szecessziós motívumok: virág, vad indák.</p>
+<h2>A Tisza-parton</h2>
+<p>Két folyó jelenik meg, éles ellentétben. <strong>A Gangesz</strong> India szent folyója, ahol Ady sosem járt — a románikus elvágyódást jelzi, valójában a párizsi Szajna-partot jelenti: titokzatosság, egzotikum, szépség, álmok megvalósulása. A hangzás lágy, zenei. <strong>A Tisza-part</strong> a magyar alföld: elmaradottság, erőszak, bambaság. A gémeskút az elmaradottságot, a fokos és a durva kezek az erőszakot jelképezik. A vers hangzása kemény és harsány. A vers ironikus kérdéssel zárul — kifejezi az elkeseredettséget és reménytelenséget.</p>`},
+{id:11,title:`Babits Mihály: Jónás könyve`,auth:`Babits Mihály`,era:`20. sz.`,kw:["Jónás","próféta-szerep","Nyugat","fasizmus","elbeszélő költemény"],content:`<h2>Babits Mihály élete (1883–1941)</h2>
+<p>Szekszárdon született értelmiségi családban. A gimnáziumot Pécsett végezte, majd a budapesti egyetemen magyar-francia szakos lett, később fölvette a latin szakot is. Nagy hatással volt rá egy itáliai tanulmányút. Ezután a fogarasi gimnáziumban lett tanár, közben már verseket írt. A <strong>Nyugat első nemzedékének</strong> kiemelkedő tagja. Versein kívül írt 5 regényt, irodalomtörténeti esszéket, lefordította Dante <em>Isteni színjátékát</em> és Szophoklész egyik drámáját, megírta az európai irodalom történetét. 1929-től haláláig a Nyugat szerkesztője. 1937-ben gégerákot fedeznek fel nála — ez okozza halálát.</p>
+<p>Költészetét egyszerre jellemzi a hagyományőrzés és az újító szándék — témák, műfajok, stílusok, versformák sokfélesége. Utolsó korszakában (1930-as évek) legfontosabb témái: a fasizmus elleni tiltakozás, saját betegsége, a halál közelsége és a <strong>próféta-szerep</strong> vállalása.</p>
+<h2>Jónás könyve (1938)</h2>
+<p>Gégeműtétje után, a betegágyán írta. 1938-ban jelent meg a Nyugatban — ez a 2. világháború előestéje volt, egész Európa rettegésben élt. Ebben a helyzetben vetődött fel a kérdés: <em>mit tehet egy költő, egy művész a barbársággal szemben?</em></p>
+<p><strong>Műfaja: elbeszélő költemény.</strong> Egy jól ismert ószövetségi bibliai történetet dolgoz fel — a mű parafrázis. Témája önvallomás, önarckép.</p>
+<p><strong>Az eredeti bibliai történetben</strong> Isten azzal bízza meg Jónás prófétát, hogy menjen Ninivébe, a bűnös városba, prédikáljon az ott élőknek. Ha ez nem sikerül, Isten elpusztítja a várost. Jónás menekül, hajóra száll, de Isten vihart bocsát rájuk. A matrózok a tengerbe dobják, bekapja egy cethal, és végül Ninivébe ér. Teljesíti a parancsot, a város megmenekül.</p>
+<h2>Babits műve eltér az eredetitől</h2>
+<p>— A Bibliában a teljes cím: <em>Jónás próféta könyve</em>. Babitsnál hiányzik a "próféta" szó — hőse nem kiválasztott, hanem hétköznapibb, nincs meg benne a hivatástudat.<br>
+— Babits sokkal részletesebben ábrázolja Jónás testi-lelki szenvedéseit (összefügg azzal, hogy betegágyán írta).<br>
+— Az eredeti bibliai Jónás maga kéri a matrózokat, hogy dobják a tengerbe — Babitsnál inkább elbújik a hajófenékben.<br>
+— <strong>A leglényegesebb különbség:</strong> a Bibliában Ninive lakói hallgatnak Jónásra és megtérnek. Babitsnál kicsúfolják vagy közönnyel fogadják.</p>
+<h2>A mű jelképes értelme</h2>
+<p>Jónás próféta maga a költő, aki sokáig azt gondolta, hogy egy költőnek nem szabad társadalmi, politikai kérdésekkel foglalkozni, de a történelmi események megváltoztatták a gondolkodását. Babits maga is próféta — kötelessége tiltakozni a világ gonoszsága ellen. Ezt fogalmazta meg: <em>"Mert vétkesek közt cinkos, aki néma, / Atyjafiáról számot ad a testvér."</em> Babits művében a bűnös város nem más, mint a bűnös világ, amelyik a 2. világháború felé halad.</p>
+<h2>A főszereplő jellemváltozása</h2>
+<p>— A történet elején közönyös: "Mi közöm nékem a világ bűneihez?"<br>
+— Kényszerből teljesíti a feladatot — fél Isten büntetésétől.<br>
+— A hal gyomrában szánnivaló figura, Ninivében komikus alak — kinevetik, gúnyt űznek belőle, ezért a város pusztulását kívánja. Bosszúvágy fűti.<br>
+— Az Úr mégis megkegyelmez Ninive lakóinak, és Jónás rádöbben: kötelessége nem ítélkezni, hanem felszólalni a barbárság ellen.</p>
+<h2>Költői eszközök</h2>
+<p>Két stílus és hangnem keveredik: <strong>ironikus, komikus</strong> ("rühellé a prófétaságot", "a fene vízen át") és <strong>patetikus, archaikus, bibliai</strong> (régies idealakok: "dobtál vala", "üvölté", "így lőn"). Fontos eszköz az ellentét és a késleltetés. Mesei motívumok: 3 nap a cet gyomrában, 3 nap menet Ninivébe, 3 helyszín (piac, színészek tere, királyi palota). Verselése időmértékes, jambikus sorokból áll, páros rímű.</p>
+<h2>Jónás imája (1939)</h2>
+<p>1939-ben csatolta hozzá. A vers megszólítottja a Gazda (Isten) — hozzá könyörög a költő, hogy halála pillanatáig tudjon írni. Tudja, már nem sok van hátra az életéből, de a próféta-szerepet halálig vállalni kell.</p>`},
+{id:12,title:`Kosztolányi Dezső: Édes Anna`,auth:`Kosztolányi Dezső`,era:`20. sz.`,kw:["lélektani regény","cselédkérdés","freudizmus","gyilkosság","Vizyné"],content:`<h2>Kosztolányi Dezső élete (1885–1936)</h2>
+<p>Szabadkán született értelmiségi családban, itt végezte a gimnáziumot is. A budapesti egyetem bölcsészkarán magyar-német szakos. Újságíró a Budapesti Napló c. újságnál, majd a Nyugat munkatársa. A <strong>Nyugat első nemzedékének</strong> tagja — író, költő, műfordító. Versciklusai: <em>A szegény kisgyermek panaszai</em>, <em>A bús férfi panaszai</em>, <em>Számadás</em>. Novellái: Esti Kornél-novellák. Regényei: <em>Pacsirta</em>, <em>Aranysárkány</em>, <em>Édes Anna</em>. Az 1930-as évek elején ínyrákot fedeznek fel nála, ebbe hal bele.</p>
+<h2>Édes Anna — keletkezés és műfaj</h2>
+<p>1926-ban jelent meg. Az ötletet Kosztolányi felesége adta: az újságban olvasott egy cselédlányról, aki megölte a gazdáit. Az írót nem maga a gyilkosság érdekli, hanem az <strong>odáig vezető lelki folyamat</strong>. Erősen érződik rajta a freudizmus hatása — elsősorban <strong>lélektani regény</strong>. Társadalmi regény is, mert bemutatja az I. vh. utáni társadalmi viszonyokat, elsősorban a cselédek életét.</p>
+<p>A regényidő 2 év (1919–1921). A főszereplő édes Anna késleltetve jelenik meg — csak a 6. fejezetben tűnik fel, addig csak beszélnek róla. A késleltetés oka: az író bemutatja a történelmi hátteret és a Vizy-házaspárt. <strong>Keretes szerkezet:</strong> 1919 nyarának politikai eseményei (a bolsevik hatalom bukása) fogja közre Anna történetét.</p>
+<h2>A szereplők</h2>
+<p><strong>Vizy Kornél:</strong> magas rangú hivatalnok, látszatházasságban él. A külvilág felé úgy viselkedik, mintha minden rendben lenne, valójában felesége hisztériája elől menekül otthonról.</p>
+<p><strong>Vizyné:</strong> boldogtalan élete van — lánya gyerekkorában meghalt, ezt azóta sem tudta feldolgozni. A férjétől elhidegült. Egész napját a cselédekkel való foglalkozás tölti ki — gyűlöli, lenézi őket. Célja a tökéletes cseléd megtalálása. Anna és Vizyné közötti hasonlóságok: egyiküknek sincs kapcsolata a külvilággal, életük tartalmatlan, üres, kölcsönösen függnek egymástól, boldogtalanok, mindketten elveszítik a gyermeküket.</p>
+<p><strong>Édes Anna:</strong> neve <em>beszélő név</em> — a vezetékneve kellemes érzeteket kelt, keresztneve az egyik legszebb. 19 éves, a Balaton mellett született. Törékeny, szép, csöndes, szorgalmas, tisztességes. Nem önszántából vállal állást — Ficsor, a házmester besizéli. Előző munkahelyén boldog volt (gyermekekre vigyázott, sok szeretetet kapott). Az új helyen Vizyné folyamatosan megaláztatásoknak veti alá: úgy bánik vele, mint egy rabszolgával, megvizsgálja, megbizonyosodik, hogy nem lop. Amint gazdái megbizonyosodnak, hogy mintacseléd, büszkélkednek vele, de mint egy dolgozó géppel bánnak — érzései nem érdeklik őket.</p>
+<p><strong>Patikárius Jancsi:</strong> felelőtlen és gátlástalan fiatalember, aki csak játszik a lány érzelmeivel — csak egy használati tárgyat lát benne. Amikor Anna teherbe esik, szakít, magzatelhajtó porokat ad, majd rokonai házában a lány szeme láttára flörtöl más nőkkel.</p>
+<p>Annának ezután lehetősége lett volna a sorsán változtatni — az idős kéményseprő megkéri a kezét. Vizyné azonban nem akarja elveszíteni a tökéletes cselédet: hisztériás rohammal visszatartja. A sok apró, lefojtott sérelem egy éjszaka feltör — megöli gazdáit. Sem Anna, sem a környezete nem tudja megmagyarázni. Anna nem érez megbánást, bűntudatot. A gyilkosság közvetlen kiváltó oka Patikárius Jancsi árulása volt, mégsem őt ölte meg — hanem a házaspárt, mert úgy gondolta, az alkalmazottjukká válás pillanatában siklott ki az élete.</p>
+<h2>A regény szerkesztő elve: késleltetés és fokozás</h2>
+<p>Egyre több apró sérelem halmozódik fel, amely egy pillanat alatt a felszínre tör és tragédiát okoz. Az író szerint Anna tettére egyetlen megoldás lehet: az irgalom, a megbocsájtás.</p>
+<h2>Moviszter doktor — a rezonőr</h2>
+<p>Anna nem menekül el; a tárgyaláson mindenki ellene vall. Egyedül az idős, beteg Moviszter doktor áll ki mellette: <em>"Nem úgy bántak vele, mint egy emberrel, hanem mint egy géppel."</em> Ő az író szócsöve — a humanizmus képviselője, aki részvétet érez minden szenvedő embertársa iránt. A lányt végül 15 év fegyházra ítélik. A regény elején latin nyelvű halotti könyörgés áll mottóként.</p>`},
+{id:13,title:`Madách Imre: Az ember tragédiája`,auth:`Madách Imre`,era:`19. sz.`,kw:["drámai költemény","Ádám","Lucifer","Éva","történelmi színek","deizmus"],content:`<h2>Madách Imre élete (1823–1864)</h2>
+<p>A Nógrád megyei Alsósztregován született középnemesi családban. Iskolái: váci gimnázium és a pesti egyetem jogi és filozófiai kara. Az egyetem után másodjegyző és újságíró lesz. Egymást követik a családi tragédiák: nővérét, sógorát, unokaöccsét román parasztok felkoncolták, öccse is meghal, házassága Fráter Erzsébettel válással végződik az asszony hűtlensége miatt. A Kisfaludy Társaság és az MTA tagja.</p>
+<h2>A mű keletkezése és műfaja</h2>
+<p>1859–60-ban írta. Arany Jánosnak küldte el a kéziratot, aki eleinte értéktelen Faust-utánzatnak tartotta, később azonban felismerte a nagyságát. <strong>Műfaja: drámai költemény</strong> — jellegzetes romantikus műfaj, keverednek benne a műnemek. Az emberi élet alapvető kérdéseire keresi a választ: mi az élet értelme, van-e fejlődés a történelemben, mi a férfi és nő viszonya. A mű létrejöttében nagy szerepe volt az 1848-49-es szabadságharc bukásának, a családi tragédiáknak és a megromlott egészségnek.</p>
+<p><strong>Vallási világképe: deizmus</strong> — Isten megteremtette a világot, de ezután minden a saját törvényei szerint megy tovább.</p>
+<h2>Szerkezet — kétszintes és keretes dráma</h2>
+<p>Az első 3 és az utolsó (15.) szín a mennyben játszódik — ezek a <strong>bibliai (keretező) színek</strong>. A középső 11 szín a <strong>történelmi színek</strong>.</p>
+<h2>Bibliai színek</h2>
+<p><strong>Az Úr:</strong> büszke a megteremtett világra, tökéletesnek tartja. Nem viseli el Lucifer kritikáját, mindenkit alattvalójának tekint. Nem semmisíti meg Lucifert — ezzel elismeri a létjogosultságát.<br>
+<strong>Lucifer:</strong> egyenrangúnak gondolja magát az Úrral és részt kér a teremtésből — csak a tudás és halhatatlanság fáját kapja. Lázad és az embernek is ártani akar. A történelmi korokat mindig a hanyatló fázisukban ábrázolja — célja, hogy Ádám elveszítse a hitét. Rideg, számító, cinikus figura, de sokszor leleplezi a hamis illúziókat és mond ki alapigazságokat. Kritizál, de megoldást semmire sem nyújt. <strong>Az Úr és Lucifer egymás kiegészítői</strong>, nem ellenfelek — ketten együtt alkotják a teljességet. Az Úr: erő, teremtés, hit. Lucifer: kételkedés, józanság, racionalizmus.</p>
+<h2>Történelmi színek — eszmék és kiábrándulások (tézis → antitézis → szintézis)</h2>
+<p>Minden színben Ádám lelkesedik egy eszméért (tézis), de a szín végére kiábrándul, mert az eszme torzformában valósult meg. A következő szín az előző ellentéte (antitézis), s vannak összegző (szintézis) színek is.</p>
+<p><strong>4. szín (Egyiptom):</strong> Ádám fáraóként jelenik meg. Mindene megvan, mégis üres az élete. A hatalom eszméjéért lelkesedik, de Éva hatására megérti: semmit nem ér az olyan dicsőség, amit milliók kínja árán ér el. ("Milliók egy miatt.")<br>
+<strong>5. szín (Athén):</strong> Miltiádész alakja — a nép boldogítása, szabadság eszméje. A népet demagógok befolyásolják, a nép nem méltó a szabadságra.<br>
+<strong>6. szín (Róma):</strong> A züllésbe, erkölcstelenségbe menekül — hedonizmus. Megundorodik, az eszményi szerelmet keresi.<br>
+<strong>7. szín (Konstantinápoly):</strong> Középkori lovagvilág, a vallás és kereszténység eszméje. Kiábrándul a vallási fanatizmus és eretnekégetések láttán.<br>
+<strong>8. szín (Prága):</strong> Kepler, a csillagász alakja — a tudomány eszméje. Kiábrándul: a tudósoknak horoszkópot kell készíteniük gazdag embereknek a megélhetésért.<br>
+<strong>9. szín (Párizs, 1789):</strong> Álom az álomban — szintézis: szabadság, egyenlőség, testvériség. De az eszméket erőszakkal próbálják megvalósítani.<br>
+<strong>10. szín (Prága):</strong> Újra Kepler alakjában ébred. Úgy érzi, a forradalmat minden borzalmával együtt vállalni kell.<br>
+<strong>11. szín (London):</strong> A kapitalizmus világa, Madách jelenkora. A pénz hatalma tönkreteszi az emberek életét — haláltánccal zárul. (Hasonlóság Arany <em>Híd-avatás</em> c. balladájával.)<br>
+<strong>12. szín (Falanszter):</strong> A jövő képe, utópia. Az észszerűség és szervezettség eszméje — de teljesen háttérbe szorulnak az egyéniségek, érzelmek, a kultúra. Előnye: béke és egyenlő részesedés.<br>
+<strong>13. szín (az Űr):</strong> Ádám kiábrándult a földi életből, az űrben új eszmét keres. Végtelenül magányos, eljut az öngyilkosság gondolatáig — a Föld szelleme menti meg.<br>
+<strong>14. szín (Eszkimók):</strong> Nincs eszme, csak a túlélés. Az emberek elkorcsosultak, félelem és éhség irányít.<br>
+<strong>15. szín (záró bibliai keretszín):</strong> A bizonytalan jövő aggasztja Ádámot, újra öngyilkosságra gondol. Éva tántorítja el — bejelenti, hogy gyermeket vár.</p>
+<h2>Szereplők jellemzése</h2>
+<p><strong>Ádám:</strong> állandó küzdés jellemzi — minden színben lelkesedik egy eszméért, végül csalódik, de minden bukás után újra talpra áll. A bizánci színig aktív résztvevő, ettől inkább passzív szemlélő. Az álomszínek ismeretszerzést jelentenek. Sokféle érzelem: lelkesedés, szenvedély, hit, csalódás. <em>"Mondottam: ember, küzdj és bízva bízzál!"</em><br>
+<strong>Lucifer:</strong> (lásd fentebb)<br>
+<strong>Éva:</strong> kettős szerep — bizonyos színekben pozitív, másokban negatív. A pozitív képet az író édesanyjáról, a negatívat feleségéről mintázta. Miatta vesztette el Ádám a Paradicsomot, de végül ő menti meg a pusztulástól. Sokféle érzelem: szeretet, az otthon harmóniája, támasz, de hűtlenség és túlzott kíváncsiság is. Ő az életadó, az ősanya.</p>
+<h2>A mű alapkérdései</h2>
+<p>a, Van-e élet a halál után?<br>
+b, Fejlődik-e az emberiség történelme, vagy ciklikusan ismétlődik?<br>
+c, A történelem alakításában mi az egyén és a tömeg szerepe? (Az egyén általában megfogalmaz egy eszmét, a tömeg megvalósítja, de el is rontja.)<br>
+d, Szabadon tudunk-e választani jó és rossz között?</p>
+<p>Ezekre a kérdésekre a mű nem ad egyértelmű választ — az egyetlen értelmes emberi magatartás az örökös küzdés.</p>`},
+{id:14,title:`Radnóti Miklós utolsó versei`,auth:`Radnóti Miklós`,era:`20. sz.`,kw:["bori notesz","munkaszolgálat","Razglednicák","Erőltetett menet","holokauszt"],content:`<h2>Radnóti Miklós (1909–1944)</h2>
+<p>A <strong>Nyugatosok 3. nemzedékének</strong> tagja. Eredeti neve Glatter Miklós. 1909-ben Budapesten született zsidó polgári értelmiségi családban. Születése anyjának és ikertestvérének életébe került. 1921-ben apja is meghal. Nagybátyja nevelte. 1927-ben érettségit tesz egy kereskedelmi iskolában, majd textilipari főiskolára megy. 1930-ban hazatér és beiratkozik a szegedi egyetem magyar-francia szakára — doktorátust szerez, de tanári állást nem kapott, fordításokból tartotta fenn magát. 1935-ben feleségül vette Gyarmati Fannit.</p>
+<p>1940-től hívták be munkaszolgálatra. Utoljára 1944 májusában — ekkor a jugoszláviai Bor melletti Lager Heidenauba szállítják, majd a tábor felszámolása után nyugat felé irányítják. A Győr melletti Abda községben <strong>agyonlövik huszonkét társával együtt</strong>.</p>
+<p>A <strong>bori noteszt</strong> a munkatáborokban, illetve menetelése során írta. A borítóra Radnóti négy nyelven írta rá, hogy aki megtalálja, juttassa el Ortutai Gyulához. A notesz viharkabátja belső zsebében volt, mikor meghalt, így maradt ép. <strong>Két évvel a költő halála után</strong> kerül elő a tömegsírból, ahová eltemették.</p>
+<h2>Az utolsó versek legfontosabb témái</h2>
+<p>1. A háború borzalmai, társainak halála és saját elképzelt halála.<br>
+2. A <strong>hitvesi szerelem</strong> — élete utolsó hónapjaiban ez ad erőt az életben maradáshoz.<br>
+3. Barátság, amit mesterei és művésztársai iránt érez.<br>
+4. A táj, ami a költő lelkiállapotát tükrözi.</p>
+<h2>Hetedik ecloga</h2>
+<p>Radnóti Vergilius hatására 10 eklogát tervezett, de csak 8 készült el. Ebben a versben szakít a vergiliusi hagyománnyal — nem párbeszédes és nem pásztoridill. Elégikus hangulatú búcsúvers, amelyben a feleségétől és az élettől búcsúzik.</p>
+<p>Meghitt, bizalmas monológ — képzeletbeli levél a feleségéhez, akit <strong>ötször is megszólít</strong>. Az időtoposz az éjszaka. A vers elején a sötétség még jótékony hatású (eltakarja a valóságot, képzeletben hazatérhet). Folyamatosan váltják egymást a valóság és a képzelet, az otthon és a tábor képei. Megszólal az otthonért való aggódás és félelem. A tábor borzalmait naturalista képekben mutatja be. A költő magányát és szenvedését az emlékezéssel próbálja enyhíteni, de az álmodozást és csodavárást szétzúzza a valóság. <strong>Ars poetica:</strong> a legszörnyűbb körülmények között is erkölcsi kötelessége a versírás — a költészet egyet jelent a humánum megőrzésével. Az utolsó sorok Horatius-parafrázisnak is tekinthetők.</p>
+<h2>A la recherche…</h2>
+<p>A vers címe utalás Proust <em>Az eltűnt idő nyomában</em> c. regényére. Radnóti a múltra emlékezik vissza — a barátaival töltött szép estékre. A nosztalgikus idill és a háború szörnyűséges képei váltakoznak. A költő nemcsak a háború halottjait siratja, hanem azokat az élőket is, akiket szintén megnyomorított. A vers zárlatában önmagát a túlélők közé számítja — él még a remény, de a meghalt barátok emléke beárnyékolja a jövőt. Hexameteres forma.</p>
+<h2>Erőltetett menet</h2>
+<p>A versforma egy középkori költő, Walter von der Vogelweide versét idézi meg: <strong>nibelungizált alexandrin</strong>, de képversként is értelmezhető — a szabálytalanul kettétört verssorok között kanyargó út képe rajzolódik ki. Ez a cezúra jelképezheti az elbukó, összeeső majd feltápászkodó foglyok vánszorgását, a halálba vezető utat. A költő az életösztön és a halálvágy között vergődik. Az otthon, a béke idilli képeit és Fanni alakját impresszionista képekben villantja fel, ezekbe próbál belekapaszkodni. A halálvágy is erős — a halál véget vetne a szenvedéseinek. A <strong>belső dilemma az élet melletti döntéssel zárul</strong>.</p>
+<h2>Razglednicák (Képeslapok)</h2>
+<p>Szerb szó, jelentése: képeslapok. 4 epigrammaszerű, rövid vers — Radnóti utolsó versei. A költő <strong>Passiójának</strong> (szenvedéstörténetének) is nevezik — mindegyik vers a Golgotára vezető út egy-egy állomása.</p>
+<p><strong>1. vers:</strong> Ellentétre épül. A háború zűrzavarát dinamikus, szürreális, expresszív képekkel mutatja be — megszemélyesítések, alliterációk, szinesztézia, hangszimbolika. Felidézi Picasso Guernica c. képét és a bibliai Apokalipszist. A háborúval ellentétes a feleség képe: az állandóságot, mozdulatlanságot és tisztaságot jelképezi, egy angyal képében.</p>
+<p><strong>2. vers:</strong> Szintén ellentétre épül. A távolban felégetett otthonok képei, a közelben egy idilli pillanat (az eklogák pásztoridilljét idézi). Egy pillanatra megcsillan a remény — az erőltetett menet elején tart, úgy érzi, közelebb kerül az otthonhoz.</p>
+<p><strong>3. vers:</strong> Megváltozik a hangulat — teljesen hiányzik az optimizmus, a remény, az idill. Csak a pusztulás naturalista képei maradnak.</p>
+<p><strong>4. vers:</strong> Radnóti Petőfihez hasonlóan megjósolja saját halálát. Közvetlen kiváltó ok barátjának, Lorsi Miklós hegedűművésznek a halála — a mellette agyonlőtt barát elpattanó hegedűhúrja jelzi a halál pillanatát. Rövid, kemény mondatok és német szavak. Ironikus közmondás-átalakítás: "halált virágzik most a türelem." A sorok végén a gondolatjelek egy haldokló utolsó lélegzetvételeit idézik.</p>`},
+{id:15,title:`Sánta Ferenc: Sokan voltunk`,auth:`Sánta Ferenc`,era:`20. sz.`,kw:["szegénység","öngyilkosság","ballada","Büdös barlang","áldozatvállalás"],content:`<h2>Sánta Ferenc (1927–2008)</h2>
+<p>20. századi romániai magyar író. Írásai 1954-től jelentek meg — novellákat és regényeket írt. József Attila- és Kossuth-díjas. Műveit 23 nyelvre fordították le. Főbb művei: <em>Az ötödik pecsét</em>, <em>Húsz óra</em>.</p>
+<h2>Sokan voltunk (1954)</h2>
+<p>Pályája kezdetén megjelent novella. Témája Móriczéhoz hasonló — a mélyszegénységben élők világába vezet el. <strong>Balladai hangvételű</strong> írás, amelyben E/1. és T/1. személyben egy négygyerekes család legidősebb gyermeke meséli el a tragédiát. A gyermek neve is Ferkó, mint az íróé — valószínűleg önéletrajzi jellegű mű. A történetet a már felnőtt író meséli el visszatekintve, de a novellában a gyermek látószögén át látjuk az eseményeket.</p>
+<p>A novella <strong>3 egyenrangú főhőse</strong> a nagyapa, az apa és a legidősebb fiúgyermek.</p>
+<h2>A cselekmény</h2>
+<p>A történet in medias res kezdődik — az első mondatok előrevetítik a tragédiát. A bevezetésből megismerjük a helyzetet: 3 hónapja éheznek, az apa munka nélkül tengődik, a szegénységből lehetetlen kitörniük. Tényszerűen, szinte érzelmek nélkül közli az író.</p>
+<p>A bonyodalom azzal kezdődik, hogy a gyerekek számára érthetetlen dolgok történnek egy este: <strong>tyúkot főznek vacsorára</strong>, amit a nagyapa egyedül fogyaszt el; pálinkát isznak hozzá; majd a nagyapa megmosdik, felveszi az ünnepi ruháját és hosszasan ecseteli az apának a lehetőségeket, hogyan törhetne ki a család a szegénységből. Ezután elhagyja a családot. A távozó nagyapát az unoka is elkísérheti egy darabig — kettejüket mély szeretet és sok közös emlék köti össze. Minden történés csak később nyer értelmet.</p>
+<h2>Az apa alakja</h2>
+<p>A nagyapa távozása után az apa kerül a középpontba. Önvád gyötri — alkalmatlanná vált a família eltartására, tehetetlenül nézi a gyerekek éhezését. Az elejtett félmondatokból kiderül, hogy tehetetlenségét agresszivitásban vezeti le (csakúgy, mint Móricz <em>Tragédia</em> c. novellájának főhőse). A nagyapa távozása után <strong>hatalmas tüzet rak a házban</strong> — ezzel pótcselekménnyel leplezi indulatait. A tűz a tisztító tüzet is jelképezheti (próbálja a lelkiismeretet elhallgattatni), de a pokol tüzét is (az általa átélt kínokat).</p>
+<h2>A történet csúcspontja</h2>
+<p>A felnőttek szájából elhangzik a <strong>Büdös barlang</strong> neve — ide távozott a nagyapa. A gyermekben ekkor tudatosodik, hogy a nagyapa meg fog halni (a barlang kénes gőze a biztos halált jelenti). A barlang létező helyszín Erdélyben, amelyet sokan választottak az öngyilkosság módjaként.</p>
+<h2>A gyermek érzelmi útja</h2>
+<p>Eleinte haragot érez a nagyapja iránt (a tyúkvacsorából semmit nem kapott). Amikor kiderül, hová ment, a harag a szülei ellen irányul — nem érti, miért engedték el. Ez a <strong>novella érzelmi csúcspontja</strong>. Az író ezzel is jelzi: a szövegbe lírai betétet iktat, a mondatokat versszakokra tördeli. A gyerek ekkor válik felnőtté, megrendül hite a családban.</p>
+<h2>A nagyapa áldozatvállalása</h2>
+<p>A korábbi történéseket csak felnőttként érti meg az elbeszélő. A nagyapa azért választotta az öngyilkosságot, mert ezzel tudta csak megmenteni unokáit az éhhaláltól — egy éhes szájjal kevesebb. Nem ő az egyetlen: egy idős rokon szintén a barlangba ment meghalni. Nemcsak a nagyapa sorsa tragikus, hanem az apáé is: bárhogyan döntene, vétene az erkölcs ellen. Az író nem ítéli el az apát — a felelősséget a társadalomra hárítja.</p>
+<h2>Balladai jellemzők</h2>
+<p>Szűkszavú beszélgetések, elhallgatások, hosszú csöndek, az apa mogorvasága, az anya sírása, a furcsa történések — csak a végén nyernek értelmet. A tyúkvacsora, a tisztálkodás, az ünnepi ruha, a tűzrakás mind a nagyapa <strong>halotti szertartásának</strong> elemei voltak.</p>`},
+{id:16,title:`Kortárs irodalom: Tóth Krisztina — Vonalkód`,auth:`Tóth Krisztina`,era:`kortárs`,kw:["Vonalkód","szocializmus","emlékezés","kamasz","intertextualitás"],content:`<h2>Tóth Krisztina (1967–)</h2>
+<p>Képzőművészeti középiskolában végzett szobrász és üvegművész szakon. Az ELTE bölcsészettudományi karán szerzett diplomát, hosszabb időt töltött Párizsban, ahol kortárs francia költőkkel ismerkedett meg és francia irodalmat fordított. Pályáját lírikusként kezdte. Főbb verseskötetei: <em>Porhó; Síró ponyva</em>. Novelláskötetei: <em>Vonalkód; Pixel; Párducpompa</em>. Számos kitüntetésben részesült.</p>
+<h2>Vonalkód (2006)</h2>
+<p>2006-ban jelent meg és 15 történetet tartalmaz. Közös jellemzőjük: mindegyikben <strong>E/1. személyű az elbeszélő</strong> — részben önéletrajzi jellegűnek is tekinthető. A történeteket azonban nem ugyanaz az elbeszélő meséli, és nem minden esetben azonosíthatók az íróval. A novellák az 1960-as, 70-es és 80-as évekből, a szocializmus korából elevenítenek fel 1-1 történetet. A történeteket mindig egy nő meséli, és a történetek is nőkről szólnak. A novellákból megismerhetjük egy kislány, egy kamasz lány érzéseit, a nővé és anyává válás folyamatát.</p>
+<p>A történetek nem követnek kronologikus sorrendet és nem függnek össze egymással — ezért mondhatjuk, hogy <strong>nem egy egyén, hanem egy egész generáció közös emlékeit</strong> idézik fel.</p>
+<h2>Téma és stílus</h2>
+<p>A kötet novellái mindig valamilyen <strong>veszteséget</strong>, valaminek az elmúlását mutatják be. Az első és az utolsó történetben a halál kap nagy hangsúlyt — így keretbe foglalja a kötetet. A történetekben nem a felidézett emlék, a cselekmény lesz a legfontosabb, hanem a hozzá fűződő hangulat, az érzéki benyomás — az írónő elsősorban érzelmeket és lelkiállapotokat akar bemutatni. Nagy hangsúlyt kapnak a képszerűség elemei és a zeneiség — <strong>erős líraiság</strong> jellemzi. A hangulat melankolikus, néhol ironikus.</p>
+<p>Gyakoriak a testiség, a szagok és illatok motívumai. Többször találkozhatunk trágár kifejezésekkel is. Gyakori az <strong>intertextualitás</strong>: más szerzők műveiből, versekből, slágerekből, népdalokból vesz át idézeteket. Egy-egy novella epizódok laza láncolatából áll össze, szabad asszociációkon alapul: egyik emlék előhívja a másikat. A befejezés gyakran sejtelmes vagy nyitott.</p>
+<h2>A Vonalkód cím jelentése</h2>
+<p>— A 70-es, 80-as években a vonalkód a nyugatról érkezett árukon volt megtalálható — a <strong>jobb élet szimbólumává</strong> vált.<br>
+— A vonalkódról leolvasható egy tárgy minden fontos tulajdonsága is.<br>
+— Minden novella alcímében szerepel a <em>vonal</em> szó egy szóösszetétel tagjaként (pl. útvonal, vérvonal, bikinivonal, záróvonal, törésvonal) — a vonal szó biztosítja a történetek egymáshoz kapcsolódását.<br>
+— A vonal metaforikus: elválaszthat és összeköt. Határvonal lehet országok és emberek, nők és férfiak, múlt és jelen, gyermekek és felnőttek, test és lélek, élet és halál között.<br>
+— A vonalkód egymás mellé húzott vonalai jelképezhetik a rendezettséget is.</p>
+<h2>Langyos tej — a kötet névadó novellája</h2>
+<p>A történet főszereplője egy 16 éves lány, akinek élete néhány nap alatt teljesen megváltozik. Ennek oka egy <strong>amerikai lány vendégeskedése</strong> a családjukban (Kathy) és egy megalázó esemény az iskolájában. A történetet a magyar lány meséli el E/1. személyben.</p>
+<p>A lány egy tipikus lázadó kamasz: feketére festi a körmét és szemét, biztosítótűt hord, vitatkozik az anyjával, szerelmes egy osztálytársába (Robi). A bonyodalom Kathy megérkezésével kezdődik — a valóság teljes ellentéte annak, amit a lány várt.</p>
+<p>Kisebb-nagyobb csalódások halmozódnak:<br>
+— Ki kell költöznie a szobájából, a szülők több mindent megengednek az amerikainak.<br>
+— Napsütés helyett esik az eső.<br>
+— Az amerikai lány nem érti a szavait, a szülők ezért csalódottak.<br>
+— Úgy érzi, az anyja jobban szereti az amerikait.<br>
+— A fiú, aki a magyar lánynak tetszik, az amerikainak udvarol.<br>
+— Az osztályfőnök az egész osztály előtt leleplezi a lány érzelmeit Robi iránt.</p>
+<p>Az amerikai lány sok mindenben ellentéte: csinosabb, nőiesebb — de a magyar lány nevetségesnek tartja (fogszabályzót visel, fehér plüssmacival alszik, langyosan szereti a tejet). Az <strong>első nagy trauma</strong>: Robiban rájön, hogy az amerikait választja — lemossa a fekete festéket magáról, jelképesen lezárja az eddigi életét. Bosszút áll: kilopja Robi hokifelszerelését és szétszórja a városban.</p>
+<p>A <strong>második nagy trauma</strong>: a tanárnő leleplezi az osztály előtt — hogy elmenekülhessen, leukémiát hazudik.</p>
+<p>A befejezésben eljátszik az öngyilkosság gondolatával. A drámai zárlatban halál-motívumok jelennek meg: az el nem fogyasztott étel, a fekvő testhelyzet, a kutya vonyítása.</p>
+<p>A <strong>tej fehér színe</strong> a kamaszok ártatlanságát idézi. A novella végén összekapcsolódik a tej és a vér motívuma: a leukémia fehérvérűséget jelent, a lány azt képzeli, ha öngyilkos lenne, sűrű fehér folyadék folyna az ereiből, mint a langyos tej.</p>`},
+{id:17,title:`Romeo és Júlia — filmes feldolgozások`,auth:`Shakespeare / Zeffirelli / Luhrmann`,era:`20. sz.`,kw:["Shakespeare","Zeffirelli","Luhrmann","DiCaprio","adaptáció"],content:`<h2>Romeo és Júlia — a legtöbbet feldolgozott történet</h2>
+<p>Shakespeare drámájából több film, opera és balett is készült. Az egyik leghíresebb feldolgozás 1968-ban, a másik 1996-ban jelent meg.</p>
+<h2>Zeffirelli-féle feldolgozás (1968)</h2>
+<p>Rendezője Zeffirelli, olasz származású amerikai rendező. Az 1960-as évek hippi korszaka volt — minden a fiatalságról, a szabadságról és a szerelemről szólt, ezért választotta a rendező ezt a darabot.</p>
+<p>A film legnagyobb újdonsága: a rendező nem ismert színészeket kért fel a főszerepekre, hanem <strong>amatőröket</strong>, akik hasonló korúak voltak a darabbeli Romeo és Júliához (17 és 14 évesek). A korábbi feldolgozásokban mindig idősebb színészek játszottak.</p>
+<p>A rendező igazi klasszikus filmet alkotott: <strong>hűen követi Shakespeare eredeti darabját</strong>. Eredeti olasz helyszíneken forgatták (bár nem Veronában). A szereplők korhű díszletek között és korhű jelmezekben játszanak, a filmzene hangszerelésében is megjelennek a korabeli hangszerek. Az operatőr finom, lágy képeket alkotott, lassú kameramozgásokkal. Megható, lírai film — hűen tükrözi a reneszánsz életörömöt, a szenvedélyesség áthatja a baráti, a családi, az ellenséges és a szerelmi viszonyokat is.</p>
+<p><strong>Egyetlen lényeges eltérés:</strong> a filmből kimarad az a részlet, amikor Romeo a darab végén megöli Páris grófot a kriptánál.</p>
+<h2>Baz Luhrmann-féle feldolgozás (1996) — Rómeó + Júlia</h2>
+<p>Ausztrál származású amerikai rendező alkotása. Shakespeare klasszikus szerelmi története modern környezetben, az amerikai Los Angelesben (Verona Beach) elevenedik meg. A tengerpartért, hatalomért és pénzért harcol a két rivális banda, a Capulet és a Montague család. Tagjai villogó autóval száguldoznak, kard és tőr helyett pisztollyal ölik egymást. Rómeót <strong>Leonardo DiCaprio</strong> alakította, ekkor 21 éves, még nem túlzottan ismert. A film több díjat is nyert, zenéje ugyanannyira sikeres volt, mint maga a film.</p>
+<h2>Luhrmann filmjének fő jellemzői</h2>
+<p>A film története nagy vonalakban megegyezik a shakespeare-i történettel. <strong>Leglényegesebb változtatások:</strong><br>
+— Júlia akkor ébred fel, amikor Romeo épp a mérget issza; végső monológját elhagyták, szótlanul lesz öngyilkos.<br>
+— Kimaradt Páris meggyilkolása.<br>
+— A szövegen is változtattak — néhol elhagytak, néhol hozzáadtak.</p>
+<p>Modernség és hagyomány találkozása:<br>
+— Modern feldolgozás, követi a mai kor igényeit.<br>
+— Tömegfilmes elemek: üldözéses jelenet, autó, fegyver, slágerzene.<br>
+— A klasszikus szövegbe keveredik a szleng.<br>
+— Klipszerű vágásokat használ, ezzel is gyorsítja a film ritmusát.<br>
+— Az erőszakot naturalisztikusan ábrázolja.<br>
+— Szélsőséges arckarakter-választás, leképezi a '90-es évek amerikai társadalmát.<br>
+— A narrátor szerepét a televíziós bemondónő tölti be.<br>
+— Aktualizáló szándék a helyszín, jelmez, zene megválasztásában.<br>
+— Komikusan hat a modern ruházat és az archaizáló nyelvezet egymás melletti szerepeltetése.</p>
+<p>Neonreklámok, Jézus- és Szűz Mária-szobrok, latino hangulat, hawaii-ingbe öltözött fiatalok. Romeo ecstasytól felpörögve indul a transzvesztitának beöltözött Mercutióval az álarcosbálra.</p>
+<h2>Szimbolikus jelmezes ábrázolásmód</h2>
+<p>A szereplők jelmezeik tükrözik a jellemüket:</p>
+<p><strong>Júlia</strong> angyalszárnyakat visel — ártatlanság.<br>
+<strong>Romeo</strong> a bálon középkori lovagnak öltözött — bármire képes a szerelméért.<br>
+<strong>Páris</strong> öltönyös, nyakkendős karrierista; a bálon űrhajósjelmezt visel — elérhetetlen álmokat kerget, amikor Júliát meg akarja szerezni.<br>
+<strong>Tybalt</strong> ördögjelmezt visel — gonoszságának jelképe.</p>
+<h2>A két film összehasonlítása</h2>
+<p><strong>Zeffirelli:</strong> klasszikus, hű az eredetihez, korhű díszlet és jelmezek, lírai, reneszánsz légkör.<br>
+<strong>Luhrmann:</strong> aktualizáló, modern környezet, tömegfilmes elemek, klipszerű ritmus, szimbolikus jelmezes ábrázolásmód. A mondanivaló nem változik — csak átültettük 20. századi körülmények közé.</p>`}
+,
+{id:18,title:`A homéroszi eposzok`,auth:`Homéros`,era:`ókori`,kw:["eposz","Iliász","Odüsszeia","Akhilleusz","Odüsszeusz","homéroszi kérdés"],content:`<h2>A homéroszi kérdés</h2>
+<p>A hagyomány Homérosznak tulajdonítja az ókorban keletkezett 2 görög eposzt — az <strong>Iliászt</strong> és az <strong>Odüsszeiát</strong> —, de nem bizonyított, hogy mindkettőt ő írta, mert a két eposz más világképet tükröz. Az sem biztos, hogy Homérosz létező személy volt: lehetséges, hogy az elnevezés nem személynév, hanem a foglalkozására utal (költő). Az eposzok a Kr. e. 8. században keletkeztek.</p>
+<h2>Az eposz műfaja</h2>
+<p>A szó jelentése: hősköltemény, nagyepikai műfaj. Témája egy egész nép életét befolyásoló küzdelem, hősei általában rendkívüli képességekkel rendelkező hősök.</p>
+<h2>Eposzi kellékek</h2>
+<p><strong>Segélykérés (invokáció):</strong> a múzsákhoz intézett fohász, melyben a szerző segítséget kér a mű megírásához.<br>
+<strong>Téma megjelölése.</strong><br>
+<strong>In medias res kezdés:</strong> a cselekmény az események közepébe vágva kezdődik.<br>
+<strong>Seregszemle (enumeráció):</strong> a szerző részletesen bemutatja a szembenálló feleket.<br>
+<strong>Csatajelenetek, epizódok</strong> beiktatása (késlelteti a végkifejletet).<br>
+<strong>Csodás elemek (Deus ex machina):</strong> isteni beavatkozás.<br>
+<strong>Állandó jelzők</strong> a szereplők neve előtt (pl. tehénszemű Héra, gyorslábú Akhilleusz).<br>
+<strong>Nagy terjedelmű epikus hasonlatok.</strong><br>
+<strong>Toposzok:</strong> olyan költői képek, amelyek minden irodalmi korszakban bármelyik szerzőnél előfordulhatnak (pl. utazás = az emberi élet jelképe).<br>
+<strong>Verselés:</strong> időmértékes, hexameteres versforma.</p>
+<h2>Iliász</h2>
+<p><strong>Témája:</strong> a tíz évig tartó trójai háború utolsó 52 napjának bemutatása. A szembenálló felek a görögök és a trójaiak. A görögök tábora nem egységes — mindenki más célból harcol (bosszú, dicsőségvágy, kapzsiság). Velük szemben a trójaiakat ugyanaz a cél vezérli: családjuk és hazájuk védelme.</p>
+<p>Az eposz hőse <strong>Akhilleusz</strong> — félig isteni származású, rendkívül erős, bátor. Jelleme többször is változik: kezdetben sértődött, dacos, ezért visszavonul a harctól. Barátja, Patroklosz halála után vérszomjas fenevaddá változik. A mű végén azonban képes a megbocsátásra, átérzi mások fájdalmát. Szemében a legfontosabb érték a harci kiválósággal elérhető hírnév és a dicső halál.</p>
+<p>Az eposz idővezetése <strong>lineáris</strong>. Arisztokratikus világképet tükröz (a szereplők többsége királyi származású). A nők mellékalakok, az istenek szerepe viszont kiemelkedő — ők irányítják a történetet.</p>
+<h2>Odüsszeia</h2>
+<p><strong>Témája:</strong> a görög hős, Odüsszeusz bolyongása és hazatérése Trójából Ithakába. A cselekmény két szálon fut: Odüsszeusz kalandjai, és hogy mi történik ezalatt hazájában. Nem egy helyszínen játszódik — sok helyszínen. A szereplők nagy része és a történet meseszerű.</p>
+<p>Az istenek szerepe csökken, a nők szerepe fontosabbá válik. A főhős <strong>újfajta embereszményt</strong> tükröz: a feltörekvő polgárság, hajósok, kereskedők képviselője — sokat tapasztalt, bölcs, leleményes, sorsát maga alakítja, nem veti meg a munkát. Az arisztokrácia (amely az Iliászban vezető szerepet töltött be) ebben a műben már élősdivé válik (pl. a kérők Ithakában).</p>
+<h2>Odüsszeusz jellemzése</h2>
+<p>Kezdettől fogva jellemzi: okosság, tudásvágy, bátorság, igazságérzet. A kalandok hatására alakul ki benne: óvatosság, megfontoltság (kétszer nem követi el ugyanazt a hibát), kompromisszumkészség, felelősségérzet (célja a társai életének megmentése is).</p>
+<h2>Legfontosabb kalandok</h2>
+<p>Kalüpszó nimfa szigete, a phaiákok földje, lótuszevők földje, küklopszok szigete, a szél istenének szigete, Kirké istennő szigete, az alvilág (itt találkozik Akhilleusszal), szirének szigete, Szkülla és Kharibdisz, Héliosz napisten szigete.</p>
+<h2>Ithakában</h2>
+<p>Odüsszeusz fia felnőtté válik, nem nyugszik addig, míg meg nem tudja, mi történt az apjával. Felesége, <strong>Penelopé</strong> a hitvesi hűség mintaképe, mindenáron megpróbál ellenállni a kérők ostromának. Odüsszeusz hazatérése után fiával együtt bosszút áll a kérőkön — tette jogos büntetés, Ithakában helyreáll a rend.</p>`},
+{id:19,title:`Balassi Bálint élete és költészete`,auth:`Balassi Bálint`,era:`16. sz.`,kw:["Balassi","reneszánsz","Egy katonaének","Losonczi Anna","számmisztika","trubadúr"],content:`<h2>Balassi Bálint élete</h2>
+<p>Balassi Bálint a 16. században élt főnemesi származású költő — az első, aki anyanyelvén írta verseit. Gyermekkorában kiváló nevelésben részesült, nyolc nyelven beszélt. Később a családja elveszítette vagyonát, Balassi nincstelenné vált. Botrányos, kicsapongó életet élt, majd bekapcsolódott a törökellenes harcokba. Esztergomnál megsebesült, és mindössze negyvenéves korában meghalt.</p>
+<h2>Versek témái és kötetkompozíciós terve</h2>
+<p>Balassi verseit témájuk szerint három csoportba soroljuk: <strong>szerelmes versek, vallásos versek és vitézi versek</strong>. Költői terve az volt, hogy verseit kötetbe rendezze a számmisztika alapján. Mindegyik témából 33 verset akart írni, plusz egy bevezető verset — így a kötet összesen 100 verset tartalmazott volna. Ez azonban korai halála miatt nem valósult meg.</p>
+<p>A <strong>hármas szám</strong> a bibliai Szentháromságra utal, a <strong>100-as szám</strong> a tökéletességet jelképezi. Kötetkompozíciójára hatott Dante <em>Isteni színjáték</em> c. műve is, amely szintén a számmisztika elvére épül.</p>
+<h2>Szerelmes versek</h2>
+<p>Szerelmes verseinek többségét egy férjes asszonyhoz, <strong>Losonczi Annához</strong> írta, akihez mély szerelmi kapcsolat fűzte. A hozzá írt versekből kiolvasható kapcsolatuk teljes, viharos története. A szerelmes versekre hatottak a <strong>népdalok és a virágénekek</strong> (Balassi a nő szépségét virágokhoz hasonlítja), de megfigyelhető a <strong>középkori trubadúrlíra</strong> hatása is. A trubadúrok középkori lovagok voltak, akik férjes asszonyokba voltak szerelmesek és rendkívül tisztelték a nőket. Számukra és Balassinál is a nő mindig magasabb rendű a férfinál.</p>
+<h2>Vallásos versek</h2>
+<p>Vallásos verseiben Istenhez könyörög, hogy segítse meg nehéz helyzetében, cserébe hálaadó éneket ígér. Bűntudat gyötri botrányos élete miatt, és azért is, mert mindig csak a nehéz pillanatokban fordul Istenhez — amikor jobbra fordul az élete, elfeledkezik Istenről. Fél attól is, hogy halála után a pokolra kerül.</p>
+<h2>Vitézi versek — Egy katonaének</h2>
+<p>Vitézi verseit katonatoborzó szándékkal is írta. Leghíresebb vitézi verse az <strong>Egy katonaének</strong>, amelynek szerkezetét szintén a számmisztika, a hármas szám határozza meg. A vers kilenc versszakból áll, amelyek közül az első, a középső és az utolsó hordozza a legfontosabb mondanivalót — ezért szokták <strong>háromoszlopú (háromtámaszú) verskompozíciónak</strong> is nevezni.</p>
+<p>A vers elején a végvári vitézeket szólítja meg a költő. <strong>Reneszánsz életörömet</strong> áraszt, a végvári katonaságot tartja a legjobb életformának. <strong>Humanista értékek</strong> jelennek meg benne: a természet szeretete és a bajtársiasság. Életképekben mutatja be a katonaélet szépségeit: a lovakkal és fegyverekkel való foglalkozást, a harcra készülődést. A vers első részében a katonaélet vonzó, szép oldala dominál.</p>
+<p>Az ötödik, <strong>középső versszak</strong> a vitézek erkölcsi felmagasztalása: emberségből és vitézségből egyaránt példaképek lehetnek mások számára. A vers második részében a költő nem hallgatja el a katonaélet nehézségeit sem: a haza védelme miatt a katonák távol vannak a családjuktól, sokat nélkülöznek, megsebesülhetnek, sőt meg is halhatnak, és gyakran még tisztességes temetést sem tudnak tartani az áldozatoknak. A záró sorokban a költő áldást kér a vitézekre, majd elbúcsúzik tőlük.</p>
+<h2>A históriás énekek hatása</h2>
+<p>A versre erőteljesen hatottak a <strong>históriás énekek</strong>. A török korban nem voltak újságok, így vándor énekmondók járták az országot, akik lantkíséret mellett mesélték el a várostromok történetét. Balassi minden versét egy már ismert dallamra írta, és a versek címe alatt mindig feltüntette, hogy melyik dallamra kell énekelni.</p>
+<p>A hármas számmisztika az Egy katonaének formai felépítésében is megjelenik: a vers három soros versszakokból áll, és minden sor szintén három szakaszra osztható. Balassi verseire jellemző a reneszánsz életöröm és a reneszánsz szimmetrikus verskompozíció, illetve a humanista értékek: a természet szeretete, a sokoldalú műveltség, az emberszeretet.</p>`},
+{id:20,title:`Himnusz és Szózat összehasonlítása`,auth:`Kölcsey Ferenc / Vörösmarty Mihály`,era:`19. sz.`,kw:["Himnusz","Szózat","Kölcsey","Vörösmarty","romantika","nemzeti dal","reformkor"],content:`<h2>Közös háttér</h2>
+<p>Kölcsey és Vörösmarty két nemzeti énekünk szerzője — mindketten a reformkorban, a romantika idején éltek, amikor a költőktől azt várták, hogy ne magánéleti problémákkal, hanem elsősorban a haza sorsával foglalkozzanak. Az írók, költők gondolkodására erősen hatott a herderi jóslat: a német filozófus-történész azt jósolta, hogy az olyan kis népek, mint a magyar, el fognak tűnni a történelem viharaiban.</p>
+<h2>Kölcsey: Himnusz</h2>
+<p><strong>Keletkezés:</strong> 1823. január 22-én — megírásának napja ünnep, a Magyar Kultúra Napja.</p>
+<p>— A cím egyben megjelöli a műfajt is: Istenhez szóló imádság, erősen vallásos jellegű.<br>
+— Az alcím (<em>A magyar nép zivataros századaiból</em>) azt jelzi, hogy a költő visszahelyezi a verset a múltba, a 16-17. százada és úgy szólal meg, mint egy ekkor élt prédikátor költő.<br>
+— A vers végigtekint Magyarország múltján és jelenén, a jövővel nem foglalkozik, mert a költő úgy érzi, az ország olyan nehéz helyzetben van, hogy a magyarságon már csak az isteni csoda segíthet.<br>
+— Isten úgy jelenik meg a versben, mint a történelem irányítója, jutalmazó és büntető egyszemélyben.<br>
+— A vers hasonlóságot mutat a bibliai jeremiádokkal (siratóénekek) és Zrínyi <em>Szigeti veszedelem</em> c. művével is.<br>
+— <strong>Keretes szerkezetű:</strong> első és utolsó versszaka az Istenhez szóló fohász.<br>
+— A költő végigtekint a magyarság múltján: dicséri az ország természeti szépségeit és olyan történelmi alakokat említ a múltból, akikre büszkék lehetünk (Árpád, a Hunyadiak).<br>
+— Ezután a nemzeti tragédiákat sorolja fel a múltból (tatár és a török veszedelem).<br>
+— Úgy érzi: Isten azért bünteti a magyarokat, mert sokat vétkeztünk a múltban; elismeri bűnösségünket, de a büntetést túlzottnak tartja.<br>
+— A legnagyobb hibának a belső viszályt, a testvérháborút tartja — ez az érzelmi, hangulati tetőpontja a versnek.<br>
+— A költő romantikus, eltúlzott képekben mutatja be a pusztulást, éles ellentétbe állítja a dicső múltat és a jelen szörnyűségeit.<br>
+— A vers hangvétele egyre pesszimistább, képei egyre sötétebbek, tragikusabbak.<br>
+— A vers elején áldásért, a vers végén már csak szánalomért könyörög a költő.<br>
+— Verselése szimultán (időmértékes és ütemhangsúlyos is), rímei keresztrímek.<br>
+— <strong>Erkel Ferenc</strong> zenéjével vált nemzeti énekünkké.</p>
+<h2>Vörösmarty: Szózat</h2>
+<p><strong>Keletkezés:</strong> 1836-ban — amikor a magyar nemzet sorsfordulat előtt állt, mert nyílt szakításra került sor a bécsi udvar és a magyarság között.</p>
+<p>— A vers címe itt is megjelöli a műfajt: a szózat az óda egyik változata, felhívás, kiáltvány a magyar néphez, emlékeztet a szónoki beszédre is.<br>
+— A vers az egész magyarságot szólítja meg <strong>E/2. személyben</strong>, ami azt jelzi, hogy a költőt közvetlen, bensőséges viszony fűzi a hazájához.<br>
+— A haza a költő számára a kezdet és a vég, végigkíséri az egész életét — ezért <strong>feltétlen hazaszeretetre</strong> szólít fel a vers.<br>
+— A vers szerkezete hasonlít a Himnuszéhoz: megjelenik a magyarság múltja és jelene, de itt már a költő felvázolja a jövő képét is.<br>
+— Kétféle jövőképet rajzol: a <strong>dicső jövőt</strong> (ha a nép összetart) és a <strong>tragikus jövőt</strong> (ha nem sikerül megmaradni).<br>
+— A vers inkább a cselekvésre, a küzdelemre buzdít, szemben a Himnusz imádsággal és siratással.<br>
+— <strong>Eötvös József</strong> javaslatára Erkel Ferenc zenéjével vált második nemzeti énekünkké.</p>`}
+];
+
+const LANG=[
+{id:101,title:`A kommunikáció`,auth:`1. tétel — Nyelvtan`,era:`Nyelvtan`,kw:["kommunikáció","adó","vevő","csatorna","kód","szituáció","zaj"],isL:true,content:`<h2>A kommunikáció fogalma</h2>
+<p>A kommunikáció közlésfolyamatot jelent, ami létrejöhet ember és ember, ember és gép, ember és állat, gép és gép, állat és állat között.</p>
+<h2>1. A kommunikáció tényezői</h2>
+<p><strong>Adó:</strong> aki elindít egy üzenetet.<br>
+<strong>Vevő:</strong> aki megkapja és értelmezi az üzenetet. Ha válaszol rá, az adó és vevő szerepe felcserélődik.<br>
+<strong>Üzenet:</strong> valamilyen információt tartalmaz.<br>
+<strong>Közvetítő közeg (csatorna):</strong> lehet a levegő, internet, telefon stb.<br>
+<strong>Kód:</strong> közös nyelv.<br>
+<strong>Szituáció:</strong> az a helyzet, amelyben a kommunikáció létrejön.<br>
+<strong>Zaj:</strong> valamilyen zavaró tényező, ami nehezíti a kommunikációt.</p>
+<h2>2. A kommunikáció fajtái</h2>
+<p>— Egyirányú vagy többirányú.<br>
+— <strong>Közvetett:</strong> ha a felek nem ugyanabban az időben vagy helyen vannak (pl. telefonálás, levélváltás).<br>
+— <strong>Közvetlen:</strong> ha a felek ugyanazon a helyen és időben vannak (pl. baráti beszélgetés).<br>
+— Írott, beszélt vagy nonverbális (gesztusok, mimika).<br>
+— Előre eltervezett vagy spontán.</p>
+<h2>3. A kommunikáció funkciói</h2>
+<p>— <strong>Információátadás</strong><br>
+— <strong>Érzelmek átadása</strong><br>
+— <strong>Felhívás</strong><br>
+— <strong>Esztétikai szerep</strong> (gyönyörködtetés)<br>
+— <strong>Kapcsolat felvétele, fenntartása, zárása</strong></p>`},
+{id:102,title:`Metakommunikáció — nem nyelvi kifejező eszközök`,auth:`2. tétel — Nyelvtan`,era:`Nyelvtan`,kw:["metakommunikáció","hangszín","gesztus","testtartás","írásjelek","mondatfonetika"],isL:true,content:`<h2>Nem nyelvi jelek a szóbeli kommunikációban</h2>
+<p>Ha szóban fogalmazunk, a hallgatók nemcsak a szöveg nyelvi jeleire, a szavakra, mondatokra figyelnek. Fontosak számukra a hangzó szöveg nem nyelvi jelei is. Sokféle érzést, gondolatot tudunk közvetíteni hangunkkal attól függően, mekkora hangerőt, hangsúlyozást, hangmagasságot, hangszínt, tempót választunk, hol és mekkora szünetet tartunk. Ezekkel a mondat- és szövegfonetikai eszközökkel jelezzük pl., ha egy új gondolatsort nyitunk ill. zárunk le, vagy előrejelzünk, sejtetünk valamit.</p>
+<p>A hangzó szöveget nemcsak hangjelek kísérik, hanem különféle kifejező mozgások is. Szerepe van a szemmozgásoknak, az arcjátéknak, gesztusoknak, testtartásunknak. A szövegbefogadó nemcsak azt értelmezi, amit a szavak közvetítenek, hanem a látványt is. Meghatározó az öltözékünk, külsőnk stílusa is. Az is jelent valamit, ha elhallgatunk vagy éppen nem szólalunk meg.</p>
+<h2>Mondatfonetikai eszközök</h2>
+<p><strong>Hangsúly:</strong> a bizonyos szótagokra jutó hangerőtöbbletet, nyomatékot jelenti.<br>
+<strong>Hangerő:</strong> megválasztása a beszéd céljától függ — az érzelmi lényegkiemelés egyik eszköze.<br>
+<strong>Hanglejtés (intonáció):</strong> a hangmagasság változása, dallama — több tényezőt tartalmaz (hangfekvés, hangköz, hangmenet); érzelmi és értelmi különbségeket jelez.<br>
+<strong>Hangszín:</strong> mindenki természetes és jellegzetes hangszínnel bír — de ez megváltoztatható, ha a téma úgy kívánja.<br>
+<strong>Beszédszünet:</strong> célja lehet belégzés, hatáskeltés; tagolja a beszédet, időt hagy a hallgatóságnak a gondolkodásra.<br>
+<strong>Beszédtempó:</strong> retorikai eszköz — a fontos dolgokat lassabban, a lényegtelent hadarva mondjuk; szünet előtt is lassítjuk a tempót.</p>
+<h2>Egyéb nem nyelvi jelek (szóbeli kommunikációban)</h2>
+<p>Arcjáték (mimika) · Gesztusok · Testtartás · Térközszabályozás · Külső megjelenés · Csend · Tekintet</p>
+<h2>A szöveg képe (írásbeli kommunikáció)</h2>
+<p>Az írott szöveg megértését segítik a szövegben lévő kiemelések, a betűtípus, a tagolás, a színek és a rajz. Másképpen olvassuk ugyanazokat a gondolatokat egy tagolás nélküli és egy jól tagolt szövegben. Betűformák irányítják a tekintetünket: dőlt, félkövér, ritkított betűs kiemelések; kisbetűs és nagybetűs változatok. Érdemes figyelni a sortávolságra és a margóra is. A színek, keretek, aláhúzások stílusos használatával fokozható a hatás.</p>
+<h2>Írásjelek (központozás)</h2>
+<p>Az írásjelekkel jelezzük a beszéd ritmusát, tagolását; segítik az összefüggő olvasást.</p>
+<p>— A <strong>kérdőjel</strong> nemcsak kérdést, hanem zárójelben megkérdőjelezést, bizonytalanságot is jelezhet.<br>
+— A <strong>felkiáltójel</strong> az indulat erejét is szemlélteti.<br>
+— A <strong>pontosvessző</strong> általában nagyobb tömböket jelöl a szövegben.<br>
+— A <strong>kettőspont</strong> azt mutatja meg, hogy utána részletezés vagy magyarázat következik.<br>
+— A <strong>zárójelek</strong> beékelődést jelölnek — a zárójelbe kerülő részt élőszóban gyorsabban, halkabban mondhatjuk. Helyette gondolatjelpárt is alkalmazhatunk.<br>
+— A mondat végén egyedülálló <strong>gondolatjel</strong> utólagos megjegyzést, hozzátoldást, vagy a gondolat befejezetlenségét jelzi.</p>
+<h2>Nem nyelvi jelek az írásbeli kommunikációban</h2>
+<p>Ábrák, tördelés, tagolójelek, kiemelések, aláhúzás, írásjelek, elrendezés, margó, tagolás, sorok, sortávolság, betűköz, betűtípus, színek, keret, javítások.</p>`},
+{id:103,title:`Tömegkommunikáció`,auth:`3. tétel — Nyelvtan`,era:`Nyelvtan`,kw:["tömegkommunikáció","sajtó","rádió","televízió","internet","egyirányú"],isL:true,content:`<h2>A tömegkommunikáció fogalma</h2>
+<p>A tömegkommunikáció <strong>sok emberhez szóló, egyirányú és közvetett</strong> kommunikációs forma. Nyelvi és nem nyelvi eszközök segítségével közvetít információkat.</p>
+<h2>Eszközei</h2>
+<p><strong>Sajtó</strong> (nyomtatott és online) · <strong>Rádió</strong> · <strong>Televízió</strong> · <strong>Internet</strong></p>
+<h2>A tömegkommunikáció fő jellemzői</h2>
+<p>— Az adó és a vevő általában nem cserél szerepet (egyirányúság).<br>
+— Az üzenet egyszerre sok emberhez jut el.<br>
+— A kommunikáló felek általában nem ugyanazon a helyen és időben vannak (közvetettség).<br>
+— A visszacsatolás lehetőségei korlátozottak (bár az internet részben megváltoztatta ezt).<br>
+— A kommunikátor (adó) általában intézményes — nem egyetlen személy, hanem szerkesztőség, médiavállalat stb.<br>
+— A befogadók (vevők) száma nagyon nagy és anonim.</p>
+<h2>Sajtóműfajok</h2>
+<p><em>(A tételben sajtóműfajokra vonatkozó részletes tartalom nem szerepelt — ha megkapod, ide kerül.)</em></p>`},
+{id:104,title:`A nyelvújítási mozgalom`,auth:`5. tétel — Nyelvtan`,era:`Nyelvtan`,kw:["nyelvújítás","Kazinczy","neológusok","ortológusok","Bessenyei","szóalkotás"],isL:true,content:`<h2>A mozgalom háttere</h2>
+<p>A nyelvújítási mozgalom a 18. században kezdődött. Mária Terézia Bécsben magyar nemesi ifjakból hozta létre testőrségét — közülük többen írók, költők lettek. Megpróbálták magyar nyelvre lefordítani külföldi szerzők műveit, de ez nem sikerült, mert a magyar nyelv elmaradott volt, szókincse szegényes. Az elmaradottság oka: a műveltség nyelve a latin volt, II. József pedig a németet akarta államnyelvvé tenni a Habsburg Birodalomban. A magyarok ezt nem fogadták el — ezért merült fel az igény a magyar nyelv megújítására.</p>
+<p>A nyelvújítás igényét először <strong>Bessenyei György</strong> fogalmazta meg <em>Magyarság</em> c. röpiratában: <em>"Minden nemzet a maga nyelvén lett tudós, idegenen sohasem."</em></p>
+<h2>A mozgalom (1772–1867)</h2>
+<p>Vezéralakja <strong>Kazinczy Ferenc</strong> volt — az irodalom vezéregyénisége. Saját birtokán, Széphalmon maga köré gyűjtötte a kor íróit, költőit, innen irányította a mozgalmat. Az írók két táborra szakadtak:</p>
+<p><strong>Neológusok:</strong> a nyelvújítás hívei.<br>
+<strong>Ortológusok:</strong> a nyelvújítást ellenzők.</p>
+<p>A két tábor között röpiratokban folyt a harc. Állomásai:</p>
+<p><strong>1811:</strong> Kazinczy megjelenteti a <em>Tövisek és virágok</em> c. epigramma-gyűjteményét — kigúnyolja a maradi gondolkodásúakat.<br>
+<strong>1813:</strong> Az ortológusok megjelentették a <em>Mondolat</em> c. röpiratukat — a nyelvújítás túlzásait gúnyolták ki.<br>
+<strong>1815:</strong> A nyelvújítók válasza: <em>Felelet a Mondolatra</em> — szerzők: Szemere Pál és Kölcsey Ferenc.<br>
+<strong>1819:</strong> Kazinczy lezárja a vitát: <em>Ortológusok és neológusok nálunk és más nemzeteknél</em>. <strong>Kompromisszum:</strong> a jó írónak egyszerre kell hagyományőrzőnek és újítónak lennie.</p>
+<h2>A mozgalom eredményei</h2>
+<p>Kazinczy és társai kb. <strong>10 ezer új szót</strong> alkottak a magyar nyelvben, amelyek többségét ma is használjuk. Ezenfelül megteremtették az egységes köznyelvet és az irodalmi nyelvet is.</p>
+<h2>Szóalkotási módszerek</h2>
+<p><strong>Idegen szavak szó szerinti fordítása magyarra:</strong> Kellner → pincér<br>
+<strong>Tájnyelvi szavak beemelése a köznyelvbe:</strong> róna, hullám, betyár<br>
+<strong>Kihalt szavak felújítása:</strong> bakó, hős, lomb<br>
+<strong>Szóképzés:</strong> húz → huzal; jár → járda; nő → nőies<br>
+<strong>Szóelvonás:</strong> cikkely → cikk; árnyék → árny<br>
+<strong>Szóösszetétel:</strong> vérszegény, bérkocsi, pénztár<br>
+<strong>Szóösszerántás</strong> (2 meglévő szót megcsonkítottak és összeillesztették): elől + ülnök = elnök; könnyű + elméjű = könnyelmű</p>`}
+,
+{id:105,title:`A mai magyar nyelvváltozatok`,auth:`7. tétel — Nyelvtan`,era:`Nyelvtan`,kw:["nyelvváltozatok","köznyelv","irodalmi nyelv","csoportnyelvek","nyelvjárás","argó","szleng"],isL:true,content:`<h2>Alapelv</h2>
+<p>Minden nyelv különböző változatokban létezik, és minden ember az élete során ugyanannak a nyelvnek több változatát is használja.</p>
+<h2>1. Nemzeti nyelv</h2>
+<p>Egy adott ország hivatalos nyelve, amelynek két változata van:</p>
+<p><strong>Irodalmi nyelv:</strong><br>
+— írók, költők fejlesztették ki<br>
+— igényesebb, gazdagabb szókincsű<br>
+— állandóbb, nem változik olyan gyorsan<br>
+— elsősorban írott változatban használjuk</p>
+<p><strong>Köznyelv:</strong><br>
+— a hétköznapi nyelvhasználat<br>
+— lazább, kötetlen<br>
+— gyorsabban változik a szókincse<br>
+— elsősorban a beszélt változatát használjuk</p>
+<h2>2. Csoportnyelvek, rétegnyelvek</h2>
+<p>Kialakulásuk oka lehet eltérő életkor, más életmód, foglalkozás, iskolai végzettség, hobbi.</p>
+<p><strong>a, Életkor szerint:</strong><br>
+— <em>Gyermeknyelv:</em> gyakoriak benne a kicsinyítő képzős szavak.<br>
+— <em>Ifjúság nyelve:</em> gyakoriak a humoros, ötletes szóalkotási módok, kifejezhetik egy csoport összetartozását.</p>
+<p><strong>b, Szakmák nyelve:</strong> zsargon — szakemberek egymás közötti, szakkifejezésekkel teli kommunikációja.</p>
+<p><strong>c, Tolvajnyelv (argó):</strong> eredetileg bűnözők titkos nyelve volt, célja bizonyos dolgok eltitkolása — olyan nyelvváltozat kialakítása, amit mások nem értenek meg. Durva, trágár szavak használata is jellemző. Sokszor felhasznál szlenges kifejezéseket is (pl. meló, lóvé, szajré, haver).</p>
+<p><strong>d, Szleng:</strong> igénytelenebb, kötetlen, bizalmas társalgási mód, ami gyakran felhasználja az argó bizonyos elemeit.</p>
+<h2>3. Nyelvjárások (dialektusok)</h2>
+<p>A nyelv területi megoszlása. Kialakulásának oka lehet: történelmi, társadalmi, földrajzi. Magyarországon 8 nagy nyelvjárási terület van, ezek három dologban térhetnek el egymástól:</p>
+<p><strong>a, Hangtani eltérés:</strong> pl. Szeged → Szöged<br>
+<strong>b, Szókincsbeli eltérés:</strong> pl. kukorica — tengeri<br>
+<strong>c, Nyelvtani rendszer eltérése:</strong> pl. emberek házok — emberek házai</p>`},
+{id:106,title:`Hangok és hangtörvények`,auth:`8. tétel — Nyelvtan`,era:`Nyelvtan`,kw:["hangtörvény","magánhangzó","mássalhangzó","illeszkedés","hasonulás","hangrend"],isL:true,content:`<h2>Hangok a magyar nyelvben</h2>
+<p>A magyar nyelvben <strong>14 magánhangzó</strong> és <strong>25 mássalhangzó</strong> van. Hangképző szerveink: tüdő, légcső, gégefő, hangszalagok, garatüreg, nyelvcsap, orrüreg, szájüreg.</p>
+<h2>Magánhangzók jellemzői</h2>
+<p>— A tüdőből kiáramló levegő megrezegteti a hangszalagokat, a levegő más akadályba nem ütközik.<br>
+— A magánhangzók zönge hangok.<br>
+— Önmagukban is alkothatnak szótagot.</p>
+<h3>Magánhangzók fajtái</h3>
+<p><strong>a, Nyelvállás szerint:</strong> alsó, középső vagy felső nyelvállásúak.<br>
+<strong>b, Képzés helye szerint:</strong><br>
+— Elöl képzett (magas): e, é, i, í, ö, ő, ü, ű<br>
+— Hátul képzett (mély): a, á, o, ó, u, ú<br>
+<strong>c, Ajakkerekítéses vagy ajakréses.</strong><br>
+<strong>d, Rövidek vagy hosszúak.</strong></p>
+<h2>Magánhangzótörvények</h2>
+<p><strong>a, Hangrend törvénye:</strong><br>
+— Magas hangrendű szó: csak magas magánhangzó van benne (pl. kerítés)<br>
+— Mély hangrendű szó: csak mély magánhangzó van benne (pl. autó)<br>
+— Vegyes hangrendű szó: magas és mély magánhangzó is van benne (pl. liba)</p>
+<p><strong>b, Illeszkedés törvénye:</strong><br>
+— Magas hangrendű szóhoz magas hangrendű toldalék kapcsolódik (pl. ember + nek)<br>
+— Mély hangrendű szóhoz mély hangrendű toldalék kapcsolódik (pl. ház + ból)<br>
+— Vegyes hangrendű szóhoz általában mély hangrendű toldalék kapcsolódik (pl. masni + val)</p>
+<p><strong>c, Hiátustörvény:</strong> ha egy szóban két magánhangzó kerül egymás mellé, közöttük egy ejtéskönnyítő j hangot ejtünk (pl. fiú → [fijú]).</p>
+<h2>Mássalhangzók jellemzői</h2>
+<p>A tüdőből kiáramló levegő a szájüregben akadályba ütközik. Az akadály lehet a nyelv, a szájpadlás, az ajkak és a fogak.</p>
+<h3>Mássalhangzók fajtái</h3>
+<p><strong>a, Zöngés és zöngétlen</strong> (pl. b–p, d–t, g–k, v–f, z–sz, zs–s)<br>
+<strong>b, Képzés helye szerint:</strong> ajakhang, foghang, gégehang, szájpadláshang<br>
+<strong>c, Képzés módja szerint:</strong> zárhang, réshang, orrhang, pergőhang<br>
+<strong>d, Rövidek és hosszúak</strong> (pl. k – kk, sz – ssz)<br>
+<strong>e, Egy-, két- és háromjegyűek:</strong><br>
+— Egyjegyű: b, k, t, v<br>
+— Kétjegyű: cs, ly, ny, sz, dz<br>
+— Háromjegyű: dzs</p>
+<h2>Mássalhangzótörvények</h2>
+<p><strong>Zöngésség szerinti részleges hasonulás:</strong> pl. mosdó, dobta<br>
+<strong>Képzés helye szerinti részleges hasonulás:</strong> pl. színpad, szénpor<br>
+<strong>Írásban jelölt teljes hasonulás:</strong> pl. képpel, rázza<br>
+<strong>Írásban jelöletlen teljes hasonulás:</strong> pl. hagyja, szállj<br>
+<strong>Összeolvadás:</strong> pl. költség, tanítja<br>
+<strong>Rövidülés:</strong> pl. otthon, jobbra<br>
+<strong>Kiesés:</strong> pl. mindnyájan</p>`},
+{id:107,title:`Szóelemek (morfémák)`,auth:`9. tétel — Nyelvtan`,era:`Nyelvtan`,kw:["morféma","tőmorféma","toldalék","képző","jel","rag","szabad morféma"],isL:true,content:`<h2>A morfémák fogalma</h2>
+<p>A szóelemek (morfémák) a nyelv legkisebb, értelemmel bíró elemei. Két fajtájuk van:<br>
+<strong>a, Tőmorféma</strong> (szótári szóalak)<br>
+<strong>b, Toldalékok</strong> (képző, jel, rag)</p>
+<h2>1. A tőmorfémák fajtái</h2>
+<p><strong>a, Egyalakú tövek:</strong> bármilyen toldalékot hozzátehetünk, a szó eredeti alakja nem változik (pl. ember → emberek, embernek, emberhez, embert).</p>
+<p><strong>b, Többalakú tövek:</strong> bizonyos toldalékok előtt a szó eredeti alakja megváltozik (pl. hisz → hinne, hidd, higgye, hívő).</p>
+<h2>2. A toldalékok fajtái</h2>
+<p><strong>Képző:</strong><br>
+— megváltoztathatja a szó szófaját és jelentését is<br>
+— egy szóhoz több képzőt is hozzátehetünk<br>
+— Fajtái: névszóképző (pl. süt → sütés; vad → vadász) és igeképző (pl. vad → vadít, vadul)</p>
+<p><strong>Jel:</strong><br>
+— módosítja a szó eredeti jelentését<br>
+— egy szóhoz több jelet is hozzátehetünk<br>
+— Igéhez járuló jelek: múlt idő jele (t, tt: írt, olvasott); feltételes mód jele (-na/-ne/-ná/-né: írna, olvasná); felszólító mód jele (-j: írj)<br>
+— Névszóhoz járuló jelek: többes szám jele (-k: emberek); fokozás jele (leg- + -bb: legjobb); kiemelő jel (-ik: szebbik); birtokos személyjel (m, d, ja, unk, tok, tek, tök, uk, ük, juk, jük: kezem, sálatok); birtoktöbbesítő jel (-i: kezei); birtokjel (-é: Jánosé)</p>
+<p><strong>Rag:</strong><br>
+— kijelöli a szó mondatbeli szerepét (alany, állítmány, tárgy, határozó, jelző)<br>
+— egy szóhoz mindig csak egy ragot tehetünk<br>
+— mindig záró morféma (nem állhat utána képző vagy jel)<br>
+— Fajtái: igei személyragok (írok, írsz, írunk stb.); tárgyrag (-t: képet, kezet); határozóragok (kertnek, kertben, kerthez, kertről stb.)</p>
+<h2>3. A morfémák csoportosítása önállóságuk alapján</h2>
+<p><strong>a, Szabad morfémák:</strong> önálló szóként állnak, önmagukban is van jelentésük (a szótári szóalakok).</p>
+<p><strong>b, Félszabad morfémák:</strong> önálló szóként állnak, de jelentésüket csak egy másik szóval együtt kapják meg. Pl. igekötők (megy ki), névutók (a ház előtt), névelők (a ház).</p>
+<p><strong>c, Kötött morfémák:</strong> nem önmagukban állnak, hanem hozzákapcsolva egy másik szóhoz. Ilyenek a képzők, jelek, ragok.</p>`},
+{id:108,title:`A szófajok`,auth:`10. tétel — Nyelvtan`,era:`Nyelvtan`,kw:["szófaj","alapszófaj","viszonyszó","mondatszó","főnév","ige","melléknév","névmás"],isL:true,content:`<h2>A szófaji besorolás szempontjai</h2>
+<p>A szavakat négy szempont alapján lehet szófajokba sorolni:<br>
+1. A szavak szótári jelentése<br>
+2. Alaki viselkedésük (milyen toldalékokat lehet kapcsolni hozzájuk)<br>
+3. Mondatbeli szerepük (milyen mondatrészek lehetnek)<br>
+4. Szövegbeli szerepük</p>
+<h2>Szófaji csoportok</h2>
+<h3>1. Alapszófajok</h3>
+<p>— Önálló jelentésük van.<br>
+— Többségük toldalékolható.<br>
+— Önálló mondatrészek lehetnek.</p>
+<p>Fajtái: <strong>főnév</strong> (ház, ember), <strong>melléknév</strong> (piros, szép), <strong>számnév</strong> (három, első), <strong>névmás</strong> (én, az, ő, ki, ami), <strong>ige</strong> (fut, olvas, van), <strong>főnévi igenév</strong> (futni, olvasni), <strong>melléknévi igenév</strong> (futó, olvasott, olvasandó), <strong>határozói igenév</strong> (futva, olvasva), <strong>határozószó</strong> (gyorsan, ott, ma)</p>
+<h3>2. Viszonyszók</h3>
+<p>— Jelentésük viszonyjelentés (csak egy másik szóval együtt nyerik el a jelentésüket).<br>
+— Általában nem toldalékolhatók.<br>
+— Önállóan nem lehetnek mondatrészek.</p>
+<p>Fajtái: <strong>névelő</strong> (a, az, egy), <strong>névutó</strong> (előtt, után, alatt, felett), <strong>igekötő</strong> (meg, ki, be, el), <strong>kötőszó</strong> (és, de, mert, hogy), <strong>módosítószó</strong> (talán, bizony, valóban), <strong>segédige</strong> (fog, volna)</p>
+<h3>3. Mondatszók</h3>
+<p>— Nincs önálló fogalmi jelentésük, de érzelmet, indulatot kifejezhetnek.<br>
+— Nem toldalékolhatók.<br>
+— Önállóan nem lehetnek mondatrészek, de lehetnek önálló, tagolatlan mondatok.</p>
+<p>Fajtái: <strong>indulatszó</strong> (jaj, hú, hoppá), <strong>megszólítószó</strong> (na, nos, tessék), <strong>tagadó/igenlő szó</strong> (igen, nem, persze)</p>`},
+{id:109,title:`A mondatrészek fogalma és fajtái`,auth:`11. tétel — Nyelvtan`,era:`Nyelvtan`,kw:["mondatrész","alany","állítmány","tárgy","határozó","jelző","mondat magja"],isL:true,content:`<h2>A mondatrészek fogalma</h2>
+<p>A szavakat a mondatban elfoglalt szerepük szerint <strong>mondatrészeknek</strong> nevezzük. A mondat két legfontosabb része az <strong>alany</strong> és az <strong>állítmány</strong>, amelyek a legfontosabb információt hordozzák — ketten együtt alkotják a mondat magját.</p>
+<h2>Az alany és az állítmány</h2>
+<p><strong>Állítmány:</strong> a mondat legfontosabb része, megnevezi a cselekvést, történést, létezést vagy tulajdonságot. Lehet <em>igei állítmány</em> (pl. A gyerek fut) vagy <em>névszói állítmány</em> (pl. Az ég kék). Kérdése: Mit csinál? Mi történik? Mi/milyen/ki az alany?</p>
+<p><strong>Alany:</strong> megnevezi azt, akiről/amiről az állítmány szól. Lehet <em>határozott alany</em> (pl. A madár énekel) vagy <em>általános alany</em> (pl. Zörög a haraszt). Kérdése: Ki? Mi?</p>
+<h2>A bővítmények</h2>
+<p><strong>Tárgy:</strong> megnevezi a cselekvés tárgyát (azt, amire a cselekvés irányul). Kérdése: Kit? Mit? Ragja: -t (pl. könyvet olvas, barátját hívja).</p>
+<p><strong>Határozó:</strong> megnevezi a cselekvés körülményeit. Fajtái:<br>
+— <em>Helyhatározó:</em> hol? honnan? hová? (pl. az iskolában, a kertből, a városba)<br>
+— <em>Időhatározó:</em> mikor? (pl. reggel, tegnap)<br>
+— <em>Módhatározó:</em> hogyan? (pl. gyorsan, vidáman)<br>
+— <em>Okhatározó:</em> miért? (pl. fáradtságból)<br>
+— <em>Eszközhatározó:</em> mivel? (pl. ceruzával)<br>
+— <em>Állapothatározó:</em> milyen állapotban? (pl. nevetve)<br>
+— <em>Eredményhatározó:</em> mivé? (pl. tanárrá lesz)</p>
+<p><strong>Jelző:</strong> megnevezi a főnévi mondatrész valamely tulajdonságát, mennyiségét, hovatartozását. Fajtái:<br>
+— <em>Minőségjelző:</em> milyen? (pl. piros alma)<br>
+— <em>Mennyiségjelző:</em> mennyi? hány? (pl. három alma)<br>
+— <em>Birtokos jelző:</em> kinek a ...? (pl. az apa háza)<br>
+— <em>Értelmező jelző:</em> az értelmezett szó után áll, azonosít vagy részletez (pl. Péter, a barátom)</p>
+<h2>Az egyszerű mondat fajtái</h2>
+<p><strong>Teljes mondat:</strong> van alanya és állítmánya.<br>
+<strong>Hiányos mondat:</strong> az alany vagy az állítmány hiányzik, de a szövegkörnyezetből visszakövetkeztethető.<br>
+<strong>Tagolatlan mondat:</strong> mondatszóból áll (pl. Tűz! Igen.).</p>`},
+{id:110,title:`A kulturált vita kritériumai`,auth:`15. tétel — Nyelvtan`,era:`Nyelvtan`,kw:["vita","disputa","érvelés","cáfolat","tételmondat","keresztkérdés","vitavezető"],isL:true,content:`<h2>A vita fogalma</h2>
+<p>Ha egy témán belül két ember ellenkező véleményt képvisel, <strong>vitáról</strong> beszélünk. Az élet minden területén előfordul — iskolában, munkahelyen, otthon, utcán. A vita szó latin eredetű (<em>disputa</em>). A jó vitában a szembenálló feleknek nem az a céljuk, hogy legyűrjék a másikat, hanem hogy együtt, közös belátással közelebb jussanak az igazsághoz.</p>
+<p><strong>A vita célja:</strong> megvédjük álláspontunkat, megcáfoljuk a másik érveit.<br>
+<strong>Nyilvános vita:</strong> tárgya általában valamilyen időszerű, közérdekű kérdés.</p>
+<h2>Fontos alapelvek</h2>
+<p>— <strong>Becsületesség, őszinteség</strong> — be kell ismerni, ha nincsenek jól alátámasztható érveink vagy logikai hibát követtünk el.<br>
+— A vita sohasem személyekről szól, hanem <strong>eszmékről, véleményekről</strong> — nem szabad személyeskedni.<br>
+— A jó vitatkozó: türelmes, udvarias, higgadt, végighallgatja a másikat, rendelkezik <strong>kritikai gondolkodás</strong> készségével.</p>
+<h2>Felkészülés a vitára</h2>
+<p>— Próbálj mindkét oldal mellett érvelni (egyszer állító, azután tagadó oldalon).<br>
+— Kutatómunka, információgyűjtés.<br>
+— Mindennapi példák segítségével is alátámaszthatod véleményed.<br>
+— Külső forrásokból: könyvek, újságok, internet, mások személyes véleménye.</p>
+<h2>A vita menete</h2>
+<p><strong>1. Tételmondat:</strong> rövid és egyszerű állítás, amely meghatározza, miről vitatkoznak. (pl. Az iskolai menzákon népszerűsíteni kell a magyar konyha ízeit.) A jó tételmondat magába foglalja az állítás és tagadás lehetőségét is.</p>
+<p><strong>2. Fogalmak meghatározása:</strong> a tételmondatban szereplő fogalmak meghatározása — előfordul, hogy csak azért vitatkoznak, mert ugyanazt a fogalmat másképpen értelmezik.</p>
+<p><strong>3. Érvelés:</strong> bármilyen érvfajtát felhasználhatunk. Meggyőzőek leszünk, ha személyes példát is elmesélünk, szaktekintélyeket idézünk, minél több bizonyítékot és adatot gyűjtünk, hasonlatokat is fölhasználunk. Az érvelés legyen világos és logikus.</p>
+<p><strong>4. Keresztkérdések:</strong> a másik meghallgatása után tehetők fel. Céljuk: meggyengíteni az ellenfél érveit és erősíteni a sajátunkat; segítenek tisztázni a vitapartner állásfoglalását és kiemelik a másik fél hibáit.</p>
+<p><strong>5. Cáfolat:</strong> a másik fél véleményének tagadása. Fontos: az erős érvek megcáfolása — hibás értelmezés, téves hasonlat, nem logikus következtetés.</p>
+<p><strong>6. Összegzés:</strong> vélemény összefoglalása, az erős érvek megismétlése.</p>
+<h2>A vitavezető és a bíró szerepe</h2>
+<p><strong>Bíró:</strong> (gyakran) egy harmadik, kívülálló személy, aki eldönti a vitát.<br>
+<strong>Vitavezető feladatai:</strong> a vita levezetése; igazságos időbeosztás figyelése; végig pártatlan marad; segít, hogy ne durvuljon el a vita (stílus, személyeskedés megelőzése).</p>`},
+{id:111,title:`A továbbtanuláshoz szükséges szövegtípusok`,auth:`14. tétel — Nyelvtan`,era:`Nyelvtan`,kw:["önéletrajz","motivációs levél","CV","hivatalos stílus","pályázat","álláskeresés"],isL:true,content:`<h2>Az önéletrajz</h2>
+<p>Önéletrajzot általában iskolai felvételihez, új munkahely megpályázásához, vagy valamilyen pályázati anyag mellékleteként készítünk. Az önéletrajz személyünk, iskolai végzettségünk, tanulmányaink, szakismeretünk, munkásságunk, munkahelyeink, érdeklődési körünk bemutatása. Egy önéletrajz sokat elárul írójáról: nyelvi, helyesírási képességéről, sőt igényességéről és rendszeretetéről is tanúskodik.</p>
+<p>Az önéletrajz két legelterjedtebb típusa: az <strong>általános</strong> és a <strong>szakmai önéletrajz</strong>. Mindkettő írható hagyományos, illetve <strong>amerikai (CV) formában</strong>. A hagyományos önéletrajz írója összefüggő mondatokban tudósít önmagáról. Az amerikai típusú önéletrajz ezzel szemben vázlatszerű, tömörebb, áttekinthetőbb — ma ezt a típust használják leginkább.</p>
+<h3>Az önéletrajz részei:</h3>
+<p>— Középen felül: Önéletrajz<br>
+— Jobb felül: portréfotó (ha szükséges): megfelelő öltözékben, visszafogott kép<br>
+— Személyes adatok: teljes név, édesanya neve, születési hely, idő, lakcím, elérhetőségek (telefonszám, e-mail cím)<br>
+— Munkatapasztalat: fordított időrendben, évszámmal, a cég pontos megnevezésével, telephely, a betöltött pozíció és a legfontosabb tevékenységi kör<br>
+— Tanulmányok: fordított időrendben, évszámmal, az intézmény neve, helye, az ágazat/szak, a szerzett képesítés pontos megnevezése<br>
+— Egyéb ismeretek: nyelvismeret, jogosítvány, egyéb készségek, esetleg hobbi, személyes érdeklődési kör</p>
+<h2>A motivációs levél</h2>
+<p>Legtöbbször álláshirdetésre vagy ösztöndíjpályázatra írt levél, melyben a pályázó kifejti, mi teszi érdekeltté abban, hogy az adott helyre jelentkezik. Kifejti, miért szeretné megpályázni az adott állást, miért érzi magát alkalmasnak, mit vár a lehetőségtől. A motivációs levél hivatalos stílusú, szerkesztett szöveg, amelyben van helye néhány személyesebb megjegyzésnek is.</p>
+<h3>A motivációs levél részei:</h3>
+<p><strong>1.</strong> Honnan szerzett információt az álláslehetőségről, pontosan melyik pozícióra jelentkezik?<br>
+<strong>2.</strong> Miért tartja magát alkalmasnak az állás betöltésére? (végzettségek, személyes tulajdonságok, hasonló munkatapasztalat)<br>
+<strong>3.</strong> Miért akar ott dolgozni?<br>
+<strong>4.</strong> Hova várja a választ?</p>`},
+{id:112,title:`A hivatalos szövegek jellemzői`,auth:`18. tétel — Nyelvtan`,era:`Nyelvtan`,kw:["hivatalos stílus","kérvény","pályázat","rendelet","személytelen","jogi szaknyelv"],isL:true,content:`<h2>A hivatalos szöveg jellemzői</h2>
+<p>A hivatalos szövegeknek írott és szóbeli változata is van. Elsősorban az intézmények használják egymás között, illetve az emberekkel való érintkezésben.</p>
+<p><strong>Legfontosabb fajtái:</strong> kérvény, pályázat, rendelet, hivatali tájékoztató, jegyzőkönyv.</p>
+<p>— Leginkább tájékoztató céllal alkotják, ritkább funkciója a felhívás.<br>
+— Teljesen hiányzik belőle az érzelemkifejezés.<br>
+— Gyakoriak a túlbonyolított, terjedelmes, többszörösen összetett mondatok.<br>
+— Gyakoriak a sablonszerű mondatformák.<br>
+— Szókincsük egy része a jogi szaknyelvből ered, de gyakoriak a szakszavak és az idegen szavak is.<br>
+— Sok bennük az ismétlés, gyakoriak a zárójeles megjegyzések.<br>
+— Hangnemük <strong>személytelen</strong>.</p>
+<h2>A kérvény</h2>
+<p>A kérvény tartalmilag két részből áll. Az első részben a kérést kell megfogalmazni, a másodikban az indokokat kell felsorolni. A szöveg hangneme mindig legyen tárgyilagos.</p>
+<h3>A kérvény vázlata:</h3>
+<p>— A kérelmező szükséges adatai<br>
+— A kérés pontos, részletes megfogalmazása<br>
+— Az indokok meggyőző előadása<br>
+— A kérvény záradéka (a kérés tömör megismétlése)<br>
+— A kérvény végén: a beadás dátuma, a kérelmező neve és aláírása</p>
+<h3>A kérvény szerkezete:</h3>
+<p><strong>Fejléc:</strong> Címzett neve, rangja; Az intézmény neve; Az intézmény címe; A kérelmező neve; Cím; Elérhetőségek; Tárgy (pl. kollégiumi felvétel)</p>
+<p><strong>Megszólítás:</strong> Tisztelt Igazgató Úr!</p>
+<p><strong>Szövegtörzs:</strong> XY azzal a kéréssel fordulok a tisztelt Igazgató Úrhoz, hogy (a kérés megfogalmazása).</p>
+<p><strong>Indoklás:</strong> legalább 3 indok megadása</p>
+<p><strong>Záradék:</strong> Fenti indokaimat figyelembe véve kérem a tisztelt Igazgató Urat, hogy (a kérés rövid megismétlése).</p>
+<p><strong>Zárás:</strong> Tisztelettel: [aláírás] [dátum]</p>`},
+{id:113,title:`A hangalak és a jelentés kapcsolata`,auth:`20. tétel — Nyelvtan`,era:`Nyelvtan`,kw:["hangalak","jelentés","homonima","szinonimaák","poliszémia","hangutánzó","hangulatfestő"],isL:true,content:`<h2>A szó fogalma</h2>
+<p>Egy szót úgy érzékelünk, hogy a leírt hangalakot látjuk, vagy a kiejtett hangot halljuk, és ezekhez a szavakhoz jelentést kapcsolunk. <strong>SZÓ = HANGALAK + JELENTÉS</strong></p>
+<h2>Hangutánzó szavak</h2>
+<p>A szó hangalakja és jelentése között nem megegyezésen alapuló, hanem valódi kapcsolat fedezhető fel (H → J).</p>
+<p>— Állathangok utánzása: csiripel, mekeg<br>
+— Természeti jelenségek hangjának utánzása: dörög, süvít<br>
+— Tárgyak hangjának utánzása: csattog, ketyeg<br>
+— Emberi hangok utánzása: füttyent, visít</p>
+<h2>Hangulatfestő szavak</h2>
+<p>A hangalak és jelentés között szintén valódi kapcsolat van (H → J). A szavak hangsora különféle cselekvések, tulajdonságok hangulatát idézi (pl. otromba, bandukol, cammog, pipogya).</p>
+<h2>Egyjelentésű szavak</h2>
+<p>A leírt vagy elhangzott hangalakhoz egy jelentés kapcsolható (H — J). A magyar nyelvben kevés ilyen szó van — elsősorban összetett szavak és szakszavak (pl. esőcsatorna, napernyő).</p>
+<h2>Többjelentésű szavak (poliszémia)</h2>
+<p>A leírt vagy elhangzott hangalakhoz több, egymással összefüggő jelentés társul. A szavak többértelműségét <strong>poliszémiának</strong> nevezzük. A második és további jelentések az elsődleges alapjelentésből fejlődtek ki (pl. fül = érzékszerv / kancsó füle / zenei hallás / a könyv behajtott sarka).</p>
+<h2>Azonos alakú szavak (homonímia)</h2>
+<p>A szavak hangalakjához több jelentés társul, de a jelentések között <strong>semmi összefüggés nincs</strong>. Csoportjai:</p>
+<p>— <strong>Szótári homonimák:</strong> a szótári alakok azonosak (pl. csap, dob, ég, vár)<br>
+— <strong>Nyelvtani homonimák:</strong> toldalékos szóalakok azonosak (pl. merek — levest merek, vagy merek úszni)<br>
+— <strong>Vegyes típusú homonimák</strong> (pl. hasad — a te hasad, vagy hasad a nadrágom)</p>
+<p>Pl. ár = áru értéke / cipészszerszám / áramló víztömeg / területmértékegység</p>
+<h2>Rokon értelmű szavak (szinonimák)</h2>
+<p>Több hangalak olvasásakor vagy hallásakor egy jelentés azonosul az emberben. A rokonértelműséget <strong>szinonímiának</strong> nevezzük.</p>
+<p>— <strong>Azonos jelentésű szavak:</strong> eb – kutya, csibe – kiscsirke<br>
+— <strong>Hasonló (nem teljesen azonos) jelentésű szavak:</strong> kiabál – ordít – üvölt; eszik – falatozik</p>
+<h2>Hasonló alakú szavak (paronimák)</h2>
+<p>A hasonlóalakúságot <strong>paronímiának</strong> nevezzük.</p>
+<p>— <strong>Alakváltozatok:</strong> közös tőből, azonos jelentés, használatban/hangulatban van eltérés (pl. vödör – veder, mienk – miénk)<br>
+— <strong>Alakpárok:</strong> közös tőből, de eltérő jelentés (pl. fáradság – fáradtság; egyenlőre – egyelőre)</p>
+<h2>Ellentétes jelentésű szavak (antonimák)</h2>
+<p>Az ellentétes jelentésű szavakat idegen szóval <strong>antonimáknak</strong> nevezzük (pl. nagy – kicsi, sötét – világos, jó – rossz).</p>`},
+{id:114,title:`Az információs társadalom hatása a nyelvhasználatra`,auth:`9. tétel — Nyelvtan`,era:`Nyelvtan`,kw:["internet","SMS-nyelv","angolosodás","szleng","rövidítések","közösségi média","digitális kommunikáció"],isL:true,content:`<h2>Az információs társadalom fogalma</h2>
+<p>Az utóbbi 10-20 év társadalmára mondjuk: az <strong>információ egyszerű, gyors, széleskörű terjedése nyomán kialakult társadalom</strong>. Az internet, e-mail, chat, mobiltelefon és SMS elterjedése befolyásolja a mindennapi nyelvhasználatot. Csökken a távolság — <strong>felgyorsult a világ</strong>.</p>
+<h2>Következmények a mai nyelvhasználatban</h2>
+<p><strong>Erős angolosodás:</strong> a számítógép nyelve többnyire angol — sok új idegen szó jön a magyarba. Pl. CD, pendrive, SMS, chat, email, google, stb. Sokszor megragad az új szavak magyar megfelelője is: computer → számítógép, search → tallózás, save → mentés. Viszont gyakran használunk angol szavakat, noha megvan rá a magyar szó is — pl. lájkol, shoppingol.</p>
+<p><strong>Az internetes nyelv sokkal lazább:</strong> pongyolább, szlengesebb, mint a nyomtatott irodalom vagy sajtó. Oka egyrészt, hogy az internet elsősorban a fiatalokra összpontosít; másrészt bárki feltölthet bármit — nincs cenzúra, így a hasznos információk mellett igénytelen szövegeket is kapunk.</p>
+<p><strong>SMS-nyelv:</strong> a felgyorsult világban mindenki minél gyorsabban és egyszerűbben akar közölni dolgokat — minél kevesebb karakterből kell kijönni a mondanivalónak.</p>
+<h2>Gyakori kifejezésmódok és hibák az SMS- és számítógépes nyelvben</h2>
+<p><strong>Rövidítések:</strong> hogy → h; vagy → v; vagyok → vok; egyszer → 1szer; mindegy → mind1; sokszor → sokX; valaki → vki; megtanul → +tanul; szerintem → sztem; fekszem → fexem; kényelmes → kényLmS</p>
+<p><strong>Helyesírás torzítás:</strong><br>
+— pl. teccik, láccik, szeressük<br>
+— kis- és nagy kezdőbetűk nincsenek megkülönböztetve<br>
+— vannak, akik ly helyett j-t írnak (kevesebb karakter)<br>
+— keverik a rövid és hosszú magánhangzókat<br>
+— minden szót egybe írnak — szóköz nélkül<br>
+— jah, nah, naon, cejetlek, köcce — angol helyesírás hatása<br>
+— betűhalmozás: bocsii, jajjj</p>
+<p><strong>Írásjelek:</strong><br>
+— a vessző elhagyása gyakori<br>
+— halmozott írásjelek: !!!, ???<br>
+— hangulatjelek (érzést, véleményt közvetítenek): :) ☺ :( ☹ :p :D LOL</p>
+<p><strong>Divatszavak, töltelékszavak, szleng:</strong> tök, para, gáz, zsír, fürcsi, szupcsi, köszcsi</p>
+<p><em>Ez a tétel szabadon kiegészíthető bármely saját példával.</em></p>`},
+{id:115,title:`Nyelvemlékek — az ómagyar kor`,auth:`Nyelvtan tétel`,era:`Nyelvtan`,kw:["nyelvemlék","Halotti Beszéd","Könyörgés","Ómagyar Mária-siralom","ómagyar kor","kódex","latinos helyesírás"],isL:true,content:`<h2>A nyelvtörténet korszakai</h2>
+<p><strong>Ősmagyar kor:</strong> a honfoglalásig (896)<br>
+<strong>Ómagyar kor:</strong> a honfoglalástól 1526-ig (a mohácsi vészig)<br>
+<strong>Középmagyar kor:</strong> 1526-tól a felvilágosodás kezdetéig (1772)<br>
+<strong>Újmagyar kor:</strong> 1772-től napjainkig</p>
+<h2>Az ómagyar kor</h2>
+<p>Történelmileg a korszak nagy része a középkorba esik. Ekkor az <strong>EGYHÁZ</strong> uralta a magyar kultúrát:</p>
+<p>— Latin nyelven írtak (a latin a "szent" nyelv).<br>
+— A szövegek témái is az egyházhoz kapcsolódtak (szentekről szóló legendák, szertartás szövegek, egyházi birtokok iratai).<br>
+— Az írásbeliség nem volt elterjedt; a <strong>kolostorokban</strong> működött, a szerzetesek írtak és másoltak <strong>kódexeket</strong> (kézzel írt, bőrkötéses, papír alapú könyvek).</p>
+<h3>Kétféle nyelvemlék:</h3>
+<p><strong>Szövegemlék:</strong> egy adott nemzet nyelvének összefüggő nyelvemléke (pl. Halotti Beszéd és Könyörgés; Ómagyar Mária-siralom).<br>
+<strong>Szórványemlék:</strong> idegen nyelvű szövegben szórványosan elhelyezkedő magyar szavak (pl. a Tihanyi Apátság alapítólevele — 1055, jogi oklevelek, adománylevelek).</p>
+<h2>Halotti Beszéd és Könyörgés (1190-es évek)</h2>
+<p>A <strong>legkorábbi magyar szöveg</strong>; nagy hatása van a magyar irodalomra (Kosztolányi, Márai Sándor írtak <em>Halotti Beszéd</em> c. verset). A Pray-kódexben található. Latin szöveg magyar nyelvű átdolgozása, 190 magyar szót tartalmaz. Temetésen mondott szónoki szöveg (megszólítások, felkiáltások, szónoki kérdések).</p>
+<p><strong>Szerkezete:</strong><br>
+1. rész — Halotti Beszéd (hosszabb, 26 sor): megszólítással kezdődik ("Látjátok feleim") → Ádám és Éva történetével az egész emberiség számára a halált értelmezi → felszólítja a tömeget, hogy imádkozzanak.<br>
+2. rész — Könyörgés (rövidebb, 6 sor): megszólítással kezdődik ("Szerelmes brátim") → felszólítás konkrét imádságra az elhunytért.</p>
+<p><strong>Latinos helyesírás:</strong> nincsenek ékezetek; i hang helyett j szerepel; k hang helyett c; u hang helyett v; v hang helyett w.<br>
+<strong>Zártabb hangok</strong> használata (a mai nyelvünkhöz képest).<br>
+<strong>Több fajta múlt idő</strong> használata.</p>
+<h2>Ómagyar Mária-siralom (1300 körül)</h2>
+<p>Az <strong>első magyar nyelvű vers</strong>. A Sermones-kódexben található. 37 sor, 137 szó. A korszakban kedvelt műfaj volt a Mária-siralom (planctus). Témája: Mária siratja a kereszten meghalt fiát (egyházi téma). Fájdalmas, szomorú hangnem. Mária E/1. személyben beszél — hol a fiához, hol a zsidókhoz szól.</p>
+<p><strong>Latin nyelvű vers költői fordítása</strong>, de vannak benne magyar motívumok, amelyeket a szerző önállóan tett bele ("Világ világa, Virágnak virága"). Rímek és alliterációk is vannak benne.<br>
+<strong>Latinos helyesírás:</strong> nincsenek ékezetek; i hang helyett y szerepel; t hang helyett th.<br>
+<strong>Zártabb hangok:</strong> pl. ö helyett u (öröme → urume); a helyett o (magamnak → mogomnok).<br>
+<strong>Több fajta múlt idő:</strong> pl. valék, igére.<br>
+Először Faludy Ferenc olvasatával, 1770-ben jelent meg.</p>`},
+{id:116,title:`Tudományos-szakmai stílus`,auth:`Nyelvtan tétel`,era:`Nyelvtan`,kw:["tudományos stílus","szakmai stílus","szakszó","terminus technicus","értekezés","esszé"],isL:true,content:`<h2>A tudományos-szakmai stílus fogalma</h2>
+<p>Napjainkban az egyik legerőteljesebben fejlődő stílusréteg. Átfogó fogalom — a tudományok (filozófia, társadalomtudományok, természettudományok, alkalmazott tudományok) és a művészetek (zene, színház, film, tánc) stílusa.</p>
+<h2>Jellemző műfajok</h2>
+<p>Tudományos értekezés, esszé, ismeretterjesztő cikk, tanulmány, előadás, szakmai vita, hozzászólás, kritika, felszólalás, értékelés, iskolai felelet, dolgozat, szakmai beszélgetés.</p>
+<h2>A tudományos stílus főbb stílusjegyei</h2>
+<p><strong>Pontosság és egyértelműség:</strong> a szövegformálás minden eszközével a valóságról adott kép pontosságára törekszik. A beszélő személye és a hallgatóra tett hatás másodlagos.</p>
+<p><strong>Szakszavak (terminus technicusok):</strong> a szóválasztás alapja a nemzeti irodalmi nyelv és a szakmai nyelvváltozat szókincse. Legfőbb követelmény a szakszavak egyértelműsége — nem módosíthatjuk, nehogy más jelentést sugalljanak. Egy-egy tudományág felhasznált szakszóinak összessége a <strong>terminológia</strong>. A szakterületek nemzetközi kapcsolataiból ered az idegen szavak gyakori használata (pl. radar, nukleáris, gén).</p>
+<p><strong>Hangulati értéke a szakszavaknak nincs</strong> a szakszövegben, de a megértés érdekében használhatunk szemléletes kifejezéseket (pl. galériaerdő = a folyó menti erdősáv).</p>
+<p><strong>Megszerkesztettség:</strong> minden részében követhető, kiemelkedő szerepe van a világosságnak és a gazdaságosságnak, megmarad az árnyaltság és a kellő részletezés.</p>
+<p><strong>Mondatszerkezet:</strong> főleg kijelentő mondatok; gyakoriak az alárendelő szerkezetek, igeneves szerkezetek, láncolatos jelzők, halmozott mondatrészek; következtető és magyarázó mondatok; feltételes mondatok.</p>
+<p><strong>Erősen névszói (nominális) jellegű:</strong> a kutatók névszókkal, fogalmakkal, tulajdonságokkal, mennyiségekkel tárják fel a tényeket.</p>
+<p><strong>Kerüli az ismétléseket és a bőbeszédűséget:</strong> tartalmilag elsődleges a téma pontos körülhatárolása.</p>
+<p><strong>Vizuálisan áttekinthető:</strong> pontos utalások, kiemelések, grafikonok, vázlat, zárójeles magyarázatok; tanulmányok végén hivatkozási jegyzék.</p>
+<p><strong>Kiemelések sokféle módja:</strong> aláhúzás, tipográfiai jelölés, félkövér, dőlt betű, új bekezdés, számozás.</p>
+<p><strong>Összetett kötőszók:</strong> előre- és hátrautalás a szövegben, szövegösszefüggések kifejezése.</p>
+<h2>A nem nyelvi kifejezőeszközök</h2>
+<p>A tudományos stílusban az üzenet teljes tartalmát a nyelvi eszközök hordozzák. A nem nyelvi kifejezőeszközöknek (gesztus stb.) alig van szerepe — ezért fokozottabb igény a gondos szerkesztettségre, hangsúlyozottabb szövegtagolásra és a szemléletességre.</p>`},
+{id:117,title:`Szóképek és alakzatok`,auth:`17. tétel — Nyelvtan`,era:`Nyelvtan`,kw:["szókép","hasonlat","metafora","megszemélyesítés","szimbólum","allegória","alakzat","metonímia"],isL:true,content:`<h2>A szóképek és alakzatok fogalma</h2>
+<p>A szóképek és alakzatok olyan <strong>költői eszközök</strong>, amelyeknek a célja, hogy egy szövegrészlet hatásosabb, kifejezőbb legyen — érzelmi és hangulati hatásuk van.</p>
+<h2>Szóképek fajtái</h2>
+<p><strong>1. Hasonlat:</strong> két dolgot hasonlít össze közös tulajdonság alapján, a <em>mint</em> szócska segítségével.<br>
+Pl. "Mint komor bikáé, olyan a járása."</p>
+<p><strong>2. Metafora:</strong> összevont hasonlat — ez is két dolgot hasonlít össze, a <em>mint</em> szócska nélkül.<br>
+Pl. "A bánat egy nagy óceán."</p>
+<p><strong>3. Megszemélyesítés:</strong> élettelen dolgokat emberi tulajdonsággal ruház fel.<br>
+Pl. "A torony bámult rá."</p>
+<p><strong>4. Szinesztézia:</strong> egyszerre több érzékszervünkre ható költői kép.<br>
+Pl. "Lila dalra kelt egy nyakkendő." — lila = látás, dal = hallás</p>
+<p><strong>5. Szimbólum:</strong> jelkép — olyan szó, amelynek mindig van valamiféle másodlagos jelentése. Gyakran nagybetűvel is írják.<br>
+Pl. "Ez a magyar Ugar." — ugar = megműveletlen föld; Ugar = az elmaradott Magyarország jelképe</p>
+<p><strong>6. Metonímia:</strong> két fogalom között térbeli, időbeli vagy ok-okozati kapcsolat van.<br>
+Térbeli: "nem hozok a házra semmi veszedelmet" (a ház lakóira)<br>
+Időbeli: "visszajő búzaaratáskor" (nyár végén)<br>
+Ok-okozati: "két szeméből a bánat ered" (a könny)</p>
+<p><strong>7. Szinekdoché:</strong> a metonímia egyik fajtája — rész–egész viszonyt jelöl.<br>
+Pl. "Pata és küllő a ház előtt megállnak." (pata = a ló, küllő = kocsi)</p>
+<p><strong>8. Allegória:</strong> hosszabb terjedelmű, néha egy egész versen át tartó metafora vagy megszemélyesítés.<br>
+Pl. Csokonai: <em>A Reményhez</em> c. verse</p>
+<h2>Alakzatok fajtái</h2>
+<p><strong>1. Ismétlés:</strong><br>
+— Szóismétlés<br>
+— Refrén (a versszakok végén megismétlődő sor)<br>
+— Gondolatritmus (egy kifejezés vagy mondat többszöri megismétlése)<br>
+— Tőismétlés (ugyanannak a szótőnek megismétlése más-más toldalékkal, pl. Virágnak virága)</p>
+<p><strong>2. Párhuzam:</strong> pl. "Ha látsz tört virágot útközépre vetve, / hervadó szeretőd jusson majd eszedbe."</p>
+<p><strong>3. Ellentét</strong></p>
+<p><strong>4. Paradoxon:</strong> látszólagos ellentét. Pl. "Akinek sok hazája van, egy hazája sincsen."</p>
+<p><strong>5. Oximoron:</strong> egymást kizáró ellentét. Pl. "Borzasztóan jó."</p>
+<p><strong>6. Felsorolás:</strong> azonos szófajú szavak követik egymást, minimum 3.</p>
+<p><strong>7. Halmozás:</strong> felsorolásnál több, háromnál több elem.</p>
+<p><strong>8. Fokozás:</strong> pl. "menne, rohanna, repülne."</p>
+<p><strong>9. Túlzás (hiperbola):</strong> pl. "Tenger virág nyílik."</p>
+<p><strong>10. Eufémizmus:</strong> szépítő kifejezés. Pl. "Kiköltözött a temetőbe" = meghalt.</p>
+<p><strong>11. Irónia:</strong> egy pozitív kifejezés erős kritikát rejt.</p>
+<p><strong>12. Gúny:</strong> felnagyít egy hibát.</p>`}
+];
+
+const ALL=[...LIT,...LANG];
+
+const FCL=[
+{c:'lit',t:`Mikszáth Kálmán novellái`,q:`Mire épül szinte minden Mikszáth-mű?`,a:`Anekdotára — rövid, csattanóval végződő, erkölcsi tanulságú történetre.`},
+{c:'lit',t:`Mikszáth Kálmán novellái`,q:`Mi a "fekete folt" szimbóluma Az a fekete folt c. novellában?`,a:`A helyszínre, a befejezésre és az apa becsületén esett foltra egyaránt utal.`},
+{c:'lit',t:`Móricz Zsigmond novellái`,q:`Miért "Kis János" a Tragédia főhősének neve?`,a:`A leghétköznapibb névvel jelzi: milliók élnek ilyen nyomorúságban a 20. sz. elején.`},
+{c:'lit',t:`Móricz Zsigmond novellái`,q:`Ki mondja ki a "barbárok" szót és mit ért alatta?`,a:`A bíró — nemcsak a gyilkosokat, hanem az áldozatot és az egész civilizációtól elzárt társadalmat is barbárnak tartja.`},
+{c:'lit',t:`Molière: Tartuffe`,q:`Mi a klasszicista dráma hármas egységének elve?`,a:`Egy nap, egy helyszín, egy eseményszál.`},
+{c:'lit',t:`Molière: Tartuffe`,q:`Mi a rezonőr szerepköre? Ki tölti be Tartuffe-ben?`,a:`A rezonőr a nézők véleményét mondja el — Cléante, a bölcs, mértékletes rokon.`},
+{c:'lit',t:`Puskin: Anyegin`,q:`Mit jelent a "felesleges ember" fogalma Anyeginnél?`,a:`Jobb sorsra érdemes, de cselekvésre képtelen — nem találja helyét, bármivel próbálkozik, nem jut semmire.`},
+{c:'lit',t:`Petőfi Sándor élete és látomásköltészete`,q:`Milyen műfajú az Egy gondolat bánt engemet?`,a:`Rapszódia — romantikus, csapongó, nagy ellentéteket bemutató műfaj.`},
+{c:'lit',t:`Petőfi Sándor élete és látomásköltészete`,q:`Mi a három bibliai szerepkör Petőfi forradalmi verseiben?`,a:`Látnok/próféta, népvezér (Mózes), Messiás (Jézus).`},
+{c:'lit',t:`Arany János balladái`,q:`Mi a balladai homály?`,a:`Szaggatott, kihagyásos elbeszélésmód — a ballada nem fejti ki részletesen az összes elemet.`},
+{c:'lit',t:`Arany János balladái`,q:`Kik felelnek meg egymásnak a walesi bárdokban?`,a:`Edward király = Ferenc József, Wales = Magyarország, Bárdok = magyar költők.`},
+{c:'lit',t:`Arany János balladái`,q:`Mit jelképez a fehér szín Ágnes asszonyban?`,a:`Az asszony lelki tisztaságát (liliom, hattyú, mosás motívuma) — annak ellenére, hogy gyilkosságot követett el.`},
+{c:'lit',t:`Jókai Mór: Az aranyember`,q:`Miért a "kiábrándulás regénye" Az aranyember?`,a:`A vagyon nem szerezhető tisztességesen és nem tesz boldoggá. Jókai kiábrándult a kapitalizmusból.`},
+{c:'lit',t:`Jókai Mór: Az aranyember`,q:`Hogyan szabadul meg Tímár Mihály régi életétől?`,a:`Krisztyán Tódor az ő ruháiban fullad a Balatonba → mindenki halottnak hiszi → új élet a Senki szigetén.`},
+{c:'lit',t:`József Attila utolsó versei`,q:`Mit szimbolizál a karó a Karóval jöttél c. versben?`,a:`A nem várt gyermekként való születést; a büntetés/verés eszközét; az állandó harcot a társadalommal.`},
+{c:'lit',t:`József Attila utolsó versei`,q:`Mit jelent a "haza" az Íme, hát megleltem hazámat c. versben?`,a:`Nem az országot, hanem a sírhelyet — az egyetlen helyet, ahol megpihenhet.`},
+{c:'lit',t:`Herczeg Ferenc: Az élet kapuja`,q:`Mi az allegória a regényben?`,a:`Bakócz 1513-as kudarca = Magyarország trianoni katasztrófája 1920-ban.`},
+{c:'lit',t:`Ady Endre Ugar-versei`,q:`Mit jelent az "ugar" szimbóluma Adynál?`,a:`Megműveletlen föld → Magyarország elmaradottsága, reménytelensége, értékpusztítása.`},
+{c:'lit',t:`Ady Endre Ugar-versei`,q:`Milyen a A magyar Ugaron c. vers kompozíciója?`,a:`Lefelé hulló: az 1-2. vsz.-ban a költő aktív, a 3-4.-ben az Ugar válik cselekvővé és elpusztítja a költőt.`},
+{c:'lit',t:`Babits Mihály: Jónás könyve`,q:`Mi a Jónás könyve ars poeticájának lényege?`,a:`"Mert vétkesek közt cinkos, aki néma" — a költőnek kötelessége felszólalni a barbárság ellen.`},
+{c:'lit',t:`Babits Mihály: Jónás könyve`,q:`Fő különbség a bibliai Jónás és Babits Jónása között?`,a:`Babitsnál a ninivei nép kicsúfolja Jónást (a Bibliában viszont megtérnek). Jónásból hiányzik a próféta szó — hétköznapibb figura.`},
+{c:'lit',t:`Kosztolányi Dezső: Édes Anna`,q:`Miért öli meg Édes Anna a gazdáit, nem Patikárius Jancsit?`,a:`Mert az alkalmazottjukká válás pillanatában siklott ki az élete — az ő alkalmazásuk okozta minden bajt.`},
+{c:'lit',t:`Kosztolányi Dezső: Édes Anna`,q:`Ki a rezonőr az Édes Annában?`,a:`Moviszter doktor: "Nem úgy bántak vele, mint egy emberrel, hanem mint egy géppel."`},
+{c:'lit',t:`Madách Imre: Az ember tragédiája`,q:`Mi a deizmus és hogyan jelenik meg a műben?`,a:`Isten megteremtette a világot, de ezután minden saját törvényei szerint megy — nem avatkozik be folyamatosan.`},
+{c:'lit',t:`Madách Imre: Az ember tragédiája`,q:`Mi a mű végső üzenete?`,a:`"Mondottam: ember, küzdj és bízva bízzál!" — az örökös küzdés az egyetlen értelmes emberi magatartás.`},
+{c:'lit',t:`Radnóti Miklós utolsó versei`,q:`Mi a bori notesz és hogyan maradt meg?`,a:`A munkatáborokban írt versek füzete — Radnóti viharkabátja zsebéből kerül elő a tömegsírból, 2 évvel halála után.`},
+{c:'lit',t:`Radnóti Miklós utolsó versei`,q:`Mire utal a Razglednicák szó, és miért nevezzük Passiónak?`,a:`Razglednica = képeslap (szerb). Passió, mert a 4 vers a Golgotára vezető út állomásait jelképezi.`},
+{c:'lit',t:`Radnóti Miklós utolsó versei`,q:`Mi az Erőltetett menet belső dilemmája?`,a:`Az életösztön és a halálvágy között vergődik — végül az élet melletti döntéssel zárul.`},
+{c:'lit',t:`Sánta Ferenc: Sokan voltunk`,q:`Miért ment a nagyapa a Büdös barlangba?`,a:`Öngyilkosságával csökkentette az éhező szájak számát — az egyetlen módja, hogy megmentse az unokáit az éhhaláltól.`},
+{c:'lit',t:`Sánta Ferenc: Sokan voltunk`,q:`Miért balladai hangvételű a Sokan voltunk?`,a:`Elhallgatások, csöndek, szűkszavú párbeszédek — minden csak a végén nyer értelmet (tyúkvacsora, tisztálkodás, tűzrakás = halotti szertartás).`},
+{c:'lit',t:`Kortárs irodalom: Tóth Krisztina — Vonalkód`,q:`Mit jelképez a vonalkód és a vonal a kötetben?`,a:`A vonalkód a jobb élet szimbóluma (70-80-as évek). A vonal metaforikus határvonal: elválaszt és összeköt.`},
+{c:'lit',t:`Romeo és Júlia — filmes feldolgozások`,q:`Mi volt Zeffirelli feldolgozásának legnagyobb újítása?`,a:`Valóban fiatal, amatőr főszereplők — korábban mindig idősebb, ismert színészek játszottak.`},
+];
+
+const FCN=[
+{c:'lang',t:`A kommunikáció`,q:`Melyek a kommunikáció tényezői?`,a:`Adó, vevő, üzenet, csatorna (közvetítő közeg), kód (közös nyelv), szituáció, zaj.`},
+{c:'lang',t:`A kommunikáció`,q:`Mi a különbség a közvetlen és közvetett kommunikáció között?`,a:`Közvetlen: a felek ugyanazon a helyen és időben. Közvetett: különböző helyen vagy időben (pl. levél, telefon).`},
+{c:'lang',t:`A kommunikáció`,q:`Mi a kommunikáció esztétikai funkciója?`,a:`Gyönyörködtetés — a szép forma, a művészi kifejezés élményt nyújt a befogadónak.`},
+{c:'lang',t:`Metakommunikáció — nem nyelvi kifejező eszközök`,q:`Mi a hanglejtés (intonáció) szerepe?`,a:`A hangmagasság változása — érzelmi és értelmi különbségeket jelez (pl. kérdés ill. kijelentés).`},
+{c:'lang',t:`Metakommunikáció — nem nyelvi kifejező eszközök`,q:`Mire jó a beszédtempó mint retorikai eszköz?`,a:`A fontos dolgokat lassabban, a lényegtelent gyorsabban mondjuk — így kiemeljük a lényeget.`},
+{c:'lang',t:`Metakommunikáció — nem nyelvi kifejező eszközök`,q:`Mire utalhat a kérdőjel zárójelben a szövegben?`,a:`Nem kérdésre, hanem megkérdőjelezésre, bizonytalanságra.`},
+{c:'lang',t:`Tömegkommunikáció`,q:`Mitől egyirányú a tömegkommunikáció?`,a:`Az adó és vevő általában nem cserél szerepet — az üzenet sok emberhez jut, de a visszacsatolás korlátozott.`},
+{c:'lang',t:`Tömegkommunikáció`,q:`Mik a tömegkommunikáció fő eszközei?`,a:`Sajtó (nyomtatott és online), rádió, televízió, internet.`},
+{c:'lang',t:`A nyelvújítási mozgalom`,q:`Mikor zajlott és ki volt a vezéralakja?`,a:`1772–1867 között. Vezéralakja Kazinczy Ferenc.`},
+{c:'lang',t:`A nyelvújítási mozgalom`,q:`Ki fogalmazta meg először a nyelvújítás szükségességét?`,a:`Bessenyei György: "Minden nemzet a maga nyelvén lett tudós, idegenen sohasem."`},
+{c:'lang',t:`A nyelvújítási mozgalom`,q:`Mi a "szóösszerántás" és mi a példája?`,a:`Két szót megcsonkítanak és összeillesztik: elől+ülnök=elnök; könnyű+elméjű=könnyelmű.`},
+{c:'lang',t:`A nyelvújítási mozgalom`,q:`Mi volt a vita kompromisszuma?`,a:`Kazinczy szerint a jó írónak egyszerre kell hagyományőrzőnek és újítónak lennie (1819).`},
+];
+
+
+const ALLFC=[...FCL,...FCN];
+let curT=null,curV='home',fcs=[...ALLFC],fci=0,fcfl=false,fcfilt='all',sq='';
+
+function init(){
+  renderSB(); renderGrids();
+  document.getElementById('sb').addEventListener('input',e=>{sq=e.target.value.trim();renderSB();if(curV==='home')renderGrids();});
+}
+
+function filt(arr){
+  if(!sq)return arr;
+  const q=sq.toLowerCase();
+  return arr.filter(t=>t.title.toLowerCase().includes(q)||t.auth.toLowerCase().includes(q)||(t.kw||[]).some(k=>k.toLowerCase().includes(q))||t.content.toLowerCase().includes(q));
+}
+
+function hl(s){
+  if(!sq)return s;
+  const re=new RegExp(`(${sq.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi');
+  return s.replace(re,'<span class="hl">$1</span>');
+}
+
+function renderSB(){
+  const fl=filt(LIT),fn=filt(LANG);
+  document.getElementById('sl-lit').innerHTML=fl.length===0?'<div style="color:var(--muted);font-size:.8rem;padding:.35rem .55rem">Nincs találat</div>':fl.map((t,i)=>`<div class="ti ${curT===t.id?'active':''}" onclick="openT(${t.id},'lit')" style="animation-delay:${i*18}ms"><span class="tn-num">${t.id}.</span><span class="tn">${hl(t.title)}</span><span class="eb">${t.era}</span></div>`).join('');
+  document.getElementById('sl-lang').innerHTML=fn.length===0?'<div style="color:var(--muted);font-size:.8rem;padding:.35rem .55rem">Nincs találat</div>':fn.map((t,i)=>`<div class="ti la ${curT===t.id?'active':''}" onclick="openT(${t.id},'lang')" style="animation-delay:${i*18}ms"><span class="tn-num">${t.id-100}.</span><span class="tn">${hl(t.title)}</span><span class="eb l">${t.era}</span></div>`).join('');
+}
+
+function renderGrids(){
+  const fl=filt(LIT),fn=filt(LANG);
+  document.getElementById('tg-lit').innerHTML=fl.length===0?'<div style="color:var(--muted);font-size:.88rem;padding:.8rem 0">Nincs találat</div>':fl.map((t,i)=>`<div class="gc fi" style="animation-delay:${i*30}ms" onclick="openT(${t.id},'lit')"><div class="gc-n">Tétel ${t.id}</div><div class="gc-t">${hl(t.title)}</div><div class="gc-a">${hl(t.auth)}</div><div class="gc-e">${t.era}</div></div>`).join('');
+  document.getElementById('tg-lang').innerHTML=fn.length===0?'<div style="color:var(--muted);font-size:.88rem;padding:.8rem 0">Nincs találat</div>':fn.map((t,i)=>`<div class="gc lg fi" style="animation-delay:${i*30}ms" onclick="openT(${t.id},'lang')"><div class="gc-n">${t.auth}</div><div class="gc-t">${hl(t.title)}</div><div class="gc-e">${t.era}</div></div>`).join('');
+}
+
+function openT(id,cat){
+  const t=ALL.find(x=>x.id===id);if(!t)return;
+  curT=id;
+  const de=document.getElementById('d-title');de.textContent=t.title;de.className='dt'+(t.isL?' l':'');
+  document.getElementById('d-meta').textContent=t.auth+' · '+t.era;
+  const be=document.getElementById('d-body');be.innerHTML=t.content;be.className='db2'+(t.isL?' l':'');
+  document.getElementById('hv').classList.add('h');
+  document.getElementById('fv').classList.remove('v');
+  const dv=document.getElementById('dv');dv.classList.add('v');dv.classList.add('fi');setTimeout(()=>dv.classList.remove('fi'),250);
+  curV='detail';document.getElementById('bov').classList.remove('active');document.getElementById('bfc').classList.remove('active');
+  renderSB();document.getElementById('mc').scrollTop=0;
+}
+
+function showView(v){
+  document.getElementById('hv').classList.remove('h');
+  document.getElementById('dv').classList.remove('v');
+  document.getElementById('fv').classList.remove('v');
+  document.getElementById('bov').classList.remove('active');
+  document.getElementById('bfc').classList.remove('active');
+  if(v==='home'){document.getElementById('bov').classList.add('active');curV='home';curT=null;renderGrids();}
+  else if(v==='fc'){document.getElementById('hv').classList.add('h');document.getElementById('fv').classList.add('v');document.getElementById('bfc').classList.add('active');curV='fc';curT=null;fci=0;applyF();}
+  renderSB();document.getElementById('mc').scrollTop=0;
+}
+
+function setF(f,btn){fcfilt=f;document.querySelectorAll('.ffb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');fci=0;applyF();}
+function applyF(){if(fcfilt==='lit')fcs=[...FCL];else if(fcfilt==='lang')fcs=[...FCN];else fcs=[...ALLFC];showC();}
+
+function showC(){
+  if(!fcs.length)return;const c=fcs[fci];
+  document.getElementById('fc-ctr').textContent=`${fci+1} / ${fcs.length}`;
+  const tl=document.getElementById('fc-tl');tl.textContent=c.t;tl.className='fc-tl'+(c.c==='lang'?' l':'');
+  document.getElementById('fc-q').textContent=c.q;document.getElementById('fc-a').textContent=c.a;
+  document.getElementById('fc-in').classList.remove('fl');document.getElementById('fc-pb').style.width=`${((fci+1)/fcs.length)*100}%`;fcfl=false;
+}
+
+function flip(){fcfl=!fcfl;document.getElementById('fc-in').classList.toggle('fl',fcfl);}
+function nextC(){fci=(fci+1)%fcs.length;showC();}
+function prevC(){fci=(fci-1+fcs.length)%fcs.length;showC();}
+function shuffleC(){for(let i=fcs.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[fcs[i],fcs[j]]=[fcs[j],fcs[i]];}fci=0;showC();}
+
+init();
+</script>
+</body>
+</html>
